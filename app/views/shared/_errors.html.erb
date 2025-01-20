@@ -1,0 +1,18 @@
+<% if resource.errors.full_messages.any? || flash.any? %>
+  <div>
+  <h3 class="text-sm font-medium text-red-500"><%= t(:submission_errors) %></h3>
+    <ul>
+      <% resource.errors.full_messages.each do |name, msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      <% flash.each do |key, value| %>
+          <li><%= value %></li>
+      <% end %>
+      <%
+        flash.delete(:notice)
+        flash.discard
+        flash.clear
+      %>
+    </ul>
+  </div>
+<% end %>
