@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }
+
+  devise_for :users, path: "", :sign_out_via => [ :get ]
+  devise_scope :user do
+    get '/', to: 'users/sessions#new'
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,6 +14,13 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+
+  # Errors
+  # https://guides.rubyonrails.org/v4.2.0/action_controller_overview.html#custom-errors-page
+  match "404",     via: :all, to: "errors#not_found",            as: :not_found
+  match "422",     via: :all, to: "errors#unprocessable_entity", as: :unprocessable_entity
+  match "500",     via: :all, to: "errors#server_error",         as: :server_error
+  match 'offline', via: :all, to: 'errors#offline',              as: :offline
 
   # Defines the root path route ("/")
   # root "posts#index"

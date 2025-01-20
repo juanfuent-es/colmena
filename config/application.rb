@@ -21,10 +21,17 @@ module Colmena
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+
     config.time_zone = 'Mexico City'
-    
+
+    # Internationalization
+    # @see: https://guides.rubyonrails.org/v7.2/i18n.html#setup-the-rails-application-for-internationalization
+    # Default configuration for i18n is to load all locale files from
+    # Locale files are expected to be at config/locales/*.yml
+    #
     I18n.available_locales = [:es, :en]
     I18n.default_locale = :es
+
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
