@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 gem 'nokogiri', '~> 1.16.7' # '~> 1.18', '>= 1.18.2'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem 'browser'
 gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg"
