@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get "static/home"
+  get "static/about"
+  get "static/contact"
 
   devise_for :users, path: "", :sign_out_via => [ :get ]
   devise_scope :user do
-    get '/', to: 'users/sessions#new'
+    get '/login', to: 'users/sessions#new'
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -23,5 +26,6 @@ Rails.application.routes.draw do
   match 'offline', via: :all, to: 'errors#offline',              as: :offline
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "static#home"
+
 end
