@@ -1,0 +1,28 @@
+<% if @page %>
+<% provide(:title, @page.title) %>
+<% provide(:description, @page.og_description) %>
+<% provide(:keywords, @page.keywords) %>
+<% end %>
+<!-- title - description -->
+<%= render "shared/metadata/title",         title: full_title(yield(:title)) %>
+<%= render "shared/metadata/description",   description: meta_description(yield(:description)) %>
+
+<meta name='keywords'               content='<%= meta_keys(yield(:keywords)) %>'>
+<!-- Open Graph / Facebook -->
+<meta property="og:site_name"       content="Spaceboy" />
+<meta property='og:type'            content='website'>
+<meta property="og:locale"          content="<%= @lang %>"/>
+<!-- twitter -->
+<meta name="twitter:card"           content="summary_large_image">
+<meta name="twitter:site"           content="@SpaceBoyMX" />
+<!-- urls -->
+<meta property="og:url"             content="<%= canonical %>">
+<meta name="twitter:url"            content="<%= canonical %>">
+<link rel="canonical"               href="<%= canonical %>">
+<!-- image -->
+<% if @og_image.present? && @og_image.file.present? %>
+    <%= render "shared/metadata/og_img", url: @og_image.file.large.url, width: 1200, height: 630 %>
+    <%= render "shared/metadata/og_img", url: @og_image.file.small.url, width: 600, height: 315 %>
+<% else %>
+    <%= render "shared/metadata/og_img", url: "/spaceboy-share.png", width: 1200, height: 630 %>
+<% end %>

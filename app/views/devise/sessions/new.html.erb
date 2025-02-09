@@ -1,28 +1,35 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'space-y-6 w-full flex flex-col') do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
+<fieldset class="w-full py-1">
+  <%= f.email_field :email, autofocus: true, required: true, placeholder: "username@spaceboy.com", autocomplete: "email", tabindex: 1 %>
+  <%= f.label :email, class: "w-full p-0 m-0 pt-2" do %>
+    <span><i class="fa-regular fa-envelope"></i> Correo Electrónico</span>
   <% end %>
+</fieldset>
 
-  <div class="actions">
-    <%= f.submit "Log in", class: "bg-indigo-600" %>
-  </div>
+<fieldset class="w-full py-1 relative">
+  <%= f.label :password, class: "w-full p-0 m-0 flex justify-between" do %>
+  <%= f.password_field :password, required: true, placeholder: "******", autocomplete: "current-password", id: "current-password", tabindex: 2 %>
+  <% end %>
+  <a href="#" class="text-xs z-10 absolute px-2 md:hover:unplugged right-0 top-1.5 py-1 toggle-lecture-btn text-light" data-target="#current-password" tabindex="0">
+    <i class="fa-solid fa-eye-low-vision"></i>
+  </a>
+  <%= f.label :password, class: "w-full p-0 pt-2 m-0 flex justify-between" do %>
+    <span class="text-left">
+      <i class="fa-solid fa-key"></i> Contraseña
+    </span>
+    <a href="/recuperar-cuenta" class="relative text-gray-600 md:hover:text-white transition-colors md:hover:unplugged leading-none" tabindex="4">
+      <i class="fa-solid fa-user-lock absolute -left-5 top-0"></i> Recuperar Cuenta
+    </a>
+  <% end %>
+</fieldset>
+
+<%= f.hidden_field :remember_me, value: true %>
+<footer class="w-full mt-4">
+  <button class="btn px-6 w-full" tabindex="3">
+    <i class="fa-solid fa-lock-open"></i> Iniciar Sesión
+  </button>
+</footer>
+
 <% end %>
-
-<%= render "devise/shared/links" %>

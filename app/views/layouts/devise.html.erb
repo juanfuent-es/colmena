@@ -4,9 +4,12 @@
     <%= render "layouts/head" %>
     <%= yield :head %>
   </head>
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="min-h-screen m-0 w-full">
+    <%= render "shared/preloader" %>
+    <%= render "layouts/header" %>
+    <main class="w-10/12 mx-auto max-w-lg m-auto px-4 h-full flex">
       <%= yield %>
     </main>
+    <%= render "layouts/footer", to_top: false %>
   </body>
 </html>
