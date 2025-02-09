@@ -1,3 +1,14 @@
-<header id="main-header" class="w-full">
-    
+<header id="main-header" class="fixed top-0 z-40 w-full left-0 p-8 md:px-10 lg:px-14 xl:px-20 flex justify-between items-center pointer-events-none">
+	<%= link_to "/#{ 'en' if @lang == 'en'}", class: "change-page md:hover:unplugged md:hover:scale-95 transition-transform duration-150 opacity-0 pointer-events-auto flex items-center justify-center w-20 h-20 p-4", id: "to-home", data: { turbo_action: "advance", turbo_frame: "turbo-frame" }, title: "Home" do %>
+		<img src="/static/spaceboy-logo.svg?a" alt="<%= t(:spaceboy_logotype) %>" class="w-auto h-16 2xl:h-20" width="122" height="148">
+	<% end %>
+	<button id="menu-open-btn" aria-label="Abrir Menú" class="menu-btn hover:unplugged md:hover:scale-95 transition-transform duration-150 w-20 h-20 hidden items-center justify-center">
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 25 25" xml:space="preserve" width="100%" height="100%" class="w-8/12">
+			<rect fill="transparent" x="2.64" y="7.19" width="5.03" height="5.42"/>
+			<line x1="12.24" y1="11.71" x2="23.49" y2="11.71"/>
+			<line x1="23.49" y1="17.5" x2="2" y2="17.5"/>
+		</svg>
+	</button>
 </header>
+
+<%= render "layouts/menu" %>

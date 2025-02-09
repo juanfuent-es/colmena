@@ -5,8 +5,11 @@
     <%= yield :head %>
   </head>
   <body>
+    <%= render "shared/preloader" %>
+    <%= render "layouts/header" %>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
+    <%= render "layouts/footer", to_top: false %>
   </body>
 </html>

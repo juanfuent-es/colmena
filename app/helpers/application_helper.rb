@@ -33,18 +33,17 @@ module ApplicationHelper
 
 	def default_description
 		if I18n.locale == :es
-		  "SpaceBoy es un estudio creativo formado por artistas multidisciplinarios enfocados en crear contenido audiovisual hipnotizante; de la mano con el desarrollo de historias, procesos y técnicas personalizadas. Siempre construyendo desde adentro.".html_safe
+			"Spanish Lorem Ipsum"
 		else
-		  "SpaceBoy is a creative studio formed by multidisciplinary artists focused on creating mesmerizing audiovisual content; hand in hand with the development of stories, processes and personalized techniques. Always building from inside.".html_safe
+			"English Lorem Ipsum"
 		end
 	end
 
 	def full_title title
-		# base_title = "#{Rails.application.credentials.app_name}"
-		base_title = "Spaceboy"
+		base_title = "Colmena" # "#{Rails.application.credentials.app_name}"
 		_title = only_text(title)
 		if title.empty? || base_title == _title
-			"Build From Inside | #{base_title}"
+			"Community Building | #{base_title}"
 		else
 			"#{_title} | #{base_title}"
 		end
