@@ -2,7 +2,7 @@
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <fieldset class="w-full py-1">
-  <%= f.email_field :email, autofocus: true, required: true, placeholder: "username@spaceboy.com", autocomplete: "email", tabindex: 1 %>
+  <%= f.email_field :email, autofocus: true, required: true, placeholder: "username@domain.com", autocomplete: "email", tabindex: 1 %>
   <%= f.label :email, class: "w-full p-0 m-0 pt-2" do %>
     <span><i class="fa-regular fa-envelope"></i> Correo Electrónico</span>
   <% end %>
