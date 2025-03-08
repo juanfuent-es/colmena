@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 @import "./typography.css";
+@import "./scroll.css";
 
-:root {
+@theme {
     --bg-color: #0000FF;
     --color: #FCFCFC;
+    --color-blue: #0000FF;
+    --color-aqua: #00FFFF;
     --font-mono: 'Space Mono', monospace;
     --font-sans: 'Hubot Sans', sans-serif;
 }

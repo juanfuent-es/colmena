@@ -34,10 +34,10 @@
     -->
 
   </head>
-  <body class="min-h-full flex flex-col justify-between px-4 overflow-x-hidden font-mono antialiased text-base">
+  <body class="min-h-full flex flex-col justify-between px-4 overflow-x-hidden font-mono antialiased text-sm md:text-base">
     <%= render "shared/preloader" %>
     <%= render "layouts/header" %>
-    <main class="mx-auto w-full max-w-6xl flex justify-between md:px-6 lg:px-8 py-4 md:py-8 gap-2 items-end">
+    <main class="mx-auto w-full max-w-6xl flex justify-between md:px-6 lg:px-8">
       <%= yield %>
     </main>
     <%= render "layouts/footer" %>
