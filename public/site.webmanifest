@@ -1,0 +1,22 @@
+{
+  "name": "JuanFuent.es | Web Craft Developer",
+  "short_name": "JuanFuent.es",
+  "description": "Focused on the development of digital experiences with experimental web technologies, looking to create new ways for connect with users, turning interactions into memorable experiences.",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#0000ff",
+  "background_color": "#0000ff",
+  "display": "standalone"
+}
