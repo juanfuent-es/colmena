@@ -6,8 +6,10 @@
 @theme {
     --bg-color: #0000FF;
     --color: #FCFCFC;
+    --color-light: #FCFCFC;
     --color-blue: #0000FF;
     --color-aqua: #00FFFF;
+    --color-red: #FF0000;
     --font-mono: 'Space Mono', monospace;
     --font-sans: 'Hubot Sans', sans-serif;
 }

@@ -3,7 +3,7 @@ class ErrorsController < ApplicationController
   skip_after_action :verify_same_origin_request
   
   # https://guides.rubyonrails.org/v4.2.0/action_controller_overview.html
-  layout false
+  layout 'errors'
   
   def not_found
     render status: :not_found
