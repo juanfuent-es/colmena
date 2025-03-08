@@ -5,7 +5,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: min(12vw, 4em);
+    font-size: min(11vw, 4em);
 }
 
 h2 {
@@ -13,14 +13,28 @@ h2 {
 }
 
 h3 {
-    font-size: min(8vw, 3em);
+    font-size: min(9vw, 3em);
 }
 
 h4 {
-    font-size: min(6vw, 2.5em);
+    font-size: min(8vw, 2.5em);
 }
 
 p {
     max-width: 60ch;
     @apply leading-snug;
+}
+
+/* stroked-text */
+
+.stroked[data-text] {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color);
+    @apply relative z-0
+}
+.stroked[data-text]::before {
+    content: attr(data-text);
+    color: var(--bg-color);
+    -webkit-text-stroke-width: 0;
+    @apply absolute left-0 top-0 z-10 w-full;
 }
