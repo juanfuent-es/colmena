@@ -2,6 +2,20 @@
 
 @import "./typography.css";
 
+:root {
+    --bg-color: #0000FF;
+    --color: #FCFCFC;
+    --font-mono: 'Space Mono', monospace;
+    --font-sans: 'Hubot Sans', sans-serif;
+}
+
 @layer base {
-    @apply font-sans antialiased;
+    body {
+        background-color: var(--bg-color);
+        color: var(--color);
+    }
+}
+
+@layer utilities {
+
 }

@@ -1,5 +1,4 @@
 module.exports = {
-  important: false,
   // darkMode: false,
   content: [
     './app/views/**/*.html.erb',
@@ -10,7 +9,7 @@ module.exports = {
   plugins: [
     require("tailwindcss"),
     require("@tailwindcss/forms")({
-      strategy: 'base', // only generalote global styles
+      strategy: 'base', // only generate global styles
       // strategy: 'class', // only generate classes
     }),
     require('postcss-import'),
@@ -22,7 +21,12 @@ module.exports = {
     })
   ],
   theme: { // @see: https://tailwindcss.com/docs/customizing-colors
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Hubot-sans', 'sans-serif'],
+        mono: ['Space Mono', 'monospace'],
+      },
+    },
     colors: { // https://materialpalettes.com/
       current: "currentColor",
       black: '#000000',

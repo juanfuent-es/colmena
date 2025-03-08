@@ -1,4 +1,33 @@
-.typography {
-    font-size: var(--text-base);
-    color: var(--color-gray-700);
+@import url('https://fonts.googleapis.com/css2?family=Hubot+Sans:wdth,wght@75..125,200..900&family=Space+Mono&display=swap');
+
+body {
+    font-family: 'Space Mono', monospace;
+    @apply antialiased text-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Hubot Sans', sans-serif;
+    font-variation-settings: "wght" 900, "wdth" 125;
+    @apply leading-none
+}
+
+h1 {
+    font-size: min(12vw, 4em);
+}
+
+h2 {
+    font-size: min(10vw, 3.5em);
+}
+
+h3 {
+    font-size: min(8vw, 3em);
+}
+
+h4 {
+    font-size: min(6vw, 2.5em);
+}
+
+p {
+    max-width: 60ch;
+    @apply leading-snug;
 }
