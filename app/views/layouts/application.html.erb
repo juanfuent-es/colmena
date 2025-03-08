@@ -1,15 +1,45 @@
+<!--
+  @author: JuanFuent.es - Open Source Project
+  All Rights ᴙeversed. Copyleft 2025.
+  Licensed under GNU GPLv3 - 
+  @see './LICENSE' file for details.
+-->
 <!DOCTYPE html>
-<html lang="<%= I18n.locale.to_s.downcase %>" class="h-full" dir="ltr" xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<html lang="<%= I18n.locale.to_s.downcase %>" class="h-full">
   <head>
-    <%= render "layouts/head" %>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= render "shared/fonts" %>
+    <%= render "shared/metadata" %>
+    <%= render "shared/favicons" %>
+
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= yield :head %>
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'application' %>
+    <!--
+      If using a TypeScript entrypoint file:
+        vite_typescript_tag 'application'
+
+      If using a .jsx or .tsx entrypoint, add the extension:
+        vite_javascript_tag 'application.jsx'
+
+      Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
+    -->
+
   </head>
-  <body>
+  <body class="min-h-full flex flex-col justify-between px-4 overflow-x-hidden font-mono antialiased text-base">
     <%= render "shared/preloader" %>
     <%= render "layouts/header" %>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="mx-auto w-full max-w-6xl flex justify-between md:px-6 lg:px-8 py-4 md:py-8 gap-2 items-end">
       <%= yield %>
     </main>
-    <%= render "layouts/footer", to_top: false %>
+    <%= render "layouts/footer" %>
   </body>
 </html>

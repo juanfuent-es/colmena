@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Colmena
+module JuanFuentes
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
@@ -21,6 +21,16 @@ module Colmena
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+    
+    # CUSTOM GENERATOR
+    # @see: https://guides.rubyonrails.org/generators.html
+    config.generators do |g|
+      g.scaffold_stylesheet false
+      g.orm             :active_record
+      g.template_engine :erb
+      g.test_framework  :test_unit, fixture: false
+      g.stylesheets     false
+    end
 
     config.time_zone = 'Mexico City'
 

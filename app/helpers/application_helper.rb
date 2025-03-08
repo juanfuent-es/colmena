@@ -40,7 +40,7 @@ module ApplicationHelper
 	end
 
 	def full_title title
-		base_title = "Colmena" # "#{Rails.application.credentials.app_name}"
+		base_title = "JuanFuent.es" # "#{Rails.application.credentials.app_name}"
 		_title = only_text(title)
 		if title.empty? || base_title == _title
 			"Community Building | #{base_title}"
