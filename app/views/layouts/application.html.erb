@@ -22,6 +22,15 @@
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= yield :head %>
     <%= vite_client_tag %>
+  </head>
+  <body class="min-h-full flex flex-col justify-between px-4 overflow-x-hidden font-mono antialiased text-sm md:text-base">
+    <%= render "shared/preloader" %>
+    <%= render "layouts/header" %>
+    <main class="mx-auto w-full max-w-6xl flex justify-between md:px-6 lg:px-8">
+      <%= yield %>
+    </main>
+    <%= render "layouts/footer" %>
+    
     <%= vite_javascript_tag 'application' %>
     <!--
       If using a TypeScript entrypoint file:
@@ -32,14 +41,5 @@
 
       Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
     -->
-
-  </head>
-  <body class="min-h-full flex flex-col justify-between px-4 overflow-x-hidden font-mono antialiased text-sm md:text-base">
-    <%= render "shared/preloader" %>
-    <%= render "layouts/header" %>
-    <main class="mx-auto w-full max-w-6xl flex justify-between md:px-6 lg:px-8">
-      <%= yield %>
-    </main>
-    <%= render "layouts/footer" %>
   </body>
 </html>

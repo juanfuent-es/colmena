@@ -1,0 +1,54 @@
+<section class="w-full mx-auto">
+  <%= form_for [:admin, quotation], local: true do |f| %>
+    <%= render "admin/shared/errors", object: quotation %>
+        
+    <div class="w-full">
+      <%= f.label :client, t(:client) %>
+      <%= f.text_field :client, placeholder: t(:client) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :logo, t(:logo) %>
+      <%= f.text_field :logo, placeholder: t(:logo) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :project, t(:project) %>
+      <%= f.text_field :project, placeholder: t(:project) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :description, t(:description) %>
+      <%= f.text_field :description, placeholder: t(:description) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :title, t(:title) %>
+      <%= f.text_field :title, placeholder: t(:title) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :slug, t(:slug) %>
+      <%= f.text_field :slug, placeholder: t(:slug) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :footer, t(:footer) %>
+      <%= f.text_field :footer, placeholder: t(:footer) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :weeks, t(:weeks) %>
+      <%= f.number_field :weeks, placeholder: t(:weeks) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :total, t(:total) %>
+      <%= f.number_field :total, placeholder: t(:total) %>
+    </div>
+    <!--  <<< end if-else password digest -->
+  <footer class="w-full flex justify-between mt-2">
+    <button class="btn-sm"><i class="fas fa-save pr-2"></i> <%= t(:save) %></button>
+  </footer>
+<% end %>
+</section>

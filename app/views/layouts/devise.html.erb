@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale.to_s.downcase %>" class="h-full" dir="ltr" xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
   <head>
-    <%= render "layouts/head" %>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= render "shared/fonts" %>
+    <%= render "shared/metadata" %>
+    <%= render "shared/favicons" %>
+
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= yield :head %>
+    <%= vite_client_tag %>
   </head>
-  <body class="min-h-screen m-0 w-full">
+  <body class="min-h-full flex flex-col justify-between px-4 overflow-x-hidden font-mono antialiased text-sm md:text-base">
     <%= render "shared/preloader" %>
     <%= render "layouts/header" %>
     <main class="w-10/12 mx-auto max-w-lg m-auto px-4 h-full flex">
       <%= yield %>
     </main>
     <%= render "layouts/footer", to_top: false %>
+    <%= vite_javascript_tag 'application' %>
   </body>
 </html>

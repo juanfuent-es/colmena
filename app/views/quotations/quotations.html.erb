@@ -1,0 +1,38 @@
+<% provide(:title, "Lista de #{t(:quotations)}") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:quotations) %> <sup><%= Quotation.all.count %></sup></h1>
+    </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to new_admin_quotation_path, class: 'btn-sm' do %>
+      <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:quotation)}" %>
+    <% end %>
+  </nav>
+</header>
+
+<section class="my-8 flow-root">
+  <table>
+    <thead>
+      <tr>
+        <th>Editar</th>
+        <th><span class="sr-only">Eliminar</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @quotations.each do |quotation| %>
+        <td>
+          <%= link_to edit_admin_quotation_url(quotation), class: "" do %>
+            Editar quotation
+          <% end %>
+        </td>
+        <td class='text-center'>
+          <%= link_to admin_quotation_path(quotation), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar este #{t(:quotation)}?" } do %>
+            <i class='fas fa-trash'></i> Eliminar
+          <% end %>
+        </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

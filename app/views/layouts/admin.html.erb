@@ -1,0 +1,63 @@
+<!--
+  @author: JuanFuent.es - Open Source Project
+  All Rights ᴙeversed. Copyleft 2025.
+  Licensed under GNU GPLv3 - 
+  @see './LICENSE' file for details.
+-->
+<!DOCTYPE html>
+<html lang="<%= I18n.locale.to_s.downcase %>" class="h-full">
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= render "shared/fonts" %>
+    <%= render "shared/metadata" %>
+    <%= render "shared/favicons" %>
+
+    <!-- <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/1.2.0/balloon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.5/css/selectize.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="//cdn.datatables.net/2.1.7/css/dataTables.dataTables.min.css">
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+
+    <%= yield :head %>
+    <%= vite_client_tag %>
+  </head>
+
+<body class="h-full <%= "#{params[:controller]} #{params[:action]}" %>">
+  <div id="preloader" class="flex items-center fixed w-full h-full bg-blue left-0 top-0 justify-center z-50">
+    <img src="/juanfuent.es.c-symbol.svg" alt="JuanFuent.es [Cabrera Symbol]" width="42" height="42" class='w-24 md:w-36 xl:w-40 h-auto'>
+  </div>
+
+  <%= render "shared/flashes" %>
+
+  <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+  <%= render "admin/nav/mobile" %>
+
+  <!-- Static sidebar for desktop -->
+  <%= render "admin/nav/desktop" %>
+
+  <div class="xl:pl-72">
+    <!-- Sticky search header -->
+    <%= render "admin/layout/search_bar" %>
+
+    <main class="px-4 sm:px-6 lg:px-8">
+      <%= yield %>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.5/js/standalone/selectize.min.js"></script>
+  <script src="https://cdn.datatables.net/2.1.7/js/dataTables.min.js"></script>
+  <script src="/static/ckeditor.js"></script>
+  <%= vite_javascript_tag "admin", defer: true %>
+  <%= yield :scripts %>
+</body>
+</html>

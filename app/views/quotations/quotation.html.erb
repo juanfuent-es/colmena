@@ -1,0 +1,71 @@
+<% provide(:title, "quotation") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium"><%= "#{t(:detail)} de #{t(:quotation)}" %></h1>
+    </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to admin_quotations_path, class: 'btn-xs danger' do %>
+      <i class="fa-solid fa-arrow-left pr-1"></i> Regresar
+    <% end %>
+  </nav>
+</header>
+
+
+<section class="content">
+  <!-- Default box -->
+  <div class="card card-primary card-outline">
+    <header class="card-header">
+      <%= link_to edit_admin_quotation_url(@quotation), class: "btn btn-outline-primary btn-sm" do %>
+        <i class="fas fa-pencil-alt"></i> Editar
+      <% end -%>
+      <%= link_to admin_quotation_path(@quotation), class: "btn btn-outline-danger btn-sm float-right", method: :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:quotation)}?" } do %>
+        <i class="fa-solid fa-trash"></i> Eliminar
+      <% end -%>
+    </header>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+                      <p>
+              <strong>Client:</strong>
+                                <%= @quotation.client %>
+                          </p>
+                      <p>
+              <strong>Logo:</strong>
+                                <%= @quotation.logo %>
+                          </p>
+                      <p>
+              <strong>Project:</strong>
+                                <%= @quotation.project %>
+                          </p>
+                      <p>
+              <strong>Description:</strong>
+                                <%= @quotation.description %>
+                          </p>
+                      <p>
+              <strong>Title:</strong>
+                                <%= @quotation.title %>
+                          </p>
+                      <p>
+              <strong>Slug:</strong>
+                                <%= @quotation.slug %>
+                          </p>
+                      <p>
+              <strong>Footer:</strong>
+                                <%= @quotation.footer %>
+                          </p>
+                      <p>
+              <strong>Weeks:</strong>
+                                <%= @quotation.weeks %>
+                          </p>
+                      <p>
+              <strong>Total:</strong>
+                                <%= @quotation.total %>
+                          </p>
+                  </div>
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</section>
