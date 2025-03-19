@@ -1,7 +1,7 @@
 
 class Admin::QuotationsController < ApplicationController
 
-  before_action :authenticate_admin!
+  # before_action :authenticate_admin!
   before_action :set_quotation, only: %i[ show edit update destroy ]
 
   layout "admin"

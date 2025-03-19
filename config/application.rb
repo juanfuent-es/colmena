@@ -21,6 +21,9 @@ module JuanFuentes
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+
+    # catch server errors (404, 500, 422)
+    config.exceptions_app = self.routes
     
     # CUSTOM GENERATOR
     # @see: https://guides.rubyonrails.org/generators.html

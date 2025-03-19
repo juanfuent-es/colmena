@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  get "static/home"
-  get "static/about"
-  get "static/contact"
-
+  
   devise_for :users, path: "", :sign_out_via => [ :get ]
   devise_scope :user do
     get '/login', to: 'users/sessions#new'
+  end
+  
+  # Defines the root path route ("/")
+  root "static#home"
+
+  # admin
+  namespace :admin do
+    get '' => 'admin#index'
+    resources :quotations
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -24,8 +30,5 @@ Rails.application.routes.draw do
   match "422",     via: :all, to: "errors#unprocessable_entity", as: :unprocessable_entity
   match "500",     via: :all, to: "errors#server_error",         as: :server_error
   match 'offline', via: :all, to: 'errors#offline',              as: :offline
-
-  # Defines the root path route ("/")
-  root "static#home"
 
 end
