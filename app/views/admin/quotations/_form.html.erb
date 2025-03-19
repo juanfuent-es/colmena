@@ -1,6 +1,6 @@
 <section class="w-full mx-auto">
   <%= form_for [:admin, quotation], local: true do |f| %>
-    <%= render "admin/shared/errors", object: quotation %>
+    <%= render "shared/errors", object: quotation %>
         
     <div class="w-full">
       <%= f.label :client, t(:client) %>

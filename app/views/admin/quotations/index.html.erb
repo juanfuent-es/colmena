@@ -12,25 +12,26 @@
 </header>
 
 <section class="my-8 flow-root">
-  <table>
+  <table class="w-full">
     <thead>
       <tr>
         <th>Editar</th>
-        <th><span class="sr-only">Eliminar</span></th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tbody>
       <% @quotations.each do |quotation| %>
-        <td>
-          <%= link_to edit_admin_quotation_url(quotation), class: "" do %>
-            Editar quotation
-          <% end %>
-        </td>
-        <td class='text-center'>
-          <%= link_to admin_quotation_path(quotation), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar este #{t(:quotation)}?" } do %>
-            <i class='fas fa-trash'></i> Eliminar
-          <% end %>
-        </td>
+        <tr>
+          <td>
+            <%= link_to edit_admin_quotation_url(quotation), class: "btn btn-link btn-sm" do %>
+              <i class="fas fa-pencil-alt"></i> <%= "#{quotation.client} - #{quotation.project}" %>
+            <% end %>
+          </td>
+          <td class='text-center'>
+            <%= link_to admin_quotation_path(quotation), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar este #{t(:quotation)}?" } do %>
+              <i class='fas fa-trash'></i> Eliminar
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

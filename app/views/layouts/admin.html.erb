@@ -30,34 +30,32 @@
     <%= vite_client_tag %>
   </head>
 
-<body class="h-full <%= "#{params[:controller]} #{params[:action]}" %>">
-  <div id="preloader" class="flex items-center fixed w-full h-full bg-blue left-0 top-0 justify-center z-50">
-    <img src="/juanfuent.es.c-symbol.svg" alt="JuanFuent.es [Cabrera Symbol]" width="42" height="42" class='w-24 md:w-36 xl:w-40 h-auto'>
-  </div>
+  <body class='min-h-full flex flex-col justify-between px-4 overflow-x-hidden font-mono antialiased text-sm md:text-base "#{params[:controller]} #{params[:action]}" %>'>
+    
+    <%= render "shared/preloader" %>
+    <%= render "shared/flashes" %>
 
-  <%= render "shared/flashes" %>
+    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+    <%= render "admin/nav/mobile" %>
 
-  <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-  <%= render "admin/nav/mobile" %>
+    <!-- Static sidebar for desktop -->
+    <%= render "admin/nav/desktop" %>
 
-  <!-- Static sidebar for desktop -->
-  <%= render "admin/nav/desktop" %>
+    <div class="xl:pl-72">
+      <!-- Sticky search header -->
+      <%= render "admin/layout/search_bar" %>
 
-  <div class="xl:pl-72">
-    <!-- Sticky search header -->
-    <%= render "admin/layout/search_bar" %>
+      <main class="px-4 sm:px-6 lg:px-8">
+        <%= yield %>
+      </main>
+    </div>
 
-    <main class="px-4 sm:px-6 lg:px-8">
-      <%= yield %>
-    </main>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.5/js/standalone/selectize.min.js"></script>
-  <script src="https://cdn.datatables.net/2.1.7/js/dataTables.min.js"></script>
-  <script src="/static/ckeditor.js"></script>
-  <%= vite_javascript_tag "admin", defer: true %>
-  <%= yield :scripts %>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.5/js/standalone/selectize.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.7/js/dataTables.min.js"></script>
+    <script src="/static/ckeditor.js"></script>
+    <%= vite_javascript_tag "admin", defer: true %>
+    <%= yield :scripts %>
+  </body>
 </html>

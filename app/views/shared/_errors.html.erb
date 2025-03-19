@@ -1,8 +1,8 @@
-<% if resource.errors.full_messages.any? || flash.any? %>
+<% if object.errors.full_messages.any? || flash.any? %>
   <div>
   <h3 class="text-sm font-medium text-red-500"><%= t(:submission_errors) %></h3>
     <ul>
-      <% resource.errors.full_messages.each do |name, msg| %>
+      <% object.errors.full_messages.each do |name, msg| %>
         <li><%= msg %></li>
       <% end %>
       <% flash.each do |key, value| %>

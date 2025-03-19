@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'space-y-6 w-full flex flex-col') do |f| %>
-<%= render "devise/shared/error_messages", resource: resource %>
+<%= render "shared/errors", object: resource %>
 
 <fieldset class="w-full py-1">
   <%= f.email_field :email, autofocus: true, required: true, placeholder: "username@domain.com", autocomplete: "email", tabindex: 1 %>
