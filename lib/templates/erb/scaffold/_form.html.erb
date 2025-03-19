@@ -1,6 +1,6 @@
 <section class="w-full mx-auto">
   <%%= form_for [:admin, <%= singular_table_name %>], local: true do |f| %>
-    <%%= render "admin/shared/errors", object: <%= singular_table_name %> %>
+    <%%= render "shared/errors", object: <%= singular_table_name %> %>
     <% attributes.each do |attribute| -%>
     <% if attribute.password_digest? -%>
     <!--  start if-else password digest >>> -->
@@ -22,7 +22,8 @@
       <%%= f.label :<%= attribute.column_name %>, t(:<%= attribute.column_name.downcase %>) %>
       <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %>, placeholder: t(:<%= attribute.column_name.downcase %>) %><% end %>
     </div><% end %>
-    <% end %><!--  <<< end if-else password digest -->
+    <!--  <<< end if-else password digest -->
+    <% end %>
   <footer class="w-full flex justify-between mt-2">
     <button class="btn-sm"><i class="fas fa-save pr-2"></i> <%%= t(:save) %></button>
   </footer>

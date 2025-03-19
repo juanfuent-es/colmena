@@ -12,7 +12,7 @@
 </header>
 
 <section class="my-8 flow-root">
-  <table>
+  <table class="w-full">
     <thead>
       <tr>
         <th>Editar</th>
@@ -21,16 +21,17 @@
     </thead>
     <tbody>
       <%% @<%= plural_table_name%>.each do |<%= singular_table_name %>| %>
-        <td>
-          <%%= link_to edit_admin_<%= singular_table_name %>_url(<%= singular_table_name %>), class: "" do %>
-            Editar <%= singular_table_name %>
-          <%% end %>
-        </td>
-        <td class='text-center'>
-          <%%= link_to admin_<%= singular_table_name %>_path(<%= singular_table_name %>), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar este #{t(:<%= singular_table_name %>)}?" } do %>
-            <i class='fas fa-trash'></i> Eliminar
-          <%% end %>
-        </td>
+        <tr>
+          <td>
+            <%%= link_to edit_admin_<%= singular_table_name %>_url(<%= singular_table_name %>), class: "" do %>
+              Editar <%= singular_table_name %>
+            <%% end %>
+          </td>
+          <td class='text-center'>
+            <%%= link_to admin_<%= singular_table_name %>_path(<%= singular_table_name %>), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar este #{t(:<%= singular_table_name %>)}?" } do %>
+              <i class='fas fa-trash'></i> Eliminar
+            <%% end %>
+          </td>
         </tr>
       <%% end %>
     </tbody>
