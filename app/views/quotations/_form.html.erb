@@ -1,0 +1,77 @@
+<section class="content">
+  <%= form_for [:admin, quotation], local: true, html: { :class=> "row" } do |f| %>
+    <div class="col-md-12">
+      <!-- .card/ -->
+      <%= render "admin/shared/errors", object: quotation %>
+      <div class="card card-primary card-outline">
+        <!-- .card-body/ -->
+        <div class="card-body row">
+          
+          <div class="form-group col-md-12">
+            <%= f.label :client, t(:client) %>
+            <%= f.text_field :client, class: "form-control", placeholder: t(:client) %>
+          </div>
+          
+          
+          <div class="form-group col-md-12">
+            <%= f.label :logo, t(:logo) %>
+            <%= f.text_field :logo, class: "form-control", placeholder: t(:logo) %>
+          </div>
+          
+          
+          <div class="form-group col-md-12">
+            <%= f.label :project, t(:project) %>
+            <%= f.text_field :project, class: "form-control", placeholder: t(:project) %>
+          </div>
+          
+          
+          <div class="form-group col-md-12">
+            <%= f.label :description, t(:description) %>
+            <%= f.text_field :description, class: "form-control", placeholder: t(:description) %>
+          </div>
+          
+          
+          <div class="form-group col-md-12">
+            <%= f.label :title, t(:title) %>
+            <%= f.text_field :title, class: "form-control", placeholder: t(:title) %>
+          </div>
+          
+          
+          <div class="form-group col-md-12">
+            <%= f.label :slug, t(:slug) %>
+            <%= f.text_field :slug, class: "form-control", placeholder: t(:slug) %>
+          </div>
+          
+          
+          <div class="form-group col-md-12">
+            <%= f.label :footer, t(:footer) %>
+            <%= f.text_field :footer, class: "form-control", placeholder: t(:footer) %>
+          </div>
+          
+          
+          <div class="form-group col-md-12">
+            <%= f.label :weeks, t(:weeks) %>
+            <%= f.number_field :weeks, class: "form-control", placeholder: t(:weeks) %>
+            
+          </div>
+          
+          
+          <div class="form-group col-md-12">
+            <%= f.label :total, t(:total) %>
+            <%= f.number_field :total, class: "form-control", placeholder: t(:total) %>
+            
+          </div>
+          
+          
+        </div>
+        <!-- /.card-body -->
+        <!-- .card-footer/ -->
+        <footer class="card-footer text-right">
+          <button class="btn btn-outline-primary mt-2 mb-2 btn-sm"><i class="fas fa-save"></i> <%= t(:save) %></button>
+        </footer>
+        <!-- /.card-footer -->
+      </div>
+      <!-- /.card -->
+    </div>
+  <% end %>
+</section>
