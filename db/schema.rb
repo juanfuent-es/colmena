@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_19_185121) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_19_190946) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "quotations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "client", default: "", null: false
-    t.string "logo", default: "", null: false
-    t.string "project", default: ""
-    t.string "description", default: ""
-    t.string "title", default: ""
-    t.string "slug", default: ""
-    t.string "footer", default: ""
+  create_table "quotations", force: :cascade do |t|
+    t.string "client"
+    t.string "logo"
+    t.string "project"
+    t.string "description"
+    t.string "title"
+    t.string "slug"
+    t.string "footer"
     t.integer "weeks"
     t.integer "total"
     t.datetime "created_at", null: false

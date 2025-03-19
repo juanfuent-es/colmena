@@ -1,23 +1,14 @@
 <%% provide(:title, "Editando #{t(:<%= singular_table_name %>)}") %>
 
-<header class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1><%%= "#{t(:editing)} #{t(:<%= singular_table_name %>)}" %></h1>
-      </div>
-      <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right mt-2">
-          <li class="breadcrumb-item">
-            <%%= link_to t(:<%= plural_table_name %>), admin_<%= plural_table_name %>_path %>
-          </li>
-          <li class="breadcrumb-item active">
-            <%%= "#{t(:editing)} #{t(:<%= singular_table_name %>)}" %>
-          </li>
-        </ol>
-      </div>
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium"><%%= "#{t(:editing)} #{t(:<%= singular_table_name %>)}" %></h1>
     </div>
-  </div><!-- /.container-fluid -->
+  <nav class="my-4 sm:flex-none">
+    <%%= link_to admin_<%= plural_table_name %>_path, class: 'btn-xs danger' do %>
+      <i class="fa-solid fa-arrow-left pr-1"></i> Regresar
+    <%% end %>
+  </nav>
 </header>
 
 <%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>
