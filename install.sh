@@ -115,3 +115,6 @@ sudo a2enmod headers
 sudo service apache2 restart
 sudo a2enmod mod_headers
 sudo a2enmod expires
+
+# Permisos
+sudo chown -R $USER:$USER /home/fc/colmena
