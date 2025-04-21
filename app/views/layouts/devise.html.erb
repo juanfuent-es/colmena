@@ -6,6 +6,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -16,14 +18,24 @@
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= yield :head %>
     <%= vite_client_tag %>
+    <%= render "shared/browser" %>
   </head>
   <body class="min-h-full flex flex-col justify-between px-4 overflow-x-hidden font-mono antialiased text-sm md:text-base">
     <%= render "shared/preloader" %>
-    <%= render "layouts/header" %>
-    <main class="w-10/12 mx-auto max-w-lg m-auto px-4 h-full flex">
-      <%= yield %>
+    <main class="flex min-h-full">
+      <div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24 w-full md:w-5/12 z-10 m-auto">
+        <div class="mx-auto w-full max-w-sm lg:w-96">
+          <%= yield %>
+        </div>
+      </div>
+      <!--
+      # Este comentario es para mostrar una imagen a un lado, no todos los cms requieren de esto, el default es la forma centrada.
+      <aside class="w-full md:w-7/12 absolute md:relative left-0 top-0 md:left-auto h-full md:h-auto z-0 pointer-events-none">
+        <img class="absolute inset-0 h-full w-full object-cover"
+          src="https://images.unsplash.com/photo-1596496181848-3091d4878b24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="BG Placeholder"/>
+      </aside>
+      -->
     </main>
-    <%= render "layouts/footer", to_top: false %>
-    <%= vite_javascript_tag 'application' %>
+    <%= vite_javascript_tag 'devise', defer: true %>
   </body>
 </html>

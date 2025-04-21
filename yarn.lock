@@ -360,6 +360,11 @@ glob-parent@^5.1.2:
   dependencies:
     is-glob "^4.0.1"
 
+gsap@^3.12.7:
+  version "3.12.7"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.12.7.tgz#1b690def901ac9b21d4909f39c2b52418154463d"
+  integrity sha512-V4GsyVamhmKefvcAKaoy0h6si0xX7ogwBoBSs2CTJwt7luW0oZzC0LhdkyuKV8PJAXr7Yaj8pMjCKD4GJ+eEMg==
+
 is-extglob@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/is-extglob/-/is-extglob-2.1.1.tgz#a88c02535791f02ed37c76a1b9ea9773c833f8c2"
@@ -389,6 +394,11 @@ micromatch@^4.0.8:
   dependencies:
     braces "^3.0.3"
     picomatch "^2.3.1"
+
+mitt@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/mitt/-/mitt-3.0.1.tgz#ea36cf0cc30403601ae074c8f77b7092cdab36d1"
+  integrity sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==
 
 ms@^2.1.3:
   version "2.1.3"
@@ -503,6 +513,11 @@ update-browserslist-db@^1.1.1:
   dependencies:
     escalade "^3.2.0"
     picocolors "^1.1.1"
+
+vector@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/vector/-/vector-0.0.4.tgz#4ccb9a0b75f625020ae15a8465a9636764ad3652"
+  integrity sha512-tq0nE9uYgHX/ZEWxstUerXa9C5hvJuIddQGtpXiMtHoxP13uDUIFtc6b5Sc1OpvkVTGM18x28QreBm7Zi8CJoQ==
 
 vite-plugin-ruby@^5.1.0:
   version "5.1.1"

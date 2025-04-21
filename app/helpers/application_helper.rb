@@ -39,6 +39,13 @@ module ApplicationHelper
 		end
 	end
 
+	def base_64 path
+		asset = Rails.application.assets.find_asset path
+		throw "Could not find asset '#{path}'" if asset.nil?
+		base64 = Base64.encode64(asset.to_s).gsub(/\s+/, "")
+		return Rack::Utils.escape(base64)
+	end
+
 	def full_title title
 		base_title = "JuanFuent.es" # "#{Rails.application.credentials.app_name}"
 		_title = only_text(title)

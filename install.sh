@@ -116,5 +116,21 @@ sudo service apache2 restart
 sudo a2enmod mod_headers
 sudo a2enmod expires
 
+
+# pdf install
+# @see: https://www.linuxuprising.com/2018/05/fix-libpng12-0-missing-in-ubuntu-1804.html
+sudo apt-get update
+sudo apt-get install -y wkhtmltopdf
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+sudo dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb
+sudo apt-get install -f
+
+sudo apt-get install build-essential zlib1g-dev
+wget https://download.sourceforge.net/libpng/libpng-1.2.59.tar.gz
+tar -xvzf libpng-1.2.59.tar.gz
+cd libpng-1.2.59
+./configure
+make
+sudo make install
 # Permisos
 sudo chown -R $USER:$USER /home/fc/colmena

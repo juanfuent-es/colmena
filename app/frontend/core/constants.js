@@ -1,0 +1,13 @@
+window.SVG_NS = 'http://www.w3.org/2000/svg'
+window.VERSION = '1.0'
+window.PI =         Math.PI
+window.PX_RATIO =   Math.min(window.devicePixelRatio, 2)
+window.TWO_PI =     Math.PI * 2
+window.TAU =        Math.PI * 2
+window.HALF_PI =    Math.PI / 2
+window.THIRD_PI =   Math.PI / 3
+window.QUARTER_PI = Math.PI / 4
+window.COMPOSITES = ['color', 'color-burn', 'color-dodge', 'copy', 'darken', 'destination-atop', 'destination-in', 'destination-out', 'destination-over', 'difference', 'exclusion', 'hard-light', 'hue', 'lighten', 'lighter', 'luminosity', 'multiply', 'overlay', 'saturation', 'screen', 'soft-light', 'source-atop', 'source-in', 'source-out', 'source-over', 'xor']
+window.COLOR = "#FFFFFF"
+window.ACCENT = "#888888"
+window.BACKGROUND = "#888888"

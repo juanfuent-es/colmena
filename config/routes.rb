@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   # admin
   namespace :admin do
     get '' => 'admin#index'
-    resources :quotations
+    resources :quotations do
+      member do
+        get 'show', defaults: { format: 'html' }
+        get 'show.pdf', to: 'quotations#show', defaults: { format: 'pdf' }
+      end
+    end
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -6,13 +6,32 @@ class Admin::QuotationsController < ApplicationController
 
   layout "admin"
 
-  # GET /quotations
+  # GET /quotations or /quotations.json
   def index
     @quotations = Quotation.all
   end
 
-  # GET /quotations/1
+  # GET /quotations/1 or /quotations/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Quotation-#{@quotation.id}",
+        # template: 'admin/quotations/show.pdf.erb', # Template for PDF
+        layout: 'pdf',
+        orientation: 'Portrait',
+        background: '#000',
+        page_height: 382, #1920 <-> 20% <- scale
+        page_width: 216, #1080 <-> 20% <- scale
+        dpi: '72',
+        margin: { 
+          top:    0,
+          bottom: 0,
+          left:   0,
+          right:  0
+        }
+      end
+    end
   end
 
   # GET /quotations/new
@@ -24,7 +43,7 @@ class Admin::QuotationsController < ApplicationController
   def edit
   end
 
-  # POST /quotations
+  # POST /quotations or /quotations.json
   def create
     @quotation = Quotation.new(quotation_params)
 
@@ -35,7 +54,7 @@ class Admin::QuotationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /quotations/1
+  # PATCH/PUT /quotations/1 or /quotations/1.json
   def update
     if @quotation.update(quotation_params)
       redirect_to admin_quotations_url, notice: "Quotation ha sido actualizado."
@@ -44,7 +63,7 @@ class Admin::QuotationsController < ApplicationController
     end
   end
 
-  # DELETE /quotations/1
+  # DELETE /quotations/1 or /quotations/1.json
   def destroy
     @quotation.destroy!
     redirect_to admin_quotations_url, notice: "Quotation ha sido eliminado."

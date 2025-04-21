@@ -321,7 +321,7 @@ GEM
     wicked_pdf (2.8.2)
       activesupport
       ostruct
-    wkhtmltopdf-binary-edge-alpine (0.12.5.0)
+    wkhtmltopdf-binary-edge-alpine (0.12.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.18)
@@ -359,7 +359,7 @@ DEPENDENCIES
   vite_rails (~> 3.0)
   web-console
   wicked_pdf
-  wkhtmltopdf-binary-edge-alpine (~> 0.12.5.0)
+  wkhtmltopdf-binary-edge-alpine (~> 0.12.6.1)
 
 BUNDLED WITH
    2.6.3
