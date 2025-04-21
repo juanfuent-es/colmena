@@ -1,8 +1,8 @@
-<header>
+<header class=" text-center mb-2">
   <a href="/" title="<%= t(:home) %>" class="">
-    <img src="/juanfuent.es.c-symbol.svg" alt="JuanFuent.es [Cabrera Symbol]" width="42" height="42" class='w-48 h-auto mx-auto'>
+    <img src="/juanfuent.es.c-symbol.svg" alt="JuanFuent.es [Cabrera Symbol]" width="42" height="42" class='w-12 h-auto mx-auto'>
   </a>
-  <h1 class="mt-6 text-2xl font-bold leading-9 tracking-tight"><%= title %></h1>
+  <h1 class="mt-2 tracking-tight"><%= title %></h1>
   <% if !content.blank? %>
     <p class="mb-2 text-sm text-gray-300"><%= content.try(:html_safe) %></p>
   <% end %>

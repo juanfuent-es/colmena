@@ -5,9 +5,7 @@
     <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:quotations) %> <sup><%= Quotation.all.count %></sup></h1>
     </div>
   <nav class="my-4 sm:flex-none">
-    <%= link_to new_admin_quotation_path, class: 'btn-sm' do %>
-      <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:quotation)}" %>
-    <% end %>
+    <%= render 'components/link', text: 'Nueva Cotización', icon: 'fas fa-plus', href: new_admin_quotation_path %>
   </nav>
 </header>
 

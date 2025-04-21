@@ -1,12 +1,12 @@
 <% if object.errors.full_messages.any? || flash.any? %>
-  <div>
-  <h3 class="text-sm font-medium text-red-500"><%= t(:submission_errors) %></h3>
+  <div class="py-2">
+    <h3 class="text-sm font-medium text-red-500"><%= t(:submission_errors) %></h3>
     <ul>
       <% object.errors.full_messages.each do |name, msg| %>
         <li><%= msg %></li>
       <% end %>
       <% flash.each do |key, value| %>
-          <li><%= value %></li>
+          <li class="text-sm/6"><%= value %></li>
       <% end %>
       <%
         flash.delete(:notice)
