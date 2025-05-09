@@ -5,7 +5,7 @@
     <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:themes) %> <sup><%= Theme.all.count %></sup></h1>
     </div>
   <nav class="my-4 sm:flex-none">
-    <%= link_to new_admin_theme_path, class: 'btn-sm' do %>
+    <%= link_to new_admin_program_theme_path(@program), class: 'btn-sm' do %>
       <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:theme)}" %>
     <% end %>
   </nav>
@@ -15,7 +15,8 @@
   <table class="w-full">
     <thead>
       <tr>
-        <th>Editar</th>
+        <th>Subtema</th>
+        <th>Objetivo</th>
         <th><span class="sr-only">Eliminar</span></th>
       </tr>
     </thead>
@@ -23,12 +24,15 @@
       <% @themes.each do |theme| %>
         <tr>
           <td>
-            <%= link_to edit_admin_theme_url(theme), class: "" do %>
-              Editar theme
+            <%= link_to edit_admin_program_theme_path(@program, theme), class: "" do %>
+              <%= theme.title %>
             <% end %>
           </td>
+          <td class="text-sm">
+            <%= theme.description %>
+          </td>
           <td class='text-center'>
-            <%= link_to admin_theme_path(theme), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar este #{t(:theme)}?" } do %>
+            <%= link_to admin_program_theme_path(@program, theme), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar este #{t(:theme)}?" } do %>
               <i class='fas fa-trash'></i> Eliminar
             <% end %>
           </td>

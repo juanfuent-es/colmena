@@ -12,9 +12,12 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'dashboard#index'
     
-    resources :topics
-    resources :programs
-    resources :themes
+    resources :programs do
+      resources :themes do
+        resources :topics
+      end
+    end
+    
     
     resources :quotations do
       member do

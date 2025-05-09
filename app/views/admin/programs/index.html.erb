@@ -1,13 +1,16 @@
-<% provide(:title, "Lista de #{t(:programs)}") %>
+<% provide(:title, "Lista de #{t(:programs)}" ) %>
 
 <header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
   <div class="sm:flex-auto">
-    <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:programs) %> <sup><%= Program.all.count %></sup></h1>
-    </div>
+    <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:programs) %> <sup>
+          <%= Program.all.count %>
+        </sup></h1>
+  </div>
   <nav class="my-4 sm:flex-none">
     <%= link_to new_admin_program_path, class: 'btn-sm' do %>
-      <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:program)}" %>
-    <% end %>
+      <i class="fas fa-plus"></i>
+      <%= "#{t(:new)} #{t(:program)}" %>
+        <% end %>
   </nav>
 </header>
 
@@ -15,7 +18,8 @@
   <table class="w-full">
     <thead>
       <tr>
-        <th>Editar</th>
+        <th>Programa</th>
+        <th>Temas</th>
         <th><span class="sr-only">Eliminar</span></th>
       </tr>
     </thead>
@@ -24,16 +28,22 @@
         <tr>
           <td>
             <%= link_to edit_admin_program_url(program), class: "" do %>
-              Editar program
+              <%= program.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to admin_program_themes_path(program), class: "" do %>
+              <%= program.themes.count %>
             <% end %>
           </td>
           <td class='text-center'>
-            <%= link_to admin_program_path(program), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar este #{t(:program)}?" } do %>
+            <%= link_to admin_program_path(program), method: :delete, class: "btn danger" , data: {
+              confirm: "¿Estás seguro de eliminar este #{t(:program)}?" } do %>
               <i class='fas fa-trash'></i> Eliminar
-            <% end %>
+              <% end %>
           </td>
         </tr>
-      <% end %>
+        <% end %>
     </tbody>
   </table>
 </section>

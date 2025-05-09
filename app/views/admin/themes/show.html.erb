@@ -5,7 +5,7 @@
     <h1 class="leading-6 text-xl font-medium"><%= "#{t(:detail)} de #{t(:theme)}" %></h1>
     </div>
   <nav class="my-4 sm:flex-none">
-    <%= link_to admin_themes_path, class: 'btn-xs danger' do %>
+    <%= link_to admin_program_themes_path(@program), class: 'btn-xs danger' do %>
       <i class="fa-solid fa-arrow-left pr-1"></i> Regresar
     <% end %>
   </nav>
@@ -16,10 +16,10 @@
   <!-- Default box -->
   <div class="card card-primary card-outline">
     <header class="card-header">
-      <%= link_to edit_admin_theme_url(@theme), class: "btn btn-outline-primary btn-sm" do %>
+      <%= link_to edit_admin_program_theme_path(@program,@theme), class: "btn btn-outline-primary btn-sm" do %>
         <i class="fas fa-pencil-alt"></i> Editar
       <% end -%>
-      <%= link_to admin_theme_path(@theme), class: "btn btn-outline-danger btn-sm float-right", method: :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:theme)}?" } do %>
+      <%= link_to admin_program_theme_path(@theme), class: "btn btn-outline-danger btn-sm float-right", method: :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:theme)}?" } do %>
         <i class="fa-solid fa-trash"></i> Eliminar
       <% end -%>
     </header>

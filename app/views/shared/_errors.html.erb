@@ -2,11 +2,11 @@
   <div class="py-2">
     <h3 class="text-sm font-medium text-red-500"><%= t(:submission_errors) %></h3>
     <ul>
-      <% object.errors.full_messages.each do |name, msg| %>
+      <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      <% flash.each do |key, value| %>
-          <li class="text-sm/6"><%= value %></li>
+      <% flash.each do |msg| %>
+          <li class="text-sm/6"><%= msg %></li>
       <% end %>
       <%
         flash.delete(:notice)

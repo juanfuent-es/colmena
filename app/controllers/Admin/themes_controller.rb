@@ -9,15 +9,18 @@ class Admin::ThemesController < ApplicationController
   # GET /themes
   def index
     @themes = Theme.all
+    @program = Program.find(params[:program_id])
   end
-
+  
   # GET /themes/1
   def show
   end
-
+  
   # GET /themes/new
   def new
-    @theme = Theme.new
+    @program = Program.find(params[:program_id])
+    @theme = Theme.new(program: @program)
+    @theme.topics.build
   end
 
   # GET /themes/1/edit
@@ -27,9 +30,10 @@ class Admin::ThemesController < ApplicationController
   # POST /themes
   def create
     @theme = Theme.new(theme_params)
-
+    @program = Program.find(params[:program_id])
+    @theme.program = @program
     if @theme.save
-      redirect_to admin_themes_url, notice: "Theme ha sido creado."
+      redirect_to admin_program_themes_url(@program), notice: "Theme ha sido creado."
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,8 +41,9 @@ class Admin::ThemesController < ApplicationController
 
   # PATCH/PUT /themes/1
   def update
+    @program = @theme.program
     if @theme.update(theme_params)
-      redirect_to admin_themes_url, notice: "Theme ha sido actualizado."
+      redirect_to admin_program_themes_url(@program), notice: "Theme ha sido actualizado."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -47,13 +52,14 @@ class Admin::ThemesController < ApplicationController
   # DELETE /themes/1
   def destroy
     @theme.destroy!
-    redirect_to admin_themes_url, notice: "Theme ha sido eliminado."
+    redirect_to admin_program_themes_url(@program), notice: "Theme ha sido eliminado."
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_theme
       @theme = Theme.find(params[:id])
+      @program = @theme.program
     end
 
     # Only allow a list of trusted parameters through.

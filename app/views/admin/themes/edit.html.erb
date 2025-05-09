@@ -5,7 +5,7 @@
     <h1 class="leading-6 text-xl font-medium"><%= "#{t(:editing)} #{t(:theme)}" %></h1>
     </div>
   <nav class="my-4 sm:flex-none">
-    <%= link_to admin_themes_path, class: 'btn-xs danger' do %>
+    <%= link_to admin_program_themes_path(@program), class: 'btn-xs danger' do %>
       <i class="fa-solid fa-arrow-left pr-1"></i> Regresar
     <% end %>
   </nav>
