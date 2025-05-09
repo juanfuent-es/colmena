@@ -27,8 +27,8 @@ class CreateCourses < ActiveRecord::Migration[7.2]
       t.references :theme, null: false, foreign_key: true, type: :uuid
       t.integer :number, default: 0, null: false
       t.string :title, default: "", null: false
-      t.integer :estimated_time, default: 0, null: false
-      t.string :content_type, default: "", null: false
+      t.integer :estimated_time, default: 0
+      t.string :content_type, default: ""
       t.text :objective
       t.text :exercises
       t.text :homework

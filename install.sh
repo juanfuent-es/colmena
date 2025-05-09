@@ -111,11 +111,27 @@ yarn -v
 # update
 sudo apt-get update && sudo apt-get upgrade -y
 
-sudo a2enmod headers
-sudo service apache2 restart
-sudo a2enmod mod_headers
 sudo a2enmod expires
+sudo a2enmod headers
+sudo a2enmod mod_headers
+sudo a2enmod rewrite
+sudo service apache2 restart
 
+#SSL
+sudo apt install certbot python3-certbot-apache -y
+
+# download your repo or upload to html/* folder
+cd /var/www/html
+gem install bundler
+bundle install
+
+# update
+sudo apt-get update && sudo apt-get upgrade -y
+
+rake secret
+sudo EDITOR=nano rails credentials:edit
+# Permisos
+sudo chown -R $USER:$USER /home/fc/colmena
 
 # pdf install
 # @see: https://www.linuxuprising.com/2018/05/fix-libpng12-0-missing-in-ubuntu-1804.html
@@ -132,5 +148,4 @@ cd libpng-1.2.59
 ./configure
 make
 sudo make install
-# Permisos
-sudo chown -R $USER:$USER /home/fc/colmena
+
