@@ -1,0 +1,55 @@
+<% provide(:title, "program") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium"><%= "#{t(:detail)} de #{t(:program)}" %></h1>
+    </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to admin_programs_path, class: 'btn-xs danger' do %>
+      <i class="fa-solid fa-arrow-left pr-1"></i> Regresar
+    <% end %>
+  </nav>
+</header>
+
+
+<section class="content">
+  <!-- Default box -->
+  <div class="card card-primary card-outline">
+    <header class="card-header">
+      <%= link_to edit_admin_program_url(@program), class: "btn btn-outline-primary btn-sm" do %>
+        <i class="fas fa-pencil-alt"></i> Editar
+      <% end -%>
+      <%= link_to admin_program_path(@program), class: "btn btn-outline-danger btn-sm float-right", method: :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:program)}?" } do %>
+        <i class="fa-solid fa-trash"></i> Eliminar
+      <% end -%>
+    </header>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+                      <p>
+              <strong>Name:</strong>
+                                <%= @program.name %>
+                          </p>
+                      <p>
+              <strong>Description:</strong>
+                                <%= @program.description %>
+                          </p>
+                      <p>
+              <strong>Year:</strong>
+                                <%= @program.year %>
+                          </p>
+                      <p>
+              <strong>School:</strong>
+                                <%= @program.school %>
+                          </p>
+                      <p>
+              <strong>Url:</strong>
+                                <%= @program.url %>
+                          </p>
+                  </div>
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</section>

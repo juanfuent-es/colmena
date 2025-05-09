@@ -8,13 +8,13 @@ class ApplicationController < ActionController::Base
 	end
 
   # ¿Hay un administrador logueado?
-  def authenticate_admin!
-		if signed_in?
-      redirect_to root_path if !current_user.admin?
-		else
-			authenticate_user!
-		end
-  end
+	# def authenticate_admin!
+	# 	if signed_in?
+	# 	redirect_to root_path if !current_user.admin?
+	# 	else
+	# 		authenticate_user!
+	# 	end
+	# end
 
 	def render_not_found
     @page = Page.find_by_slug("404")

@@ -1,11 +1,10 @@
 class Admin::AdminController < ApplicationController
 
-  before_action :authenticate_admin!
+  before_action :authenticate_user!
 
   layout "admin"
 
   def index
-    @pages = Page.all
   end
 
 end

@@ -2,7 +2,7 @@
 <% module_namespacing do -%>
 class Admin::<%= controller_class_name %>Controller < ApplicationController
 
-  before_action :authenticate_admin!
+  before_action :authenticate_user!
   before_action :set_<%= singular_table_name %>, only: %i[ show edit update destroy ]
 
   layout "admin"

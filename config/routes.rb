@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :topics
+  resources :programs
+  resources :themes
   
   devise_for :users, path: "", :sign_out_via => [ :get ]
   devise_scope :user do

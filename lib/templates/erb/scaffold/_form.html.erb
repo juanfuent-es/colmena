@@ -3,29 +3,34 @@
     <%%= render "shared/errors", object: <%= singular_table_name %> %>
     <% attributes.each do |attribute| -%>
     <% if attribute.password_digest? -%>
-    <!--  start if-else password digest >>> -->
     <div class="w-full">
-      <%%= f.label :password, t(:password) %>
-      <%%= f.password_field :password, placeholder: t(:password) %>
+      <%%= render "components/label", f: f, name: :password, text: t(:password), icon: "fas fa-lock" %>
+      <%%= render "components/input", f: f, input_type: :password_field, name: :password %>
     </div>
     <div class="w-full">
-      <%%= f.label :password_confirmation, t(:password_confirmation) %>
-      <%%= f.password_field :password_confirmation, placeholder: t(:password_confirmation) %>
-    </div><!--  <<< start else password digest >>> --><% else %>
-    <div class="w-full"><% case(attribute.field_type.to_sym) when :text_field %>
-      <%%= f.label :<%= attribute.column_name %>, t(:<%= attribute.column_name.downcase %>) %>
-      <%%= f.text_field :<%= attribute.column_name %>, placeholder: t(:<%= attribute.column_name.downcase %>) %><% when :check_box %>
-      <%%= f.check_box :<%= attribute.column_name %> %>
-      <%%= f.label :<%= attribute.column_name %>, t(:<%= attribute.column_name.downcase %>) %><% when :text_area %>
-      <%%= f.label :<%= attribute.column_name %>, t(:<%= attribute.column_name.downcase %>) %>
-      <%%= f.text_area :<%= attribute.column_name %>, class: "editor", placeholder: t(:<%= attribute.column_name.downcase %>) %><% else %>
-      <%%= f.label :<%= attribute.column_name %>, t(:<%= attribute.column_name.downcase %>) %>
-      <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %>, placeholder: t(:<%= attribute.column_name.downcase %>) %><% end %>
-    </div><% end %>
-    <!--  <<< end if-else password digest -->
+      <%%= render "components/label", f: f, name: :password_confirmation, text: t(:password_confirmation), icon: "fas fa-lock" %>
+      <%%= render "components/input", f: f, input_type: :password_field, name: :password_confirmation %>
+    </div>
+    <% else %>
+    <div class="w-full">
+      <% case(attribute.field_type.to_sym) when :text_field %>
+        <%%= render "components/label", f: f, name: :<%= attribute.column_name %>, text: t(:<%= attribute.column_name.downcase %>), icon: "fas fa-text" %>
+        <%%= render "components/input", f: f, input_type: :text_field, name: :<%= attribute.column_name %> %>
+      <% when :check_box %>
+        <%%= render "components/input", f: f, input_type: :check_box, name: :<%= attribute.column_name %> %>
+        <%%= render "components/label", f: f, name: :<%= attribute.column_name %>, text: t(:<%= attribute.column_name.downcase %>), icon: "fas fa-check" %>
+      <% when :text_area %>
+        <%%= render "components/label", f: f, name: :<%= attribute.column_name %>, text: t(:<%= attribute.column_name.downcase %>), icon: "fas fa-align-left" %>
+        <%%= render "components/input", f: f, input_type: :text_area, name: :<%= attribute.column_name %> %>
+      <% else %>
+        <%%= render "components/label", f: f, name: :<%= attribute.column_name %>, text: t(:<%= attribute.column_name.downcase %>), icon: "fas fa-field" %>
+        <%%= render "components/input", f: f, input_type: :<%= attribute.field_type %>, name: :<%= attribute.column_name %> %>
+      <% end %>
+    </div>
     <% end %>
-  <footer class="w-full flex justify-between mt-2">
-    <button class="btn-sm"><i class="fas fa-save pr-2"></i> <%%= t(:save) %></button>
-  </footer>
-<%% end %>
+    <% end %>
+    <footer class="w-full flex justify-between mt-2">
+      <%%= render "components/btn", str: t(:save) %>
+    </footer>
+  <%% end %>
 </section>

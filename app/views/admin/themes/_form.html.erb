@@ -1,0 +1,33 @@
+<section class="w-full mx-auto">
+  <%= form_for [:admin, theme], local: true do |f| %>
+    <%= render "shared/errors", object: theme %>
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :title, text: t(:title), icon: "fas fa-text" %>
+        <%= render "components/input", f: f, input_type: :text_field, name: :title %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :description, text: t(:description), icon: "fas fa-align-left" %>
+        <%= render "components/input", f: f, input_type: :text_area, name: :description %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :activity, text: t(:activity), icon: "fas fa-align-left" %>
+        <%= render "components/input", f: f, input_type: :text_area, name: :activity %>
+      
+    </div>
+    
+    
+    <footer class="w-full flex justify-between mt-2">
+      <%= render "components/btn", str: t(:save) %>
+    </footer>
+  <% end %>
+</section>

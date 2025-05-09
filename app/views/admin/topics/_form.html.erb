@@ -1,0 +1,89 @@
+<section class="w-full mx-auto">
+  <%= form_for [:admin, topic], local: true do |f| %>
+    <%= render "shared/errors", object: topic %>
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :theme_id, text: t(:theme_id), icon: "fas fa-text" %>
+        <%= render "components/input", f: f, input_type: :text_field, name: :theme_id %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :title, text: t(:title), icon: "fas fa-text" %>
+        <%= render "components/input", f: f, input_type: :text_field, name: :title %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :objective, text: t(:objective), icon: "fas fa-align-left" %>
+        <%= render "components/input", f: f, input_type: :text_area, name: :objective %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :estimated_time, text: t(:estimated_time), icon: "fas fa-field" %>
+        <%= render "components/input", f: f, input_type: :number_field, name: :estimated_time %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :content_type, text: t(:content_type), icon: "fas fa-text" %>
+        <%= render "components/input", f: f, input_type: :text_field, name: :content_type %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :exercises, text: t(:exercises), icon: "fas fa-align-left" %>
+        <%= render "components/input", f: f, input_type: :text_area, name: :exercises %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :homework, text: t(:homework), icon: "fas fa-align-left" %>
+        <%= render "components/input", f: f, input_type: :text_area, name: :homework %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :comments, text: t(:comments), icon: "fas fa-align-left" %>
+        <%= render "components/input", f: f, input_type: :text_area, name: :comments %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :reference_material, text: t(:reference_material), icon: "fas fa-align-left" %>
+        <%= render "components/input", f: f, input_type: :text_area, name: :reference_material %>
+      
+    </div>
+    
+        
+    <div class="w-full">
+      
+        <%= render "components/label", f: f, name: :credits_and_sources, text: t(:credits_and_sources), icon: "fas fa-align-left" %>
+        <%= render "components/input", f: f, input_type: :text_area, name: :credits_and_sources %>
+      
+    </div>
+    
+    
+    <footer class="w-full flex justify-between mt-2">
+      <%= render "components/btn", str: t(:save) %>
+    </footer>
+  <% end %>
+</section>
