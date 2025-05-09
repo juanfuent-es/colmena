@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   # admin
   namespace :admin do
     get '/' => 'dashboard#index'
+    
     resources :topics
     resources :programs
     resources :themes
+    
     resources :quotations do
       member do
         get 'show', defaults: { format: 'html' }

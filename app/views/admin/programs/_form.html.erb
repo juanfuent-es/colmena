@@ -2,48 +2,34 @@
   <%= form_for [:admin, program], local: true do |f| %>
     <%= render "shared/errors", object: program %>
         
-    <div class="w-full">
-      
+    <div class="w-full">      
         <%= render "components/label", f: f, name: :name, text: t(:name), icon: "fas fa-text" %>
         <%= render "components/input", f: f, input_type: :text_field, name: :name %>
-      
     </div>
     
-        
     <div class="w-full">
-      
         <%= render "components/label", f: f, name: :description, text: t(:description), icon: "fas fa-align-left" %>
         <%= render "components/input", f: f, input_type: :text_area, name: :description %>
-      
     </div>
     
-        
     <div class="w-full">
-      
         <%= render "components/label", f: f, name: :year, text: t(:year), icon: "fas fa-field" %>
         <%= render "components/input", f: f, input_type: :number_field, name: :year %>
-      
     </div>
     
-        
     <div class="w-full">
-      
         <%= render "components/label", f: f, name: :school, text: t(:school), icon: "fas fa-text" %>
         <%= render "components/input", f: f, input_type: :text_field, name: :school %>
-      
     </div>
     
-        
     <div class="w-full">
-      
         <%= render "components/label", f: f, name: :url, text: t(:url), icon: "fas fa-text" %>
         <%= render "components/input", f: f, input_type: :text_field, name: :url %>
-      
     </div>
-    
     
     <footer class="w-full flex justify-between mt-2">
       <%= render "components/btn", str: t(:save) %>
     </footer>
+
   <% end %>
 </section>

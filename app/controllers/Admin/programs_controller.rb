@@ -29,7 +29,7 @@ class Admin::ProgramsController < ApplicationController
     @program = Program.new(program_params)
 
     if @program.save
-      redirect_to admin_programs_url, notice: "Program ha sido creado."
+      redirect_to admin_programs_url, notice: "El Programa ha sido creado."
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class Admin::ProgramsController < ApplicationController
   # PATCH/PUT /programs/1
   def update
     if @program.update(program_params)
-      redirect_to admin_programs_url, notice: "Program ha sido actualizado."
+      redirect_to admin_programs_url, notice: "El Programa ha sido actualizado."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -47,7 +47,7 @@ class Admin::ProgramsController < ApplicationController
   # DELETE /programs/1
   def destroy
     @program.destroy!
-    redirect_to admin_programs_url, notice: "Program ha sido eliminado."
+    redirect_to admin_programs_url, notice: "El Programa ha sido eliminado."
   end
 
   private
