@@ -28,8 +28,8 @@
 
     <%= yield :head %>
     <%= vite_client_tag %>
+    <%= render "shared/browser" %>
   </head>
-
   <body class='min-h-full flex flex-col justify-between px-4 overflow-x-hidden font-mono antialiased text-sm md:text-base "#{params[:controller]} #{params[:action]}" %>'>
     
     <%= render "shared/preloader" %>

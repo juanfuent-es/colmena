@@ -1,4 +1,4 @@
-class Admin::AdminController < ApplicationController
+class Admin::DashboardController < ApplicationController
 
   before_action :authenticate_user!
 

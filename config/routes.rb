@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :topics
-  resources :programs
-  resources :themes
   
   devise_for :users, path: "", :sign_out_via => [ :get ]
   devise_scope :user do
@@ -10,10 +7,13 @@ Rails.application.routes.draw do
   
   # Defines the root path route ("/")
   root "static#home"
-
+  
   # admin
   namespace :admin do
-    get '' => 'admin#index'
+    get '/' => 'dashboard#index'
+    resources :topics
+    resources :programs
+    resources :themes
     resources :quotations do
       member do
         get 'show', defaults: { format: 'html' }

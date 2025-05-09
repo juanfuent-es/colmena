@@ -1,4 +1,5 @@
-import { gsap } from "gsap"
+import { gsap, Power2 } from "gsap/all"
+
 export default class Preloader {
     constructor() {
         this.container = document.querySelector("#preloader")

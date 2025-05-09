@@ -1,28 +1,53 @@
-// To see this message, add the following to the `<head>` section in your
-// views/layouts/application.html.erb
-//
-//    <%= vite_client_tag %>
-//    <%= vite_javascript_tag 'application' %>
-console.log('Vite ⚡️ Rails')
+import "../core/constants"
+import "../core/functions/index"
 
-// If using a TypeScript entrypoint file:
-//     <%= vite_typescript_tag 'application' %>
-//
-// If you want to use .jsx or .tsx, add the extension:
-//     <%= vite_javascript_tag 'application.jsx' %>
+import Rails from "@rails/ujs"
+import Forms from "../admin/forms.js"
 
-console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify.app/guide/rails')
+import Alert from "../components/alert"
+import Menu from "../components/menu"
+import Preloader from "../components/preloader"
 
-// Example: Load Rails libraries in Vite.
-//
-// import * as Turbo from '@hotwired/turbo'
-// Turbo.start()
-//
-// import ActiveStorage from '@rails/activestorage'
-// ActiveStorage.start()
-//
-// // Import all channels.
-// const channels = import.meta.globEager('./**/*_channel.js')
+window.addEventListener("pageshow", function (event) {
+    var historyTraversal = event.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2)
+    if (historyTraversal) window.location.reload()
+})
 
-// Example: Import a stylesheet in app/frontend/index.css
-// import '~/index.css'
+class Admin {
+    constructor() {
+        this.preloader = new Preloader()
+        Rails.start()
+        //
+        this.menu = new Menu()
+        this.forms = new Forms()
+        this.sortable()
+        //
+        document.querySelectorAll('.alert').forEach(item => new Alert(item))
+        document.querySelectorAll('.uploader-container:not(.is-video)').forEach(container => new Uploader(container))
+        document.querySelectorAll('.uploader-container.is-video').forEach(container => new VideoUploader(container))
+    }
+
+    sortable() {
+        $(".sortable").sortable({
+			update: function() {
+                let ids = []
+                $(this).children("[data-id]").each((idx, el) => {
+                    ids.push($(el).data("id"))
+                })
+                $.ajax({
+                    url: $(this).data("url"),
+                    data: {
+                        ids: ids.join("_")
+                    }
+                })
+            }
+		})
+    }
+
+    loaded() {
+        return this.preloader.hide()
+    }
+}
+
+window["app"] = new Admin()
+window.addEventListener("load", window["app"].loaded())
