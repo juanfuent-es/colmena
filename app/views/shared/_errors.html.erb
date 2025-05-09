@@ -5,7 +5,7 @@
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      <% flash.each do |msg| %>
+      <% flash.each do |t, msg| %>
           <li class="text-sm/6"><%= msg %></li>
       <% end %>
       <%

@@ -20,14 +20,14 @@
     </thead>
     <tbody>
       <% @themes.order(number: :asc).each do |theme| %>
-        <tr>
-          <td class="text-sm"><%= theme.number %></td>
+        <tr class="text-sm">
+          <td><%= theme.number %></td>
           <td>
             <%= link_to edit_admin_program_theme_path(@program, theme), class: "" do %>
               <%= theme.title %>
             <% end %>
           </td>
-          <td class="text-sm">
+          <td class="text-xs p-2">
             <%= theme.description %>
           </td>
           <td class="text-sm py-2 text-center">

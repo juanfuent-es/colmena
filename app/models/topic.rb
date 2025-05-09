@@ -13,5 +13,5 @@ class Topic < ApplicationRecord
     video_grabado: "Video ya grabado"
   }
 
-  validates :content_type, inclusion: { in: content_types.keys }
+  # validates :content_type, inclusion: { in: content_types.keys }
 end

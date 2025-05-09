@@ -11,20 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2025_05_09_053451) do
-  create_schema "auth"
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
-
-  create_table "profiles", force: :cascade do |t|
-    t.uuid "user_id", null: false
-    t.string "name"
-    t.string "avatar"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
-  end
 
   create_table "programs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -64,8 +53,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_09_053451) do
     t.uuid "theme_id", null: false
     t.integer "number", default: 0, null: false
     t.string "title", default: "", null: false
-    t.integer "estimated_time", default: 0, null: false
-    t.string "content_type", default: "", null: false
+    t.integer "estimated_time", default: 0
+    t.string "content_type", default: ""
     t.text "objective"
     t.text "exercises"
     t.text "homework"
