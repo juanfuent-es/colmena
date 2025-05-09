@@ -9,6 +9,7 @@ export default class Forms {
     setEditors() {
         this.editors = []
         let editors = document.querySelectorAll('.editor-container')
+        console.log("editors", editors)
         editors.forEach((editor) => {
             this.editors.push(new Editor(editor))
         })
