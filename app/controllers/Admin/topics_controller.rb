@@ -1,63 +1,56 @@
-
 class Admin::TopicsController < ApplicationController
-
   before_action :authenticate_user!
-  before_action :set_topic, only: %i[ show edit update destroy ]
+  before_action :set_program_theme
+  before_action :set_topic, only: %i[edit update destroy]
 
   layout "admin"
 
-  # GET /topics
   def index
-    @topics = Topic.all
+    @topics = @theme.topics
   end
 
-  # GET /topics/1
-  def show
-  end
-
-  # GET /topics/new
   def new
-    @topic = Topic.new
+    @topic = @theme.topics.build
   end
 
-  # GET /topics/1/edit
-  def edit
-  end
-
-  # POST /topics
   def create
-    @topic = Topic.new(topic_params)
+    @topic = @theme.topics.build(topic_params)
 
     if @topic.save
-      redirect_to admin_topics_url, notice: "Topic ha sido creado."
+      redirect_to admin_program_theme_topics_path(@program, @theme), notice: "Topic creado con éxito."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /topics/1
+  def edit
+  end
+
   def update
     if @topic.update(topic_params)
-      redirect_to admin_topics_url, notice: "Topic ha sido actualizado."
+      redirect_to admin_program_theme_topics_path(@program, @theme), notice: "Topic actualizado con éxito."
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /topics/1
   def destroy
-    @topic.destroy!
-    redirect_to admin_topics_url, notice: "Topic ha sido eliminado."
+    @topic.destroy
+    redirect_to admin_program_theme_topics_path(@program, @theme), notice: "Topic eliminado con éxito."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_topic
-      @topic = Topic.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def topic_params
-      params.require(:topic).permit(:theme_id, :title, :objective, :estimated_time, :content_type, :exercises, :homework, :comments, :reference_material, :credits_and_sources)
-    end
+  def set_program_theme
+    @program = Program.find(params[:program_id])
+    @theme = @program.themes.find(params[:theme_id])
+  end
+
+  def set_topic
+    @topic = @theme.topics.find(params[:id])
+  end
+
+  def topic_params
+    params.require(:topic).permit(:title, :content)
+  end
 end

@@ -8,8 +8,8 @@ class Admin::ThemesController < ApplicationController
 
   # GET /themes
   def index
-    @themes = Theme.all
     @program = Program.find(params[:program_id])
+    @themes = @program.themes
   end
   
   # GET /themes/1

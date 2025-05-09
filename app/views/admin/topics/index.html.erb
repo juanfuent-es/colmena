@@ -2,10 +2,10 @@
 
 <header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
   <div class="sm:flex-auto">
-    <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:topics) %> <sup><%= Topic.all.count %></sup></h1>
-    </div>
+    <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:topics) %> <sup><%= @topics.count %></sup></h1>
+  </div>
   <nav class="my-4 sm:flex-none">
-    <%= link_to new_admin_topic_path, class: 'btn-sm' do %>
+    <%= link_to new_admin_program_theme_topic_path(@program, @theme), class: 'btn-sm' do %>
       <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:topic)}" %>
     <% end %>
   </nav>
@@ -15,20 +15,26 @@
   <table class="w-full">
     <thead>
       <tr>
-        <th>Editar</th>
-        <th><span class="sr-only">Eliminar</span></th>
+        <th>Tema</th>
+        <th>Objetivo</th>
+        <th>Duración</th>
+        <th>Tipo</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tbody>
-      <% @topics.each do |topic| %>
+      <% @topics.order(number: :asc).each do |topic| %>
         <tr>
           <td>
-            <%= link_to edit_admin_topic_url(topic), class: "" do %>
-              Editar topic
+            <%= link_to edit_admin_program_theme_topic_path(@program, @theme, topic), class: "" do %>
+              <%= topic.number %> - <%= topic.title %>
             <% end %>
           </td>
+          <td class="text-sm"><%= topic.objective %></td>
+          <td class="text-center"><%= topic.estimated_time %> min</td>
+          <td class="text-center"><%= topic.content_type %></td>
           <td class='text-center'>
-            <%= link_to admin_topic_path(topic), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar este #{t(:topic)}?" } do %>
+            <%= link_to admin_program_theme_topic_path(@program, @theme, topic), method: :delete, class: "btn danger", data: { confirm: "¿Estás seguro de eliminar este #{t(:topic)}?" } do %>
               <i class='fas fa-trash'></i> Eliminar
             <% end %>
           </td>

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         resources :topics
       end
     end
-    
+
     
     resources :quotations do
       member do
