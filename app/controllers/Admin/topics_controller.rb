@@ -32,7 +32,7 @@ class Admin::TopicsController < ApplicationController
                disposition: "inline",
                page_size: "Letter",
                orientation: "Landscape",
-               margin: { top: 20, bottom: 20, left: 20, right: 20 }
+               margin: { top: 10, bottom: 10, left: 10, right: 10 }
       end 
     end
   end
