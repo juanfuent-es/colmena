@@ -1,8 +1,8 @@
-<% provide(:title, "Lista de #{t(:topics)}") %>
+<% provide(:title, "#{t(:topics)}") %>
 
 <header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
   <div class="sm:flex-auto">
-    <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:topics) %> <sup><%= Topic.all.count %></sup></h1>
+    <h1 class="leading-6 text-xl font-medium"><%= t(:topics) %> <sup><%= Topic.all.count %></sup></h1>
     </div>
   <nav class="my-4 sm:flex-none">
     <%= link_to new_admin_topic_path, class: 'btn-sm' do %>

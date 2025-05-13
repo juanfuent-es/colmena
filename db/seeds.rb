@@ -11,9 +11,11 @@ Program.all.delete_all
 @program = Program.create(name: "IT Starter", description: "En este curso aprenderás el funcionamiento de los sistemas que facilitan el intercambio de información, la gestión de datos y su visualización. A través de un ejemplo práctico de la vida real podrás distinguir entre Frontend, Backend, Análisis de Datos y FullStack.", year: 2025, school: "EBAC")
 
 Theme.create([
-    { program: @program, number: 1,  title: "README: Especificaciones y configuración de ambiente" },
+    { program: @program, number: 1,  title: "README: Especificaciones y configuración de ambiente", description: "En este módulo se presentan las especificaciones del curso y se configura el ambiente de trabajo. Se espera que los estudiantes instalen y configuren las herramientas necesarias para el desarrollo de software." },
     { program: @program, number: 2,  title: "Fundamentos de Programación", description: "Este módulo introduce las bases del pensamiento lógico aplicado a la programación. A través de herramientas como pseudocódigo, diagramas de flujo y algoritmos, se establecen los fundamentos para resolver problemas de forma estructurada, sin necesidad de escribir código." },
-    { program: @program, number: 3,  title: "Arquitectura de Información" },
+    { program: @program, number: 3,  title: "Arquitectura de Información", description: "En este módulo se presentan los conceptos básicos de la arquitectura de información, incluyendo wireframes, prototipos y mapas de sitio. Se espera que los estudiantes comprendan la importancia de la organización y presentación de la información en aplicaciones web." },
+    { program: @program, number: 4,  title: "HTML - Estructura", description: "Este módulo introduce los conceptos básicos de HTML, incluyendo la estructura de un documento HTML, etiquetas principales y atributos. Se espera que los estudiantes comprendan cómo se organiza y presenta la información en una página web." },
+    { program: @program, number: 5,  title: "CSS - Styling", description: "En este módulo se presentan los conceptos básicos de CSS, incluyendo selectores, propiedades y valores. Se espera que los estudiantes comprendan cómo se aplica el estilo a una página web y cómo se organiza la información visualmente." },    
     { program: @program, number: 4,  title: "El desarrollador FrontEnd" },
     { program: @program, number: 5,  title: "CSS - Styling" },
     { program: @program, number: 6,  title: "Variables, Operadores y Estructuras de Datos" },
@@ -46,13 +48,13 @@ topic = Topic.create({ theme: @theme, number: 5, estimated_time: 20, title: "Con
 puts topic.errors.full_messages unless topic.valid?
 
 @theme = Theme.find_by_number(2)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Pensamiento computacional" })
+topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Pensamiento computacional", objective: "Comprender cómo descomponer problemas y abordarlos de forma lógica." })
 puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Algoritmos y lógica computacional" })
+topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Algoritmos y lógica computacional", objective: "Entender la lógica secuencial y condicional para resolver problemas." })
 puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Diagramas de flujo" })
+topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Diagramas de flujo", objective: "Visualizar los pasos de un algoritmo mediante diagramas." })
 puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Pseudocódigo" })
+topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Pseudocódigo", objective: "Expresar algoritmos con lenguaje simple, estructurado." })
 puts topic.errors.full_messages unless topic.valid?
 
 @theme = Theme.find_by_number(3)

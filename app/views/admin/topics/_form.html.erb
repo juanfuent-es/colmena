@@ -1,4 +1,4 @@
-<section class="w-full mx-auto">
+<section class="w-full mx-auto ">
   <%= form_for [:admin, @program, @theme, topic], local: true do |f| %>
     <%= render "shared/errors", object: topic %>
         
@@ -24,29 +24,36 @@
     <div class="grid grid-cols-2 gap-4">
         <div class="w-full">
             <%= render "components/label", f: f, name: :objective, text: t(:objective), icon: "fas fa-align-left" %>
-            <div class="editor-container">
+            <div class="editor-container text-black text-sm">
                 <%= render "components/input", f: f, input_type: :text_area, name: :objective %>
             </div>
         </div>
         <div class="w-full">
             <%= render "components/label", f: f, name: :comments, text: t(:comments), icon: "fas fa-align-left" %>
-            <div class="editor-container">
+            <div class="editor-container text-black text-sm">
                 <%= render "components/input", f: f, input_type: :text_area, name: :comments %>
             </div>
+        </div>
+    </div>
+
+    <div class="w-full">
+        <%= render "components/label", f: f, name: :presentation, text: t(:presentation), icon: "fas fa-align-left" %>
+        <div class="big-editor editor-container text-black text-sm">
+            <%= render "components/input", f: f, input_type: :text_area, name: :presentation %>
         </div>
     </div>
         
     <div class="grid grid-cols-2 gap-4">
         <div class="w-full">
             <%= render "components/label", f: f, name: :exercises, text: t(:exercises), icon: "fas fa-align-left" %>
-            <div class="editor-container">
+            <div class="editor-container text-black text-sm">
                 <%= render "components/input", f: f, input_type: :text_area, name: :exercises %>
             </div>
         </div>
             
         <div class="w-full">
             <%= render "components/label", f: f, name: :homework, text: t(:homework), icon: "fas fa-align-left" %>
-            <div class="editor-container">
+            <div class="editor-container text-black text-sm">
                 <%= render "components/input", f: f, input_type: :text_area, name: :homework %>
             </div>
         </div>
@@ -55,14 +62,14 @@
     <div class="grid grid-cols-2 gap-4">
         <div class="w-full">
         <%= render "components/label", f: f, name: :reference_material, text: t(:reference_material), icon: "fas fa-align-left" %>
-        <div class="editor-container">
+        <div class="editor-container text-black text-sm">
             <%= render "components/input", f: f, input_type: :text_area, name: :reference_material %>
         </div>
     </div>
     
     <div class="w-full">
         <%= render "components/label", f: f, name: :credits_and_sources, text: t(:credits_and_sources), icon: "fas fa-align-left" %>
-        <div class="editor-container">
+        <div class="editor-container text-black text-sm">
             <%= render "components/input", f: f, input_type: :text_area, name: :credits_and_sources %>
         </div>
     </div>

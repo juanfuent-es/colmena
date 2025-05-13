@@ -12,7 +12,7 @@ class CreateCourses < ActiveRecord::Migration[7.2]
       t.string :school, default: ""
       t.string :url, default: ""
     end
-    
+
     create_table :themes, id: :uuid do |t|
       t.references :program, null: false, foreign_key: true, type: :uuid
       t.string :title, default: "", null: false
@@ -29,6 +29,7 @@ class CreateCourses < ActiveRecord::Migration[7.2]
       t.string :title, default: "", null: false
       t.integer :estimated_time, default: 0
       t.string :content_type, default: ""
+      t.text :presentation
       t.text :objective
       t.text :exercises
       t.text :homework

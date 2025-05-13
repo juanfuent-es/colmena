@@ -1,7 +1,7 @@
 class Admin::TopicsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_program_theme
-  before_action :set_topic, only: %i[edit update destroy]
+  before_action :set_topic, only: %i[show edit update destroy]
 
   layout "admin"
 
@@ -20,6 +20,20 @@ class Admin::TopicsController < ApplicationController
       redirect_to admin_program_theme_topics_path(@program, @theme), notice: "Topic creado con éxito."
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "topic_#{@topic.id}",
+               layout: "pdf",
+               disposition: "inline",
+               page_size: "Letter",
+               orientation: "Landscape",
+               margin: { top: 20, bottom: 20, left: 20, right: 20 }
+      end 
     end
   end
 
@@ -51,6 +65,6 @@ class Admin::TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:theme_id,:number,:title,:estimated_time,:content_type,:objective,:exercises,:homework,:comments,:reference_material,:credits_and_sources)
+    params.require(:topic).permit(:theme_id,:number,:title,:estimated_time,:content_type,:objective,:exercises,:homework,:comments,:reference_material,:credits_and_sources, :presentation)
   end
 end

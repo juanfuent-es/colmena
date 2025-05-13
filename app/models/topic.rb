@@ -14,4 +14,8 @@ class Topic < ApplicationRecord
   }
 
   # validates :content_type, inclusion: { in: content_types.keys }
+
+  def generate_pdf
+    TopicPdfGenerator.new(self).generate
+  end
 end

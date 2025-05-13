@@ -1,0 +1,77 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-gray-900"><%= @topic.title %></h1>
+      <div class="space-x-2">
+        <%= link_to "PDF", topic_path(@topic, format: :pdf), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded", target: "_blank" %>
+        <%= link_to "TXT", topic_path(@topic, format: :txt), class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold text-gray-700 mb-2">Información del Tema</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <p class="text-gray-600">Tema:</p>
+          <p class="font-medium"><%= @topic.theme.title %></p>
+        </div>
+        <div>
+          <p class="text-gray-600">Número de Tema:</p>
+          <p class="font-medium"><%= @topic.theme.number %></p>
+        </div>
+        <div>
+          <p class="text-gray-600">Tiempo Estimado:</p>
+          <p class="font-medium"><%= @topic.estimated_time %> minutos</p>
+        </div>
+        <div>
+          <p class="text-gray-600">Tipo de Contenido:</p>
+          <p class="font-medium"><%= @topic.content_type %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-6">
+      <% if @topic.objective.present? %>
+        <div class="border-t pt-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Objetivo</h3>
+          <p class="text-gray-700"><%= @topic.objective %></p>
+        </div>
+      <% end %>
+
+      <% if @topic.exercises.present? %>
+        <div class="border-t pt-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Ejercicios</h3>
+          <p class="text-gray-700"><%= @topic.exercises %></p>
+        </div>
+      <% end %>
+
+      <% if @topic.homework.present? %>
+        <div class="border-t pt-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Tarea</h3>
+          <p class="text-gray-700"><%= @topic.homework %></p>
+        </div>
+      <% end %>
+
+      <% if @topic.comments.present? %>
+        <div class="border-t pt-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Comentarios</h3>
+          <p class="text-gray-700"><%= @topic.comments %></p>
+        </div>
+      <% end %>
+
+      <% if @topic.reference_material.present? %>
+        <div class="border-t pt-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Material de Referencia</h3>
+          <p class="text-gray-700"><%= @topic.reference_material %></p>
+        </div>
+      <% end %>
+
+      <% if @topic.credits_and_sources.present? %>
+        <div class="border-t pt-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Créditos y Fuentes</h3>
+          <p class="text-gray-700"><%= @topic.credits_and_sources %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div> 

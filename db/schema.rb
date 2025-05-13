@@ -55,6 +55,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_09_053451) do
     t.string "title", default: "", null: false
     t.integer "estimated_time", default: 0
     t.string "content_type", default: ""
+    t.text "presentation"
     t.text "objective"
     t.text "exercises"
     t.text "homework"

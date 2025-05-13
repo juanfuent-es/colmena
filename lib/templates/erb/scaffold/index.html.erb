@@ -1,8 +1,8 @@
-<%% provide(:title, "Lista de #{t(:<%= plural_table_name %>)}") %>
+<%% provide(:title, "#{t(:<%= plural_table_name %>)}") %>
 
 <header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
   <div class="sm:flex-auto">
-    <h1 class="leading-6 text-xl font-medium">Lista de <%%= t(:<%= plural_table_name %>) %> <sup><%%= <%= singular_table_name.titleize %>.all.count %></sup></h1>
+    <h1 class="leading-6 text-xl font-medium"><%%= t(:<%= plural_table_name %>) %> <sup><%%= <%= singular_table_name.titleize %>.all.count %></sup></h1>
     </div>
   <nav class="my-4 sm:flex-none">
     <%%= link_to new_admin_<%= singular_table_name %>_path, class: 'btn-sm' do %>

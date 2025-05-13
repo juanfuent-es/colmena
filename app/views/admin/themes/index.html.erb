@@ -1,8 +1,8 @@
-<% provide(:title, "Lista de #{t(:themes)}") %>
+<% provide(:title, "#{t(:themes)}") %>
 
 <header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
   <div class="sm:flex-auto">
-    <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:themes) %> <sup><%= Theme.all.count %></sup></h1>
+    <h1 class="leading-6 text-xl font-medium"><%= t(:themes) %> <sup><%= Theme.all.count %></sup></h1>
   </div>
   <nav class="my-4 sm:flex-none">
     <%= link_to new_admin_program_theme_path(@program), class: 'btn-sm' do %>
@@ -31,7 +31,7 @@
             <%= theme.description %>
           </td>
           <td class="text-sm py-2 text-center">
-            <%= render "components/link", href: admin_program_theme_topics_path(@program, theme), text: "#{theme.topics.count} temas", icon: "fa-solid fa-book-open" %>
+            <%= render "components/link", href: admin_program_theme_topics_path(@program, theme), text: "#{theme.topics.count} clases", icon: "" %>
           </td>
           <td class='text-center'>
             <%= link_to admin_program_theme_path(@program, theme), method: :delete, class: "btn danger", data: { confirm: "¿Estás seguro de eliminar este #{t(:theme)}?" } do %>
