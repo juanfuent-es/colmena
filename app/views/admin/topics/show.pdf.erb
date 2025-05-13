@@ -1,53 +1,88 @@
-<section class="content">
-  <!-- Default box -->
-  <div class="card card-primary card-outline">  
-    <div class="card-body">
-      <div class="row">
-        <div class="col-12">
-                      <p>
-              <strong>Theme:</strong>
-                                <%= @topic.theme_id %>
-                          </p>
-                      <p>
-              <strong>Title:</strong>
-                                <%= @topic.title %>
-                          </p>
-                      <p>
-              <strong>Objective:</strong>
-                                <%= @topic.objective %>
-                          </p>
-                      <p>
-              <strong>Estimated time:</strong>
-                                <%= @topic.estimated_time %>
-                          </p>
-                      <p>
-              <strong>Content type:</strong>
-                                <%= @topic.content_type %>
-                          </p>
-                      <p>
-              <strong>Exercises:</strong>
-                                <%= @topic.exercises %>
-                          </p>
-                      <p>
-              <strong>Homework:</strong>
-                                <%= @topic.homework %>
-                          </p>
-                      <p>
-              <strong>Comments:</strong>
-                                <%= @topic.comments %>
-                          </p>
-                      <p>
-              <strong>Reference material:</strong>
-                                <%= @topic.reference_material %>
-                          </p>
-                      <p>
-              <strong>Credits and sources:</strong>
-                                <%= @topic.credits_and_sources %>
-                          </p>
-                  </div>
-      </div>
+<div class="page">
+  <div class="cover-page">
+    <h1 class="title"><%= @topic.title %></h1>
+    <div class="theme-info">
+      <h2>Tema: <%= @topic.theme.title %></h2>
+      <p>Número de Tema: <%= @topic.theme.number %></p>
+      <p>Tiempo Estimado: <%= @topic.estimated_time %> minutos</p>
     </div>
-    <!-- /.card-body -->
   </div>
-  <!-- /.card -->
-</section>
+</div>
+j
+<div class="page">
+    <div class="content-page">
+        <h2>Contenido del Tema</h2>
+        <% if @topic.objective.present? %>
+        <div class="section">
+            <h3>Objetivo</h3>
+            <p><%= @topic.objective %></p>
+        </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="page">
+    <div class="content-page">
+        <% if @topic.content_type.present? %>
+        <div class="section">
+            <h3>Tipo de Contenido</h3>
+            <p><%= @topic.content_type %></p>
+        </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="page">
+    <div class="content-page">
+        <% if @topic.exercises.present? %>
+        <div class="section">
+            <h3>Ejercicios</h3>
+            <p><%= @topic.exercises %></p>
+        </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="page">
+    <div class="content-page">
+        <% if @topic.homework.present? %>
+            <div class="section">
+                <h3>Tarea</h3>
+                <p><%= @topic.homework %></p>
+            </div>
+        <% end %>
+    </div>
+</div>
+        
+<div class="page">
+    <div class="content-page">
+        <% if @topic.comments.present? %>
+        <div class="section">
+        <h3>Comentarios</h3>
+        <p><%= @topic.comments %></p>
+        </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="page">
+    <div class="content-page">
+        <% if @topic.reference_material.present? %>
+            <div class="section">
+                <h3>Material de Referencia</h3>
+                <p><%= @topic.reference_material %></p>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="page">
+    <div class="content-page">
+        <% if @topic.credits_and_sources.present? %>
+            <div class="section">
+                <h3>Créditos y Fuentes</h3>
+                <p><%= @topic.credits_and_sources %></p>
+            </div>
+        <% end %>
+    </div>
+</div> 
