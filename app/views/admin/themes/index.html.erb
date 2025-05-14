@@ -22,18 +22,16 @@
       <% @themes.order(number: :asc).each do |theme| %>
         <tr class="text-sm">
           <td><%= theme.number %></td>
-          <td>
+          <td class="max-w-xs p-2">
             <%= link_to edit_admin_program_theme_path(@program, theme), class: "" do %>
               <%= theme.title %>
+              <small class="block text-white/60 mt-1"><%= theme.description %></small>
             <% end %>
           </td>
-          <td class="text-xs p-2">
-            <%= theme.description %>
+          <td class="text-xs py-2 text-center">
+            <%= render "components/link", href: admin_program_theme_topics_path(@program, theme), text: "#{theme.topics.count} clases", icon: "fas fa-book" %>
           </td>
-          <td class="text-sm py-2 text-center">
-            <%= render "components/link", href: admin_program_theme_topics_path(@program, theme), text: "#{theme.topics.count} clases", icon: "" %>
-          </td>
-          <td class='text-center'>
+          <td class='text-center text-xs'>
             <%= link_to admin_program_theme_path(@program, theme), method: :delete, class: "btn danger", data: { confirm: "¿Estás seguro de eliminar este #{t(:theme)}?" } do %>
               <i class='fas fa-trash'></i> Eliminar
             <% end %>

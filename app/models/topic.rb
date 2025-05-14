@@ -18,4 +18,5 @@ class Topic < ApplicationRecord
   def generate_pdf
     TopicPdfGenerator.new(self).generate
   end
+
 end

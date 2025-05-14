@@ -14,8 +14,8 @@ es:
   theme: Módulo
   save: Guardar
   title: Título
-  estimated_time: Tiempo estimado
-  content_type: Tipo de contenido
+  estimated_time: Tiempo
+  content_type: Tipo
   objective: Objetivo
   comments: Comentarios
   exercises: Ejercicios

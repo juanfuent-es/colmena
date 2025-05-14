@@ -5,17 +5,17 @@
     <%= f.hidden_field :theme_id %>
         
     <div class="flex gap-4">
-        <div class="w-1/2">
+        <div class="w-8/12">
             <%= render "components/label", f: f, name: :title, text: t(:title), icon: "fas fa-text" %>
             <%= render "components/input", f: f, input_type: :text_field, name: :title %>
         </div>
         
-        <div class="w-3/12">
+        <div class="w-2/12">
             <%= render "components/label", f: f, name: :estimated_time, text: t(:estimated_time), icon: "fas fa-field" %>
             <%= render "components/input", f: f, input_type: :number_field, name: :estimated_time %>
         </div>
         
-        <div class="w-3/12">
+        <div class="w-2/12">
             <%= render "components/label", f: f, name: :content_type, text: t(:content_type), icon: "fas fa-text" %>
             <%= f.select :content_type, Topic.content_types.keys.map { |key| [Topic.content_types[key], key] }, {}, class: "block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" %>
         </div>
@@ -29,17 +29,17 @@
             </div>
         </div>
         <div class="w-full">
-            <%= render "components/label", f: f, name: :comments, text: t(:comments), icon: "fas fa-align-left" %>
-            <div class="editor-container text-black text-sm">
-                <%= render "components/input", f: f, input_type: :text_area, name: :comments %>
+            <%= render "components/label", f: f, name: :presentation, text: "Introducción", icon: "fas fa-align-left" %>
+            <div class="big-editor editor-container text-black text-sm">
+                <%= render "components/input", f: f, input_type: :text_area, name: :presentation %>
             </div>
         </div>
     </div>
-
+    
     <div class="w-full">
-        <%= render "components/label", f: f, name: :presentation, text: t(:presentation), icon: "fas fa-align-left" %>
-        <div class="big-editor editor-container text-black text-sm">
-            <%= render "components/input", f: f, input_type: :text_area, name: :presentation %>
+        <%= render "components/label", f: f, name: :comments, text: t(:comments), icon: "fas fa-align-left" %>
+        <div class="editor-container text-black text-sm">
+            <%= render "components/input", f: f, input_type: :text_area, name: :comments %>
         </div>
     </div>
         

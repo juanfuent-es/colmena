@@ -18,25 +18,26 @@
   <table class="w-full">
     <thead>
       <tr>
+        <th></th>
         <th>Tema</th>
-        <th>Objetivo</th>
-        <th>Duración</th>
-        <th>Tipo</th>
+        <th>PDF</th>
         <th>Eliminar</th>
       </tr>
     </thead>
     <tbody>
       <% @topics.order(number: :asc).each do |topic| %>
         <tr>
-          <td>
+          <td><%= topic.number %></td>
+          <td class=" p-2">
             <%= link_to edit_admin_program_theme_topic_path(@program, @theme, topic), class: "" do %>
               <%= topic.number %> - <%= topic.title %>
+              <small class="block text-white/60 mt-1"><%= topic.objective.try(:html_safe) %></small>
             <% end %>
           </td>
-          <td class="text-sm"><%= topic.objective.try(:html_safe) %></td>
-          <td class="text-center"><%= topic.estimated_time %> min</td>
-          <td class="text-center"><%= topic.content_type %></td>
-          <td class='text-center'>
+          <td class='text-center text-xs'>
+            <%= render "components/link", href: admin_program_theme_topic_path(@program, @theme, topic, format: :pdf), text: "PDF", icon: "fas fa-file-pdf" %>
+          </td>
+          <td class='text-center text-xs'>
             <%= link_to admin_program_theme_topic_path(@program, @theme, topic), method: :delete, class: "btn danger", data: { confirm: "¿Estás seguro de eliminar este #{t(:topic)}?" } do %>
               <i class='fas fa-trash'></i> Eliminar
             <% end %>

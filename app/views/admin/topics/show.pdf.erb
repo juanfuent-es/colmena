@@ -1,32 +1,23 @@
 <div class="page" style="background:#5d41bc;height:100%; text-align:center; color:white;">
     <div class="content-page">
     <%= wicked_pdf_image_tag 'http://localhost:3000/static/ebac_mx_logo-white.png', style: 'width: 200px; margin: 20px auto;' %>
-    <h1>IT Starter</h1>
-    <h1 class="title"><%= @topic.title %></h1>
+    <h1 class="title">
+        <%= @topic.title %>
+        <small style="display:block; margin-top: 10px; font-size: 22px;text-transform: uppercase;">IT Starter</small>
+    </h1>
     <div class="theme-info">
       <h2><%= @topic.theme.number %> - <%= @topic.theme.title %></h2>
-      <p>Tiempo Estimado: <%= @topic.estimated_time %> minutos</p>
     </div>
   </div>
 </div>
 
-<div class="page">
 <% if @topic.objective.present? %>
+    <div class="page">
         <div class="content-page">
             <h2>Objetivo</h2>
             <div class="section">
-                <p><%= @topic.objective.try(:html_safe) %></p>
-            </div>
-        </div>
-    </div>
-<% end %>
-
-<% if @topic.content_type.present? %>
-    <div class="page">
-        <div class="content-page">
-            <div class="section">
-                <h3>Tipo de Contenido</h3>
-                <%= @topic.content_type.try(:html_safe) %>
+                <p><small><%= @topic.objective.try(:html_safe) %></small></p>
+                <%= @topic.presentation.try(:html_safe) %>
             </div>
         </div>
     </div>
