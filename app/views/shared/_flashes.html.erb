@@ -4,14 +4,14 @@
         flash.each do |key, value|
 %>
 <div class="w-full p-4 z-40 fixed alert" id="alert-<%= count %>">
-    <div class="flex rounded-xl text-green bg-dark-900/90 border border-current p-4">
+    <div class="flex rounded-xl text-green bg-black border border-current p-4">
         <div class="ml-3">
             <p class="text-sm font-medium m-0 p-0"><i class="fa-solid fa-check pr-2"></i> <%= value %></p>
         </div>
         <div class="ml-auto pl-3">
             <div class="-mx-1.5 -my-1.5">
                 <button type="button" aria-label="Cerrar" data-balloon-length="small" data-balloon-pos="left" data-balloon="Cerrar" data-
-                    class="btn-sm bg-dark text-green hover:bg-dark hover:text-green hover:ring-green-600 border-none outline-none ring-dark">
+                    class="btn-sm bg-black text-green hover:bg-black hover:text-green hover:ring-green-600 border-none outline-none ring-dark">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>

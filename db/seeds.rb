@@ -8,155 +8,221 @@ Topic.all.delete_all
 Theme.all.delete_all
 Program.all.delete_all
 
-@program = Program.create(name: "IT Starter", description: "En este curso aprenderás el funcionamiento de los sistemas que facilitan el intercambio de información, la gestión de datos y su visualización. A través de un ejemplo práctico de la vida real podrás distinguir entre Frontend, Backend, Análisis de Datos y FullStack.", year: 2025, school: "EBAC")
+@program = Program.create(name: "IT Starter", description: "En este curso aprenderás el funcionamiento de los sistemas que facilitan el intercambio de información, la gestión de datos y su visualización. A través de un ejemplo práctico de la vida real podrás distinguir entre Frontend, Backend, Análisis de Datos y FullStack.", year: 2025, school: "EBAC", url: "")
+@theme = Theme.create({ program: @program, title: "README: Especificaciones y configuración de ambiente", number: 1, description: "En este módulo se presentan las especificaciones del curso y se configura el ambiente de trabajo. Se espera que los estudiantes instalen y configuren las herramientas necesarias para el desarrollo de software.", activity: "" })
+Topic.create({ theme: @theme, number: "1", title: "Qué es IT, generalidades de la programación", estimated_time: "20", content_type: "video_studio", objective: "&lt;p&gt;Comprender el papel de las tecnologías de información en el mundo actual y su relación con el desarrollo de software, así como adquirir una visión general de qué es programar y para qué sirve.&lt;/p&gt;", presentation: '&lt;p&gt;Vivimos en una era digital. Desde los teléfonos hasta los semáforos, todo está gobernado por sistemas informáticos. En este tema exploraremos qué son las IT, para qué sirven, y cómo la programación actúa como el lenguaje que permite construir soluciones dentro de este ecosistema.&lt;/p&gt;", content: "&lt;p&gt;&lt;strong&gt;¿Qué son las Tecnologías de Información (IT)?&lt;/strong&gt;&lt;br&gt;Conjunto de herramientas, sistemas y recursos tecnológicos utilizados para crear, almacenar, procesar y compartir información.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Ramas principales de IT&lt;/strong&gt;&lt;br&gt;Infraestructura, desarrollo de software, análisis de datos, ciberseguridad, redes, etc.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Aplicaciones de IT en la vida diaria&lt;/strong&gt;&lt;br&gt;Uso en salud, educación, comercio, entretenimiento, transporte, etc.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;¿Qué es la programación?&lt;/strong&gt;&lt;br&gt;El proceso de escribir instrucciones que una computadora puede ejecutar.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Relación entre programación e IT&lt;/strong&gt;&lt;br&gt;La programación es el motor que impulsa las soluciones tecnológicas.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lenguajes y entornos comunes&lt;/strong&gt;&lt;br&gt;Breve vistazo a lenguajes como Java, Python, JavaScript. Mención del backend/frontend.&lt;/p&gt;', exercises: '&lt;p&gt;Reflexionar sobre el impacto de las tecnologías de la información en la vida diaria y reconocer situaciones donde la programación ha sido clave en experiencias personales o colectivas.&lt;/p&gt;', homework: "&lt;p&gt;&lt;strong&gt;Tiempo estimado:&lt;/strong&gt; 45–60 minutos&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Nombre:&lt;/strong&gt; “Mi entorno y la tecnología”&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Descripción:&lt;/strong&gt;&lt;br&gt;Los estudiantes deberán realizar una bitácora breve (puede ser escrita o visual) identificando:&lt;/p&gt;&lt;p&gt;Tres objetos o servicios cotidianos que utilicen IT.&lt;/p&gt;&lt;p&gt;Describir brevemente su funcionamiento y cómo impactan su vida diaria.&lt;/p&gt;&lt;p&gt;Investigar si alguno de estos utiliza programación (por ejemplo: apps, semáforos, asistentes virtuales).&lt;/p&gt;&lt;p&gt;Reflexionar con un párrafo final: ¿cómo creen que el aprender programación les permitiría mejorar o proponer soluciones a estos sistemas?&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Formato:&lt;/strong&gt; texto breve (1 cuartilla o presentación de 3 diapositivas)&lt;/p&gt;", reference_material: "", credits_and_sources: "" })
+Topic.create({ theme: @theme, number: "2", title: "Breviario Técnico: Arquitectura del Stack", estimated_time: "20", content_type: "pdf_ppt", objective: "&lt;p&gt;Conocer y comprender los términos técnicos esenciales que se usarán durante el curso para facilitar la lectura de documentación, comunicación y aprendizaje.&lt;/p&gt;", presentation: '&lt;p&gt;Todo sistema digital está compuesto por múltiples capas, como una cebolla o un edificio. En este tema conocerás los términos técnicos más importantes y entenderás cómo se organiza un proyecto tecnológico desde el cliente hasta el servidor, y más allá.&lt;/p&gt;", content: "&lt;p&gt;&lt;strong&gt;¿Qué es un "Stack Tecnológico"?&lt;/strong&gt;&lt;br&gt;Conjunto de tecnologías (lenguajes, frameworks, herramientas) usadas para construir un sistema digital.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Frontend, Backend y Base de Datos&lt;/strong&gt;&lt;br&gt;Analogía con un restaurante: el mesero (frontend), la cocina (backend), y la despensa (base de datos).&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Glosario de términos esenciales&lt;/strong&gt;&lt;br&gt;Revisión de conceptos clave como: servidor, cliente, HTTP, API, DOM, framework, librería, IDE, compilador, etc.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Full Stack Developer: ¿Qué significa?&lt;/strong&gt;&lt;br&gt;Profesional que conoce las herramientas y tecnologías de todas las capas.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Navegador y servidor: ¿cómo se comunican?&lt;/strong&gt;&lt;br&gt;Flujo básico de una petición desde que escribimos una URL hasta que vemos la respuesta.&lt;/p&gt;', exercises: "&lt;p&gt;Lectura/consulta de diccionarios, tech como: The Jargon File (a.k.a. Hacker's Dictionary)&lt;/p&gt;", homework: "", reference_material: "", credits_and_sources: "" })
+Topic.create({ theme: @theme, number: "3", title: "Instalación y Configuración de Ambientes", estimated_time: "20", content_type: "screencast", objective: "&lt;p&gt;Preparar un entorno funcional para el desarrollo web y backend, instalando herramientas y configuraciones necesarias para programar en Java y Python.&lt;/p&gt;", presentation: '&lt;p&gt;Antes de escribir una sola línea de código, necesitas preparar tu espacio de trabajo: instalar programas, configurar terminales y asegurarte de que todo esté listo para comenzar a construir. Este paso es como preparar tu cocina antes de empezar a cocinar.&lt;/p&gt;", content: "&lt;p&gt;&lt;strong&gt;¿Qué es un entorno de desarrollo?&lt;/strong&gt;&lt;br&gt;El conjunto de herramientas que usas para programar: desde el editor de texto hasta el navegador o servidor local.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Terminal y línea de comandos&lt;/strong&gt;&lt;br&gt;Cómo navegar carpetas, ejecutar comandos básicos, instalar software y comprender lo que ves en la consola.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Instalación de herramientas básicas&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Navegador (recomendado: Firefox Developer o Chrome)&lt;/p&gt;&lt;p&gt;Terminal (integrada o herramientas como iTerm2 o Windows Terminal)&lt;/p&gt;&lt;p&gt;Node.js y NPM (como base para muchas herramientas modernas)&lt;/p&gt;&lt;p&gt;Git (para control de versiones)&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Estructura de carpetas para proyectos&lt;/strong&gt;&lt;br&gt;Cómo organizar tus archivos desde el inicio: carpetas para código, recursos, documentación y más.&lt;/p&gt;', exercises: '&lt;p&gt;Realiza la instalación de Java, Python y Git en tu equipo. Sigue el tutorial paso a paso según tu SO&lt;/p&gt;', homework: "&lt;p&gt;El estudiante deberá seguir una guía paso a paso para instalar: Git, JDK 17 (Java), y Python 3. Verificará su correcta instalación usando la terminal y resolverá posibles errores comunes de configuración.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Descripción:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Instala Node.js y Git en tu equipo.&lt;/p&gt;&lt;p&gt;Crea una carpeta llamada mi-primer-proyecto/ en tu escritorio.&lt;/p&gt;&lt;p&gt;Dentro de ella crea las siguientes subcarpetas: src/, assets/, docs/, tests/.&lt;/p&gt;&lt;p&gt;Inicializa un repositorio de Git dentro de esta carpeta.&lt;/p&gt;&lt;p&gt;Crea un archivo README.md explicando qué herramientas instalaste y cómo organizaste tus carpetas.&lt;/p&gt;&lt;p&gt;Haz tu primer commit con el mensaje: Primer setup del entorno.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Tiempo estimado:&lt;/strong&gt; 45–60 minutos&lt;/p&gt;", reference_material: "&lt;p&gt;Manuales, tutoriales de instalación y links a documentación oficial.&lt;/p&gt;", credits_and_sources: '&lt;p&gt;&lt;a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"&gt;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&amp;nbsp;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;https://www.python.org/downloads/source/&lt;/p&gt;&lt;p&gt;https://jdk.java.net/24/&lt;/p&gt;' })
+Topic.create({ theme: @theme, number: "4", title: "Editores de Código e IDEs", estimated_time: "20", content_type: "screencast", objective: "&lt;p&gt;Identificar, instalar y utilizar correctamente herramientas para escribir y gestionar código de forma eficiente y profesional.&lt;/p&gt;", presentation: '&lt;p&gt;Existen múltiples editores e IDEs; algunos son ligeros y otros más complejos, pero todos ayudan a mejorar la productividad del desarrollador.&lt;/p&gt;", content: "&lt;p&gt;&lt;strong&gt;¿Qué es un editor de código?&lt;/strong&gt;&lt;br&gt;Aplicaciones que permiten escribir, editar y gestionar archivos de programación, como Visual Studio Code, Sublime Text, o Atom.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;¿Qué es un IDE (Entorno de Desarrollo Integrado)?&lt;/strong&gt;&lt;br&gt;Herramientas más completas que integran compiladores, debuggers, terminales y manejo de proyectos. Ejemplos:&amp;nbsp;&lt;/p&gt;&lt;p&gt;IntelliJ IDEA, Eclipse, NetBeans.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Visual Studio Code (VS Code)&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Instalación&lt;/p&gt;&lt;p&gt;Extensiones útiles (Prettier, ESLint, GitLens)&lt;/p&gt;&lt;p&gt;Atajos de teclado y personalización del entorno&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Diferencias clave entre editores y IDEs&lt;/strong&gt;&lt;br&gt;Cuándo conviene usar uno u otro: proyectos simples vs complejos, velocidad vs funcionalidades, curva de aprendizaje, etc.&lt;/p&gt;', exercises: '&lt;p&gt;Instalación de VisualStudio Code&lt;/p&gt;', homework: '&lt;p&gt;Elegir e instalar un editor de código (Visual Studio Code recomendado). Configurar extensiones para HTML, Java y Python. Crear una carpeta del proyecto, agregar un archivo .html, .py y .java, y probar que se puedan abrir correctamente. Adjuntar capturas de pantalla del entorno funcionando.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;strong&gt;Descripción paso a paso:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Descarga e instala Visual Studio Code desde &lt;a href="https://code.visualstudio.com"&gt;code.visualstudio.com&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Abre la carpeta de proyecto mi-primer-proyecto/ creada en la tarea anterior.&lt;/p&gt;&lt;p&gt;Instala al menos 3 extensiones útiles (Prettier, GitLens, Live Server).&lt;/p&gt;&lt;p&gt;Personaliza el tema de colores de tu editor.&lt;/p&gt;&lt;p&gt;Crea un archivo index.html dentro de la carpeta src/ y escribe el texto “¡Hola, mundo!”.&lt;/p&gt;&lt;p&gt;Usa Live Server para abrirlo en tu navegador.&lt;/p&gt;&lt;p&gt;Toma una captura de pantalla de tu configuración y agrégala al README.md del proyecto.&lt;/p&gt;', reference_material: "", credits_and_sources: "&lt;p&gt;https://code.visualstudio.com/&lt;/p&gt;&lt;p&gt;https://www.jetbrains.com/idea/&lt;/p&gt;" })
+Topic.create({ theme: @theme, number: "5", title: "Control de Versiones con Git", estimated_time: "20", content_type: "screencast", objective: "&lt;p&gt;Comprender los fundamentos del control de versiones con Git y utilizar comandos básicos para gestionar versiones de proyectos en forma local y remota (GitHub).&lt;/p&gt;", presentation: '&lt;p&gt;Git es como una "máquina del tiempo" para tu código. Permite guardar el historial de tus proyectos, volver a versiones anteriores si algo falla, y colaborar con otras personas de forma segura y organizada. Aprenderlo desde el principio te ahorrará muchos dolores de cabeza más adelante.&lt;/p&gt;", content: "&lt;p&gt;&lt;strong&gt;¿Qué es Git y para qué sirve?&lt;/strong&gt;&lt;br&gt;Sistema de control de versiones distribuido que permite registrar los cambios hechos en archivos y proyectos, útil para proyectos personales y en equipo.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Instalación y configuración inicial&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Instalar Git desde git-scm.com&lt;/p&gt;&lt;p&gt;Configurar nombre de usuario y correo electrónico (git config --global)&lt;/p&gt;&lt;p&gt;Comandos básicos para comenzar&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Inicialización de repositorios y flujo básico&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;git init, git status, git add, git commit&lt;/p&gt;&lt;p&gt;Crear tu primer repositorio local y guardar cambios&lt;/p&gt;&lt;p&gt;Entender la diferencia entre &lt;i&gt;staging&lt;/i&gt; y &lt;i&gt;commit&lt;/i&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Explorando el historial y buenas prácticas&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;git log, git diff, git checkout&lt;/p&gt;&lt;p&gt;Cómo escribir buenos mensajes de commit&lt;/p&gt;&lt;p&gt;Organización de carpetas y manejo de archivos ignorados (.gitignore)&lt;/p&gt;', exercises: '&lt;ul&gt;&lt;li&gt;Creación de cuenta en github.&lt;/li&gt;&lt;li&gt;Instalación de git.&lt;/li&gt;&lt;li&gt;Configuración del entorno en el editor de código.&lt;/li&gt;&lt;/ul&gt;', homework: '&lt;p&gt;&lt;strong&gt;Tiempo estimado:&lt;/strong&gt; 50–60 minutos&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Nombre:&lt;/strong&gt; “Bitácora de proyecto”&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;strong&gt;Descripción paso a paso:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Instala Git en tu computadora desde &lt;a href="https://git-scm.com/"&gt;https://git-scm.com/&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Abre tu terminal y configura tu nombre y correo con git config --global.&lt;/p&gt;&lt;p&gt;Dentro de tu carpeta mi-primer-proyecto/, ejecuta git init para inicializar el repositorio.&lt;/p&gt;&lt;p&gt;Crea un archivo llamado README.md y escribe una breve descripción del proyecto.&lt;/p&gt;&lt;p&gt;Usa git add . y git commit -m "Primer commit" para registrar tus archivos.&lt;/p&gt;&lt;p&gt;Realiza dos cambios más (por ejemplo, actualiza el texto en index.html) y haz dos commits adicionales.&lt;/p&gt;&lt;p&gt;Usa git log para revisar el historial de cambios y escribe en tu cuaderno qué entendiste de cada uno.&lt;/p&gt;&lt;p&gt;(Opcional) Crea una cuenta en GitHub y sube tu repositorio con git remote add origin y git push.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;', reference_material: "", credits_and_sources: "&lt;p&gt;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&lt;/p&gt;&lt;p&gt;https://github.com/signup&lt;/p&gt;" })
+@theme = Theme.create({ program: @program, title: "Fundamentos de Programación", number: 2, description: "Este módulo introduce las bases del pensamiento lógico aplicado a la programación. A través de herramientas como pseudocódigo, diagramas de flujo y algoritmos, se establecen los fundamentos para resolver problemas de forma estructurada, sin necesidad de escribir código.", activity: "" })
+Topic.create({ theme: @theme, number: "3", title: "Diagramas de flujo", estimated_time: "20", content_type: "video_screencast", objective: "&lt;p&gt;Representar visualmente procesos lógicos y algoritmos mediante símbolos estándar de flujo de información y control.&lt;/p&gt;", presentation: '&lt;p&gt;Los diagramas de flujo son herramientas gráficas utilizadas para representar visualmente los pasos que sigue un proceso o algoritmo. Son útiles para diseñar, analizar y comunicar soluciones antes de escribir código. En este tema aprenderás los principales símbolos, cómo construir diagramas correctamente y cómo aplicarlos a problemas cotidianos.&lt;/p&gt;", content: "&lt;p&gt;&lt;strong&gt;¿Qué es un diagrama de flujo?&lt;/strong&gt;&lt;br&gt;Representación visual de procesos o algoritmos mediante símbolos conectados por flechas, que permiten comprender la lógica de un sistema paso a paso.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Símbolos comunes&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Inicio / Fin&lt;/strong&gt;: óvalos que marcan el punto de inicio o final del proceso.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Proceso&lt;/strong&gt;: rectángulos que representan operaciones o instrucciones.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Decisión&lt;/strong&gt;: rombos que plantean preguntas con respuestas binarias (sí/no).&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Flechas&lt;/strong&gt;: indican la dirección del flujo.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Entrada / Salida&lt;/strong&gt;: paralelogramos que representan datos que se introducen o se muestran.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Reglas de construcción&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Flujo claro de arriba hacia abajo o de izquierda a derecha.&lt;/p&gt;&lt;p&gt;Un único punto de entrada y de salida.&lt;/p&gt;&lt;p&gt;Simbología estandarizada.&lt;/p&gt;&lt;p&gt;Claridad visual y lógica secuencial.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Aplicación a problemas cotidianos&lt;/strong&gt;&lt;br&gt;Uso de diagramas para representar tareas simples, como preparar café, organizar actividades del día o activar recordatorios, ligándolo al proyecto general de gestión de tareas personales.&lt;/p&gt;', exercises: '&lt;p&gt;Construcción de un diagrama de flujo que represente el proceso lógico de una actividad dentro del proyecto de gestión de tareas personales (ej. tomar agua o comer).&lt;/p&gt;', homework: "&lt;p&gt;&lt;strong&gt;Duración estimada&lt;/strong&gt;: 45-60 minutos.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Nombre&lt;/strong&gt;: Diagrama de flujo de rutina personalizada&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Paso a paso:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Elige una rutina simple del día basada en el proyecto (ej. “prepararse para dormir”, “comer saludable”, “tomar agua regularmente”).&lt;/p&gt;&lt;p&gt;Identifica los pasos de dicha rutina.&lt;/p&gt;&lt;p&gt;Redáctalos como acciones lógicas (sin escribir código).&lt;/p&gt;&lt;p&gt;Define las decisiones que se deben tomar en el proceso (ej. ¿Tengo sed? ¿Ya comí?).&lt;/p&gt;&lt;p&gt;Dibuja el diagrama de flujo con los símbolos correctos.&lt;/p&gt;&lt;p&gt;Revisa que el flujo sea claro y tenga inicio y fin.&lt;/p&gt;&lt;p&gt;Comparte una imagen del diagrama como entrega.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Material necesario&lt;/strong&gt;:&lt;/p&gt;&lt;p&gt;Hoja blanca y lápiz&lt;/p&gt;", reference_material: "", credits_and_sources: "" })
+Topic.create({ theme: @theme, number: "1", title: "Pensamiento computacional", estimated_time: "20", content_type: "video_studio", objective: "&lt;p&gt;Desarrollar habilidades de descomposición, reconocimiento de patrones, abstracción y diseño de algoritmos para resolver problemas cotidianos de manera estructurada.&lt;/p&gt;", presentation: '&lt;p&gt;El pensamiento computacional es una habilidad esencial que nos permite entender problemas complejos, dividirlos en partes manejables, reconocer patrones, establecer reglas y crear soluciones que pueden automatizarse con un algoritmo. No se trata de programar directamente, sino de pensar como un programador para resolver cualquier tipo de problema.&lt;/p&gt;", content: "&lt;p&gt;&lt;strong&gt;¿Qué es el pensamiento computacional?&lt;/strong&gt;&lt;br&gt;Es un proceso mental que implica descomponer problemas, identificar patrones, abstraer lo importante y diseñar algoritmos para solucionarlos. Es fundamental para cualquier persona que quiera aprender a programar.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Descomposición de problemas&lt;/strong&gt;&lt;br&gt;Técnica que consiste en dividir un problema complejo en partes más pequeñas y manejables. Esto permite enfocarse en resolver cada componente de manera más eficiente.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Reconocimiento de patrones&lt;/strong&gt;&lt;br&gt;Buscar similitudes o regularidades entre problemas. Identificar patrones nos permite reutilizar soluciones anteriores en nuevas situaciones.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Abstracción&lt;/strong&gt;&lt;br&gt;Consiste en eliminar los detalles innecesarios y centrarse en lo esencial del problema. Ayuda a construir modelos simples que pueden aplicarse en múltiples escenarios.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Diseño de algoritmos&lt;/strong&gt;&lt;br&gt;Es el paso final donde se define una serie de pasos lógicos y secuenciales para resolver el problema. Un buen algoritmo puede luego transformarse fácilmente en código.&lt;/p&gt;', exercises: '&lt;p&gt;Aplicar los principios del pensamiento computacional para diseñar una solución paso a paso (algoritmo) para una tarea cotidiana relacionada con el brief principal: gestión de tareas personales como comer, tomar agua o tomar café.&lt;/p&gt;', homework: "&lt;p&gt;&lt;strong&gt;Tiempo estimado:&lt;/strong&gt; 50–60 minutos&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Título:&lt;/strong&gt; De lo cotidiano al algoritmo&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;strong&gt;Descripción:&lt;/strong&gt; Los alumnos deberán elegir una tarea personal habitual (por ejemplo, recordar beber agua cada 2 horas) y aplicar los elementos del pensamiento computacional para descomponer el problema y diseñar una solución que pueda implementarse más adelante como una función o recordatorio.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Pasos para realizar la tarea:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Elegir una actividad del brief principal: beber agua, tomar café o comer.&lt;/p&gt;&lt;p&gt;Aplicar descomposición: dividir la actividad en pasos (ej. definir hora, preparar bebida, consumir, registrar).&lt;/p&gt;&lt;p&gt;Identificar patrones: ¿cada cuánto se repite? ¿tiene condiciones como horario, lugar, estado físico?&lt;/p&gt;&lt;p&gt;Aplicar abstracción: eliminar detalles que no aporten al diseño lógico (ej. tipo de vaso, lugar exacto).&lt;/p&gt;&lt;p&gt;Diseñar un algoritmo: escribir los pasos necesarios de forma ordenada y clara.&lt;/p&gt;&lt;p&gt;Representar el algoritmo en lenguaje natural o pseudocódigo.&lt;/p&gt;&lt;p&gt;Redactar una reflexión corta sobre cómo usar este algoritmo en una app de recordatorios.&lt;/p&gt;&lt;p&gt;Entregar el documento en Google Docs o un .txt, incluyendo el título de la tarea, pasos, pseudocódigo y reflexión.&lt;/p&gt;", reference_material: "", credits_and_sources: "" })
+Topic.create({ theme: @theme, number: "2", title: "Algoritmos y lógica computacional", estimated_time: "20", content_type: "video_studio", objective: "&lt;p&gt;Comprender cómo diseñar soluciones lógicas a problemas mediante algoritmos claros, precisos y eficientes.&lt;/p&gt;", presentation: '&lt;p&gt;Una vez que entendemos cómo descomponer problemas (tema anterior), es momento de aprender a traducir esa descomposición en soluciones concretas. Los algoritmos son instrucciones precisas para ejecutar tareas, mientras que la lógica computacional nos ayuda a tomar decisiones y controlar el flujo de esas instrucciones.&lt;/p&gt;", content: "&lt;p&gt;&lt;strong&gt;¿Qué es un algoritmo?&lt;/strong&gt;&lt;br&gt;Conjunto ordenado y finito de pasos que permiten resolver un problema o realizar una tarea específica.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Estructura básica de un algoritmo&lt;/strong&gt;&lt;br&gt;Todo algoritmo debe tener: entrada (datos iniciales), proceso (transformación) y salida (resultado).&lt;br&gt;Ejemplo: entrada = hora actual, proceso = comparar con hora de recordatorio, salida = enviar notificación.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lógica secuencial&lt;/strong&gt;&lt;br&gt;Ejecutar pasos uno tras otro, en orden. Fundamental en tareas lineales, como preparar café: hervir agua → servir café → beber.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Condicionales (if/else)&lt;/strong&gt;&lt;br&gt;Permiten tomar decisiones. Ejemplo: “Si ya pasaron 2 horas desde el último vaso de agua, entonces notificar”.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Bucles (while, for)&lt;/strong&gt;&lt;br&gt;Repetir acciones bajo ciertas condiciones. Útiles para automatizar tareas como recordatorios cada cierto tiempo.&lt;/p&gt;', exercises: '&lt;p&gt;Diseñar un algoritmo aplicando lógica secuencial, condicional y repetitiva para una tarea personal basada en el brief del proyecto principal: recordatorios para actividades cotidianas como comer, tomar agua o tomar café.&lt;/p&gt;', homework: '&lt;p&gt;T&lt;strong&gt;ítulo:&lt;/strong&gt; Algoritmo con lógica: una rutina automatizada&lt;br&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Descripción:&lt;/strong&gt; El estudiante elegirá una acción personal recurrente (por ejemplo, "tomar agua") y deberá crear un algoritmo detallado que incluya una lógica clara: pasos secuenciales, una condición y un ciclo de repetición.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Pasos para realizar la tarea:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Escoger una rutina del día basada en el brief del proyecto (ej. comer cada 5 horas).&lt;/p&gt;&lt;p&gt;Redactar la secuencia básica de pasos necesarios para llevarla a cabo.&lt;/p&gt;&lt;p&gt;Incorporar al menos &lt;strong&gt;una condición&lt;/strong&gt; (por ejemplo, "si no has comido en 5 horas").&lt;/p&gt;&lt;p&gt;Incluir un &lt;strong&gt;bucle&lt;/strong&gt; para repetir la acción dentro de un rango horario (por ejemplo, de 8 a 20 hrs).&lt;/p&gt;&lt;p&gt;Representar el algoritmo en forma de lista ordenada o tabla.&lt;/p&gt;&lt;p&gt;Especificar entradas, procesos y salidas.&lt;/p&gt;&lt;p&gt;Agregar comentarios explicando la lógica detrás de cada decisión.&lt;/p&gt;&lt;p&gt;*Entregar la tarea en documento digital&lt;/p&gt;', reference_material: "", credits_and_sources: "" })
+Topic.create({ theme: @theme, number: "4", title: "Pseudocódigo", estimated_time: "20", content_type: "screencast", objective: "&lt;p&gt;Desarrollar la capacidad de escribir instrucciones paso a paso en lenguaje natural estructurado, mediante pseudocódigo, como preparación para la escritura de código en un lenguaje de programación real.&lt;/p&gt;&lt;p&gt;(Enfocado en la lógica antes que en la sintaxis)&lt;/p&gt;", presentation: '&lt;p&gt;El pseudocódigo es una forma intermedia entre el lenguaje humano y el lenguaje de programación. Se utiliza para planificar soluciones lógicas sin preocuparse por la sintaxis específica de un lenguaje. En este tema aprenderás a estructurar procesos usando instrucciones claras, simples y organizadas, como base previa al código.&lt;/p&gt;", content: "&lt;p&gt;&lt;strong&gt;¿Qué es el pseudocódigo?&lt;/strong&gt;&lt;br&gt;Es una herramienta para representar algoritmos de manera textual, usando lenguaje cotidiano estructurado y términos similares a los de programación.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Características del pseudocódigo&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Independiente del lenguaje de programación.&lt;/p&gt;&lt;p&gt;Fácil de escribir y entender.&lt;/p&gt;&lt;p&gt;Utiliza palabras clave como INICIO, FIN, SI, ENTONCES, MIENTRAS, ESCRIBIR, etc.&lt;/p&gt;&lt;p&gt;Ideal para comunicar lógica sin errores de sintaxis.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Estructura básica&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Inicio y fin del algoritmo.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Entrada de datos.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Procesos o cálculos.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Condiciones y bucles.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Salida o impresión de resultados.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Buenas prácticas&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Escribir instrucciones claras y concisas.&lt;/p&gt;&lt;p&gt;Usar sangrías para mostrar jerarquías o bloques.&lt;/p&gt;&lt;p&gt;Nombrar variables de forma lógica y legible.&lt;/p&gt;&lt;p&gt;Revisar el orden de ejecución de cada paso.&lt;/p&gt;', exercises: '&lt;p&gt;Redactar en pseudocódigo la lógica de una rutina de gestión de tareas personales (ej. "Recordar tomar agua cada hora"), respetando estructura y claridad lógica.&lt;/p&gt;', homework: "&lt;p&gt;&lt;strong&gt;Nombre&lt;/strong&gt;: Pseudocódigo de rutina diaria&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Paso a paso:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Escoge una rutina simple y cotidiana del proyecto de gestión de tareas personales (ej. “tomar café en la mañana” o “almorzar a una hora fija”).&lt;/p&gt;&lt;p&gt;Lista los pasos necesarios para ejecutar esa tarea en orden lógico.&lt;/p&gt;&lt;p&gt;Agrega decisiones simples si aplica (¿ya comí?, ¿pasó 1 hora?, etc.).&lt;/p&gt;&lt;p&gt;Escribe el pseudocódigo con palabras clave como SI, ENTONCES, MIENTRAS, etc.&lt;/p&gt;&lt;p&gt;Asegúrate de comenzar con INICIO y finalizar con FIN.&lt;/p&gt;&lt;p&gt;Revisa la lógica general del flujo.&lt;/p&gt;&lt;p&gt;Comparte tu pseudocódigo como entrega.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Duración estimada&lt;/strong&gt;: 45 minutos.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Material necesario&lt;/strong&gt;:&lt;/p&gt;&lt;p&gt;Hoja, procesador de texto o herramienta online simple como repl.it, Notepad, etc.&lt;/p&gt;", reference_material: "", credits_and_sources: "" })
+@theme = Theme.create({ program: @program, title: "Arquitectura de Información", number: 3, description: "En este módulo se presentan los conceptos básicos de la arquitectura de información, incluyendo wireframes, prototipos y mapas de sitio. Se espera que los estudiantes comprendan la importancia de la organización y presentación de la información en aplicaciones web.", activity: "" })
+Topic.create({ theme: @theme, number: "1", title: "¿Qué es y para qué sirve?", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Wireframes y prototipos", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Flujo de navegación", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Introducción a vistas / Mapas de sitio", estimated_time: "20" })
+@theme = Theme.create({ program: @program, title: "El desarrollador FrontEnd: HTML - Estructura", number: 4, description: "Este módulo introduce los conceptos básicos de HTML, incluyendo la estructura de un documento HTML, etiquetas principales y atributos. Se espera que los estudiantes comprendan cómo se organiza y presenta la información en una página web.", activity: "" })
+Topic.create({ theme: @theme, number: "1", title: "¿Qué es el frontend?", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Estructura básica de un documento HTML", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Etiquetas principales: títulos, párrafos, listas, tablas", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Enlaces e imágenes", estimated_time: "20" })
+@theme = Theme.create({ program: @program, title: "CSS - Styling", number: 5, description: "En este módulo se presentan los conceptos básicos de CSS, incluyendo selectores, propiedades y valores. Se espera que los estudiantes comprendan cómo se aplica el estilo a una página web y cómo se organiza la información visualmente.", activity: "" })
+Topic.create({ theme: @theme, number: "1", title: "Sintaxis y selectores", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Colores, tipografía y espaciado", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Box model y layout", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Estilos responsive básicos", estimated_time: "20" })
+@theme = Theme.create({ program: @program, title: "Variables, Operadores y Estructuras de Datos", number: 6 })
+Topic.create({ theme: @theme, number: "1", title: "Variables y Tipos de Datos Primitivos", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Operadores en Java", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Estructuras de Datos Básicas", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Conversión de Tipos y Casting", estimated_time: "20" })
+@theme = Theme.create({ program: @program, title: "El desarrollador Backend", number: 7 })
+Topic.create({ theme: @theme, number: "1", title: "¿Qué hace un backend?", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Estructuras de Control (Condicionales)", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Bucles (Ciclos Definidos e Indefinidos)", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Funciones (Modularidad y Reutilización)", estimated_time: "20" })
+@theme = Theme.create({ program: @program, title: "Programación Orientada a Objetos - Modelado de Datos (Java)", number: 8 })
+Topic.create({ theme: @theme, number: "1", title: "¿Qué es un modelo de datos?", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Atributos y clases en Java", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Relaciones entre modelos", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Buenas prácticas en modelado", estimated_time: "20" })
+@theme = Theme.create({ program: @program, title: "Bases de Datos Relacionales con SQLite (Java + Spring Boot)", number: 9 })
+Topic.create({ theme: @theme, number: "1", title: "¿Qué es una base de datos relacional?", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Creación de tablas con SQL", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Integración con Spring Boot", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Consultas básicas: SELECT, INSERT, UPDATE, DELETE", estimated_time: "20" })
+@theme = Theme.create({ program: @program, title: "El desarrollador FullStack", number: 10 })
+Topic.create({ theme: @theme, number: "1", title: "¿Qué hace un programador fullstack?", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Patrón MVC: Modelo-Vista-Controlador", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Implementar operaciones CRUD", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Validación de datos", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "5", title: "Enrutamiento y endpoints REST", estimated_time: "20" })
+@theme = Theme.create({ program: @program, title: "Javascript", number: 11 })
+Topic.create({ theme: @theme, number: "1", title: "Sintaxis y variables", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Interactividad: Eventos y DOM", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Visualización de datos", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Visualización dinámica de datos", estimated_time: "20" })
+@theme = Theme.create({ program: @program, title: "Visualización de Datos (Python)", number: 12 })
+Topic.create({ theme: @theme, number: "1", title: "¿Qué hace un cientifico de datos?", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "2", title: "Introducción a Python y entornos interactivos", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "3", title: "Librerías para visualización: matplotlib y seaborn", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "4", title: "Lectura de datos desde la API", estimated_time: "20" })
+Topic.create({ theme: @theme, number: "5", title: "Análisis visual simple", estimated_time: "20" })
 
-Theme.create([
-    { program: @program, number: 1,  title: "README: Especificaciones y configuración de ambiente", description: "En este módulo se presentan las especificaciones del curso y se configura el ambiente de trabajo. Se espera que los estudiantes instalen y configuren las herramientas necesarias para el desarrollo de software." },
-    { program: @program, number: 2,  title: "Fundamentos de Programación", description: "Este módulo introduce las bases del pensamiento lógico aplicado a la programación. A través de herramientas como pseudocódigo, diagramas de flujo y algoritmos, se establecen los fundamentos para resolver problemas de forma estructurada, sin necesidad de escribir código." },
-    { program: @program, number: 3,  title: "Arquitectura de Información", description: "En este módulo se presentan los conceptos básicos de la arquitectura de información, incluyendo wireframes, prototipos y mapas de sitio. Se espera que los estudiantes comprendan la importancia de la organización y presentación de la información en aplicaciones web." },
-    { program: @program, number: 4,  title: "HTML - Estructura", description: "Este módulo introduce los conceptos básicos de HTML, incluyendo la estructura de un documento HTML, etiquetas principales y atributos. Se espera que los estudiantes comprendan cómo se organiza y presenta la información en una página web." },
-    { program: @program, number: 5,  title: "CSS - Styling", description: "En este módulo se presentan los conceptos básicos de CSS, incluyendo selectores, propiedades y valores. Se espera que los estudiantes comprendan cómo se aplica el estilo a una página web y cómo se organiza la información visualmente." },    
-    { program: @program, number: 4,  title: "El desarrollador FrontEnd" },
-    { program: @program, number: 5,  title: "CSS - Styling" },
-    { program: @program, number: 6,  title: "Variables, Operadores y Estructuras de Datos" },
-    { program: @program, number: 7,  title: "El desarrollador Backend" },
-    { program: @program, number: 8,  title: "Programación Orientada a Objetos - Modelado de Datos (Java)" },
-    { program: @program, number: 9,  title: "Bases de Datos Relacionales con SQLite (Java + Spring Boot)" },
-    { program: @program, number: 10, title: "El desarrollador FullStack" },
-    { program: @program, number: 11, title: "Javascript" },
-    { program: @program, number: 12, title: "Visualización de Datos (Python)" }
-])
 
-# content_type
-# objective
-# exercises
-# homework
-# comments
-# reference_material
-# credits_and_sources
-
-@theme = Theme.find_by_number(1)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Qué es IT, generalidades de la programación" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Breviario Técnico: Arquitectura del Stack" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Instalación y Configuración de Ambientes" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Editores de Código e IDEs" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 5, estimated_time: 20, title: "Control de Versiones con Git" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(2)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Pensamiento computacional", objective: "Comprender cómo descomponer problemas y abordarlos de forma lógica." })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Algoritmos y lógica computacional", objective: "Entender la lógica secuencial y condicional para resolver problemas." })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Diagramas de flujo", objective: "Visualizar los pasos de un algoritmo mediante diagramas." })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Pseudocódigo", objective: "Expresar algoritmos con lenguaje simple, estructurado." })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(3)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué es y para qué sirve?" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Wireframes y prototipos" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Flujo de navegación" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Introducción a vistas / Mapas de sitio" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(4)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué es el frontend?" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Estructura básica de un documento HTML" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Etiquetas principales: títulos, párrafos, listas, tablas" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Enlaces e imágenes" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(5)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Sintaxis y selectores" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Colores, tipografía y espaciado" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Box model y layout" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Estilos responsive básicos" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(6)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Variables y Tipos de Datos Primitivos" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Operadores en Java" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Estructuras de Datos Básicas" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Conversión de Tipos y Casting" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(7)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué hace un backend?" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Estructuras de Control (Condicionales)" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Bucles (Ciclos Definidos e Indefinidos)" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Funciones (Modularidad y Reutilización)" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(8)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué es un modelo de datos?" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Atributos y clases en Java" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Relaciones entre modelos" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Buenas prácticas en modelado" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(9)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué es una base de datos relacional?" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Creación de tablas con SQL" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Integración con Spring Boot" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Consultas básicas: SELECT, INSERT, UPDATE, DELETE" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(10)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué hace un programador fullstack?" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Patrón MVC: Modelo-Vista-Controlador" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Implementar operaciones CRUD" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Validación de datos" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 5, estimated_time: 20, title: "Enrutamiento y endpoints REST" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(11)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Sintaxis y variables" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Interactividad: Eventos y DOM" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Visualización de datos" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Visualización dinámica de datos" })
-puts topic.errors.full_messages unless topic.valid?
-
-@theme = Theme.find_by_number(12)
-topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué hace un cientifico de datos?" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Introducción a Python y entornos interactivos" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Librerías para visualización: matplotlib y seaborn" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Lectura de datos desde la API" })
-puts topic.errors.full_messages unless topic.valid?
-topic = Topic.create({ theme: @theme, number: 5, estimated_time: 20, title: "Análisis visual simple" })
-puts topic.errors.full_messages unless topic.valid?
+# @program = Program.create(name: "IT Starter", description: "En este curso aprenderás el funcionamiento de los sistemas que facilitan el intercambio de información, la gestión de datos y su visualización. A través de un ejemplo práctico de la vida real podrás distinguir entre Frontend, Backend, Análisis de Datos y FullStack.", year: 2025, school: "EBAC")
+# 
+# Theme.create([
+    # { program: @program, number: 1,  title: "README: Especificaciones y configuración de ambiente", description: "En este módulo se presentan las especificaciones del curso y se configura el ambiente de trabajo. Se espera que los estudiantes instalen y configuren las herramientas necesarias para el desarrollo de software." },
+    # { program: @program, number: 2,  title: "Fundamentos de Programación", description: "Este módulo introduce las bases del pensamiento lógico aplicado a la programación. A través de herramientas como pseudocódigo, diagramas de flujo y algoritmos, se establecen los fundamentos para resolver problemas de forma estructurada, sin necesidad de escribir código." },
+    # { program: @program, number: 3,  title: "Arquitectura de Información", description: "En este módulo se presentan los conceptos básicos de la arquitectura de información, incluyendo wireframes, prototipos y mapas de sitio. Se espera que los estudiantes comprendan la importancia de la organización y presentación de la información en aplicaciones web." },
+    # { program: @program, number: 4,  title: "HTML - Estructura", description: "Este módulo introduce los conceptos básicos de HTML, incluyendo la estructura de un documento HTML, etiquetas principales y atributos. Se espera que los estudiantes comprendan cómo se organiza y presenta la información en una página web." },
+    # { program: @program, number: 5,  title: "CSS - Styling", description: "En este módulo se presentan los conceptos básicos de CSS, incluyendo selectores, propiedades y valores. Se espera que los estudiantes comprendan cómo se aplica el estilo a una página web y cómo se organiza la información visualmente." },    
+#     { program: @program, number: 4,  title: "El desarrollador FrontEnd" },
+#     { program: @program, number: 5,  title: "CSS - Styling" },
+#     { program: @program, number: 6,  title: "Variables, Operadores y Estructuras de Datos" },
+#     { program: @program, number: 7,  title: "El desarrollador Backend" },
+    # { program: @program, number: 8,  title: "Programación Orientada a Objetos - Modelado de Datos (Java)" },
+    # { program: @program, number: 9,  title: "Bases de Datos Relacionales con SQLite (Java + Spring Boot)" },
+#     { program: @program, number: 10, title: "El desarrollador FullStack" },
+#     { program: @program, number: 11, title: "Javascript" },
+#     { program: @program, number: 12, title: "Visualización de Datos (Python)" }
+# ])
+# 
+# # content_type
+# # objective
+# # exercises
+# # homework
+# # comments
+# # reference_material
+# # credits_and_sources
+# 
+# @theme = Theme.find_by_number(1)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Qué es IT, generalidades de la programación" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Breviario Técnico: Arquitectura del Stack" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Instalación y Configuración de Ambientes" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Editores de Código e IDEs" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 5, estimated_time: 20, title: "Control de Versiones con Git" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(2)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Pensamiento computacional", objective: "Comprender cómo descomponer problemas y abordarlos de forma lógica." })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Algoritmos y lógica computacional", objective: "Entender la lógica secuencial y condicional para resolver problemas." })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Diagramas de flujo", objective: "Visualizar los pasos de un algoritmo mediante diagramas." })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Pseudocódigo", objective: "Expresar algoritmos con lenguaje simple, estructurado." })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(3)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué es y para qué sirve?" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Wireframes y prototipos" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Flujo de navegación" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Introducción a vistas / Mapas de sitio" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(4)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué es el frontend?" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Estructura básica de un documento HTML" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Etiquetas principales: títulos, párrafos, listas, tablas" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Enlaces e imágenes" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(5)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Sintaxis y selectores" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Colores, tipografía y espaciado" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Box model y layout" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Estilos responsive básicos" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(6)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Variables y Tipos de Datos Primitivos" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Operadores en Java" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Estructuras de Datos Básicas" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Conversión de Tipos y Casting" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(7)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué hace un backend?" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Estructuras de Control (Condicionales)" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Bucles (Ciclos Definidos e Indefinidos)" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Funciones (Modularidad y Reutilización)" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(8)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué es un modelo de datos?" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Atributos y clases en Java" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Relaciones entre modelos" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Buenas prácticas en modelado" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(9)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué es una base de datos relacional?" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Creación de tablas con SQL" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Integración con Spring Boot" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Consultas básicas: SELECT, INSERT, UPDATE, DELETE" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(10)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué hace un programador fullstack?" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Patrón MVC: Modelo-Vista-Controlador" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Implementar operaciones CRUD" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Validación de datos" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 5, estimated_time: 20, title: "Enrutamiento y endpoints REST" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(11)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "Sintaxis y variables" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Interactividad: Eventos y DOM" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Visualización de datos" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Visualización dinámica de datos" })
+# puts topic.errors.full_messages unless topic.valid?
+# 
+# @theme = Theme.find_by_number(12)
+# topic = Topic.create({ theme: @theme, number: 1, estimated_time: 20, title: "¿Qué hace un cientifico de datos?" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 2, estimated_time: 20, title: "Introducción a Python y entornos interactivos" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 3, estimated_time: 20, title: "Librerías para visualización: matplotlib y seaborn" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 4, estimated_time: 20, title: "Lectura de datos desde la API" })
+# puts topic.errors.full_messages unless topic.valid?
+# topic = Topic.create({ theme: @theme, number: 5, estimated_time: 20, title: "Análisis visual simple" })
+# puts topic.errors.full_messages unless topic.valid?

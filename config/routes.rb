@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blocks
   
   devise_for :users, path: "", :sign_out_via => [ :get ]
   devise_scope :user do

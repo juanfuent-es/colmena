@@ -1,0 +1,39 @@
+<section class="w-full mx-auto">
+  <%= form_for [:admin, block], local: true do |f| %>
+    <%= render "shared/errors", object: block %>
+        
+    <div class="w-full">
+        <%= render "components/label", f: f, name: :title, text: t(:title), icon: "fas fa-text" %>
+        <%= render "components/input", f: f, input_type: :text_field, name: :title %>
+    </div>
+    
+        
+    <div class="w-full">
+        <%= render "components/label", f: f, name: :number, text: t(:number), icon: "fas fa-field" %>
+        <%= render "components/input", f: f, input_type: :number_field, name: :number %>
+    </div>
+    
+        
+    <div class="w-full">
+        <%= render "components/label", f: f, name: :block_type, text: t(:block_type), icon: "fas fa-text" %>
+        <%= render "components/input", f: f, input_type: :text_field, name: :block_type %>
+    </div>
+    
+        
+    <div class="w-full">
+        <%= render "components/label", f: f, name: :image, text: t(:image), icon: "fas fa-text" %>
+        <%= render "components/input", f: f, input_type: :text_field, name: :image %>
+    </div>
+    
+        
+    <div class="w-full">
+        <%= render "components/label", f: f, name: :description, text: t(:description), icon: "fas fa-align-left" %>
+        <%= render "components/input", f: f, input_type: :text_area, name: :description %>
+    </div>
+    
+    
+    <footer class="w-full flex justify-between mt-2">
+      <%= render "components/btn", text: t(:save), button_type: 'submit' %>
+    </footer>
+  <% end %>
+</section>
