@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :blocks
-  
+
   devise_for :users, path: "", :sign_out_via => [ :get ]
   devise_scope :user do
     get '/login', to: 'users/sessions#new'
@@ -13,13 +12,13 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'dashboard#index'
     
+    resources :blocks
     resources :programs do
       resources :themes do
         resources :topics
       end
     end
 
-    
     resources :quotations do
       member do
         get 'show', defaults: { format: 'html' }
@@ -32,7 +31,6 @@ Rails.application.routes.draw do
   resources :topics, only: [:show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

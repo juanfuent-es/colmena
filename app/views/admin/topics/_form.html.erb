@@ -73,6 +73,19 @@
             <%= render "components/input", f: f, input_type: :text_area, name: :credits_and_sources %>
         </div>
     </div>
+
+    <div class="w-full">
+        <header class="w-full">
+            <h2>Bloques de contenido</h2>
+        </header>
+        <div class="w-full">
+            <% idx = 0 %>
+            <%= form.fields_for :blocks do |block| %>
+            <%= render "admin/topics/block_fields", f: block, idx: idx %>
+            <% idx += 1 %>
+            <% end %>
+        </div>
+    </div>
     
     <footer class="w-full flex justify-between mt-2">
       <%= render "components/btn", text: t(:save), button_type: 'submit' %>
