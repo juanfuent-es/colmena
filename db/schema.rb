@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_05_09_053451) do
+ActiveRecord::Schema[7.2].define(version: 2025_05_17_175330) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "blocks", force: :cascade do |t|
+    t.uuid "topic_id", null: false
+    t.string "title", default: "", null: false
+    t.integer "number", default: 0, null: false
+    t.string "block_type", default: "", null: false
+    t.string "image", default: ""
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_blocks_on_topic_id"
+  end
 
   create_table "programs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -79,6 +91,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_09_053451) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "blocks", "topics"
   add_foreign_key "themes", "programs"
   add_foreign_key "topics", "themes"
 end

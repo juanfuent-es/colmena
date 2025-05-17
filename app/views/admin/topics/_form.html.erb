@@ -77,11 +77,14 @@
     <div class="w-full">
         <header class="w-full">
             <h2>Bloques de contenido</h2>
+            <div class="float-right">
+                <%= add_block_to_topic_link f, :blocks %>
+            </div>
         </header>
         <div class="w-full">
             <% idx = 0 %>
-            <%= form.fields_for :blocks do |block| %>
-            <%= render "admin/topics/block_fields", f: block, idx: idx %>
+            <%= f.fields_for :blocks do |block| %>
+                <%= render "admin/topics/block_fields", f: block, idx: idx %>
             <% idx += 1 %>
             <% end %>
         </div>

@@ -6,8 +6,8 @@ class Block < ApplicationRecord
   validates :title, presence: true
   validates :number, presence: true
   validates :description, presence: true
-
   validates :block_type, presence: true, inclusion: { in: BLOCK_TYPES }
+  # mount_uploader :image, ImageUploader
 
   def block_types
     BLOCK_TYPES

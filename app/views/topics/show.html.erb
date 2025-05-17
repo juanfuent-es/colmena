@@ -1,0 +1,19 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-controller="blocks" data-blocks-topic-id-value="<%= @topic.id %>">
+  <div class="bg-white shadow rounded-lg p-6 mb-6">
+    <h1 class="text-2xl font-bold text-gray-900 mb-4"><%= @topic.title %></h1>
+    <p class="text-gray-700"><%= @topic.description %></p>
+  </div>
+
+  <div class="bg-white shadow rounded-lg p-6">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-xl font-semibold text-gray-900">Bloques</h2>
+      <%= link_to "Agregar Bloque", new_topic_block_path(@topic), 
+          class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700",
+          data: { action: "blocks#addBlock" } %>
+    </div>
+
+    <div data-blocks-target="container">
+      <%= render partial: "blocks/block", collection: @topic.blocks.order(:number) %>
+    </div>
+  </div>
+</div> 

@@ -1,5 +1,7 @@
 class Topic < ApplicationRecord
   belongs_to :theme
+  has_many :blocks, dependent: :destroy
+  accepts_nested_attributes_for :blocks, allow_destroy: true
 
   enum content_type: {
     video_studio: "Video (Studio)",
