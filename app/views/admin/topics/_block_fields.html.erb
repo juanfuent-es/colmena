@@ -1,35 +1,35 @@
-<div id="topic-block-<%= idx %>" class="w-full">
-    <div class="w-1/7">
-        <div class="row">
-            <div class="w-1/5">
+<div id="topic-block-<%= idx %>" class="w-full flex gap-2">
+    <div class="w-7/12 flex flex-col gap-2">
+        <div class="w-full flex gap-2 items-end">
+            <div class="w-5/12">
                 <%= render "components/label", f: f, name: :title, text: t(:title), icon: "fas fa-text" %>
                 <%= render "components/input", f: f, input_type: :text_field, name: :title %>
             </div>
-            <div class="w-1/5">
+            <div class="w-5/12">
                 <%= render "components/label", f: f, name: :block_type, text: t(:block_type), icon: "fas fa-text" %>
-                <%= f.select :block_type, Block::BLOCK_TYPES.map { |type| [type.titleize, type] }, {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
+                <%= render "components/select", f: f, attr: :block_type, options: Block::BLOCK_TYPES %>
+                
             </div>
-            <div class="w-1/2">
+            <div class="w-2/12">
                 <%= f.label :_destroy do %>
-                    <p><small class="one-line">Eliminar</small></p>
-                    <div class="form-control form-control-sm text-sm btn btn-danger remove-asset" data-target="#log-page-<%= idx %>">
+                    <div class="flex w-full items-center justify-center gap-3 bg-white px-3 py-2 text-sm font-semibold text-blue shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus-visible:ring-transparent cursor-pointer" data-target="#topic-block-<%= idx %>">
                         <%= f.check_box :_destroy, class: "sr-only" %>
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </div>
                 <% end %>
             </div>
-            <div class="w-1/12">
-                <%= render "components/label", f: f, name: :description, text: t(:description), icon: "fas fa-align-left" %>
-                <div class="editor-container text-black text-sm">
-                    <%= render "components/input", f: f, input_type: :text_area, name: :description %>
-                </div>
+        </div>
+        <div class="w-full ">
+            <%= render "components/label", f: f, name: :description, text: t(:description), icon: "fas fa-align-left" %>
+            <div class="editor-container text-black text-sm">
+                <%= render "components/input", f: f, input_type: :text_area, name: :description %>
             </div>
         </div>
     </div>
-    <div class="w-1/5 text-center">
+    <div class="w-5/12 text-center">
         <%= f.label :image do %>
-            <img src="<%= f.object.image %>" id="topic-block-<%= idx %>" style="height: 220px; width: 100%; object-fit: contain;">
-            <%= f.file_field :image, class: "form-control form-control-sm text-sm", data: { target: "#topic-block-#{idx}" }, accept: "image/*" %>
+            <img src="<%= f.object.image %>" id="topic-block-img-<%= idx %>" style="height: 220px; width: 100%; object-fit: contain;">
+            <%= f.file_field :image, class: "form-control form-control-sm text-sm", data: { target: "#topic-block-img-#{idx}" }, accept: "image/*" %>
         <% end %>
     </div>
 </div>

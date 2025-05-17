@@ -22,9 +22,13 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
-# 
 gem "tailwindcss-rails", "~> 4.0"
 
+gem 'mini_magick'
+gem 'rmagick'
+
+gem 'carrierwave'
+gem 'carrierwave-imageoptimizer'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

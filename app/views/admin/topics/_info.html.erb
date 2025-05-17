@@ -1,0 +1,16 @@
+<div class="flex gap-4">
+    <div class="w-8/12">
+        <%= render "components/label", f: f, name: :title, text: t(:title), icon: "fas fa-text" %>
+        <%= render "components/input", f: f, input_type: :text_field, name: :title %>
+    </div>
+    
+    <div class="w-2/12">
+        <%= render "components/label", f: f, name: :estimated_time, text: t(:estimated_time), icon: "fas fa-field" %>
+        <%= render "components/input", f: f, input_type: :number_field, name: :estimated_time %>
+    </div>
+    
+    <div class="w-2/12">
+        <%= render "components/label", f: f, name: :content_type, text: t(:content_type), icon: "fas fa-text" %>
+        <%= render "components/select", f: f, attr: :content_type, options: Topic::CONTENT_TYPES %>
+    </div>
+</div>

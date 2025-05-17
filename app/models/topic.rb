@@ -3,7 +3,7 @@ class Topic < ApplicationRecord
   has_many :blocks, dependent: :destroy
   accepts_nested_attributes_for :blocks, allow_destroy: true
 
-  enum content_type: {
+  CONTENT_TYPES = {
     video_studio: "Video (Studio)",
     screencast: "Screencast",
     pdf_ppt: "PDF PPT",
@@ -13,12 +13,10 @@ class Topic < ApplicationRecord
     na: "N/A",
     video_screencast: "Video/Screencast",
     video_grabado: "Video ya grabado"
-  }
+  }.freeze
+
+  enum content_type: CONTENT_TYPES.keys
 
   # validates :content_type, inclusion: { in: content_types.keys }
-
-  def generate_pdf
-    TopicPdfGenerator.new(self).generate
-  end
 
 end

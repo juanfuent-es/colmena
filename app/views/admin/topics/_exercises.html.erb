@@ -1,0 +1,15 @@
+<div class="grid grid-cols-2 gap-4">
+    <div class="w-full">
+        <%= render "components/label", f: f, name: :exercises, text: t(:exercises), icon: "fas fa-align-left" %>
+        <div class="editor-container text-black text-sm">
+            <%= render "components/input", f: f, input_type: :text_area, name: :exercises %>
+        </div>
+    </div>
+        
+    <div class="w-full">
+        <%= render "components/label", f: f, name: :homework, text: t(:homework), icon: "fas fa-align-left" %>
+        <div class="editor-container text-black text-sm">
+            <%= render "components/input", f: f, input_type: :text_area, name: :homework %>
+        </div>
+    </div>
+</div>

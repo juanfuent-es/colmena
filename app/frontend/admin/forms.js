@@ -1,6 +1,8 @@
+import Topic from './views/topic'
 import Editor from './text-editor'
 export default class Forms {
     constructor() {
+        this.topic = new Topic()
         this.events()
         this.setEditors()
         this.plugins()

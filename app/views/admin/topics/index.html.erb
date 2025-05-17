@@ -30,8 +30,8 @@
           <td><%= topic.number %></td>
           <td class=" p-2">
             <%= link_to edit_admin_program_theme_topic_path(@program, @theme, topic), class: "" do %>
-              <%= topic.number %> - <%= topic.title %>
-              <small class="block text-white/60 mt-1"><%= topic.objective.try(:html_safe) %></small>
+              <%= topic.title %>
+              <small class="block text-white/60 mt-1"><%= topic.objective.html_safe %></small>
             <% end %>
           </td>
           <td class='text-center text-xs'>

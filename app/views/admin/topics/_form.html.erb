@@ -3,94 +3,29 @@
     <%= render "shared/errors", object: topic %>
         
     <%= f.hidden_field :theme_id %>
-        
-    <div class="flex gap-4">
-        <div class="w-8/12">
-            <%= render "components/label", f: f, name: :title, text: t(:title), icon: "fas fa-text" %>
-            <%= render "components/input", f: f, input_type: :text_field, name: :title %>
-        </div>
-        
-        <div class="w-2/12">
-            <%= render "components/label", f: f, name: :estimated_time, text: t(:estimated_time), icon: "fas fa-field" %>
-            <%= render "components/input", f: f, input_type: :number_field, name: :estimated_time %>
-        </div>
-        
-        <div class="w-2/12">
-            <%= render "components/label", f: f, name: :content_type, text: t(:content_type), icon: "fas fa-text" %>
-            <%= f.select :content_type, Topic.content_types.keys.map { |key| [Topic.content_types[key], key] }, {}, class: "block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" %>
-        </div>
-    </div>
 
-    <div class="grid grid-cols-2 gap-4">
-        <div class="w-full">
-            <%= render "components/label", f: f, name: :objective, text: t(:objective), icon: "fas fa-align-left" %>
-            <div class="editor-container text-black text-sm">
-                <%= render "components/input", f: f, input_type: :text_area, name: :objective %>
-            </div>
+    <header class="border-b border-light/40">
+        <div class="sm:flex sm:items-baseline">
+          <nav class="-mb-px flex space-x-8 text-xs uppercase">
+            <a href="#topic-info"         class="tab-link active">Información</a>
+            <a href="#topic-content"      class="tab-link">Contenido</a>
+            <a href="#topic-blocks"       class="tab-link">Bloques</a>
+            <a href="#topic-exercises"    class="tab-link">Ejercicios</a>
+            <a href="#topic-references"   class="tab-link">Referencias</a>
+          </nav>
         </div>
-        <div class="w-full">
-            <%= render "components/label", f: f, name: :presentation, text: "Introducción", icon: "fas fa-align-left" %>
-            <div class="big-editor editor-container text-black text-sm">
-                <%= render "components/input", f: f, input_type: :text_area, name: :presentation %>
-            </div>
-        </div>
+      </header>
+  
+    <div class="tab-content ">
+        <div class="tab w-full"        id="topic-info">   <%= render "admin/topics/info",       topic: topic, f: f %>   </div>
+        <div class="tab w-full hidden" id="topic-content"><%= render "admin/topics/content",       topic: topic, f: f %></div>
+        <div class="tab w-full hidden" id="topic-blocks"> <%= render "admin/topics/blocks",       topic: topic, f: f %></div>
+        <div class="tab w-full hidden" id="topic-exercises"> <%= render "admin/topics/exercises",    topic: topic, f: f %></div>
+        <div class="tab w-full hidden" id="topic-references"> <%= render "admin/topics/references",    topic: topic, f: f %></div>
     </div>
     
-    <div class="w-full">
-        <%= render "components/label", f: f, name: :comments, text: t(:comments), icon: "fas fa-align-left" %>
-        <div class="editor-container text-black text-sm">
-            <%= render "components/input", f: f, input_type: :text_area, name: :comments %>
-        </div>
-    </div>
-        
-    <div class="grid grid-cols-2 gap-4">
-        <div class="w-full">
-            <%= render "components/label", f: f, name: :exercises, text: t(:exercises), icon: "fas fa-align-left" %>
-            <div class="editor-container text-black text-sm">
-                <%= render "components/input", f: f, input_type: :text_area, name: :exercises %>
-            </div>
-        </div>
-            
-        <div class="w-full">
-            <%= render "components/label", f: f, name: :homework, text: t(:homework), icon: "fas fa-align-left" %>
-            <div class="editor-container text-black text-sm">
-                <%= render "components/input", f: f, input_type: :text_area, name: :homework %>
-            </div>
-        </div>
-    </div>
     
-    <div class="grid grid-cols-2 gap-4">
-        <div class="w-full">
-        <%= render "components/label", f: f, name: :reference_material, text: t(:reference_material), icon: "fas fa-align-left" %>
-        <div class="editor-container text-black text-sm">
-            <%= render "components/input", f: f, input_type: :text_area, name: :reference_material %>
-        </div>
-    </div>
-    
-    <div class="w-full">
-        <%= render "components/label", f: f, name: :credits_and_sources, text: t(:credits_and_sources), icon: "fas fa-align-left" %>
-        <div class="editor-container text-black text-sm">
-            <%= render "components/input", f: f, input_type: :text_area, name: :credits_and_sources %>
-        </div>
-    </div>
-
-    <div class="w-full">
-        <header class="w-full">
-            <h2>Bloques de contenido</h2>
-            <div class="float-right">
-                <%= add_block_to_topic_link f, :blocks %>
-            </div>
-        </header>
-        <div class="w-full">
-            <% idx = 0 %>
-            <%= f.fields_for :blocks do |block| %>
-                <%= render "admin/topics/block_fields", f: block, idx: idx %>
-            <% idx += 1 %>
-            <% end %>
-        </div>
-    </div>
-    
-    <footer class="w-full flex justify-between mt-2">
+    <footer class="w-full text-right sticky left-0 bottom-0 bg-black py-2 px-4 z-30 flex items-center justify-between border-t border-dark-800/50">
       <%= render "components/btn", text: t(:save), button_type: 'submit' %>
     </footer>
 

@@ -1,0 +1,23 @@
+<section class="w-full">
+    <div class="grid grid-cols-2 gap-4">
+        <div class="w-full">
+            <%= render "components/label", f: f, name: :objective, text: t(:objective), icon: "fas fa-align-left" %>
+            <div class="editor-container text-black text-sm">
+                <%= render "components/input", f: f, input_type: :text_area, name: :objective %>
+            </div>
+        </div>
+        <div class="w-full">
+            <%= render "components/label", f: f, name: :presentation, text: "Introducción", icon: "fas fa-align-left" %>
+            <div class="big-editor editor-container text-black text-sm">
+                <%= render "components/input", f: f, input_type: :text_area, name: :presentation %>
+            </div>
+        </div>
+    </div>
+    
+    <div class="w-full">
+        <%= render "components/label", f: f, name: :comments, text: t(:comments), icon: "fas fa-align-left" %>
+        <div class="editor-container text-black text-sm">
+            <%= render "components/input", f: f, input_type: :text_area, name: :comments %>
+        </div>
+    </div>
+</section>

@@ -1,5 +1,8 @@
 es:
   new: Nuev@
+  title: Título
+  block_type: Tipo
+  description: Descripción
   edit: Editar
   editing: Editando
   quotation: Cotización

@@ -1,0 +1,12 @@
+<div class="w-full">
+    <header class="w-full flex justify-end py-2">
+        <%= add_block_to_topic_link f, :blocks %>
+    </header>
+    <div class="w-full" id="topic-blocks-container">
+        <% idx = 0 %>
+        <%= f.fields_for :blocks do |block| %>
+            <%= render "admin/topics/block_fields", f: block, idx: idx %>
+        <% idx += 1 %>
+        <% end %>
+    </div>
+</div>

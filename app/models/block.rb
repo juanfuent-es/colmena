@@ -1,16 +1,18 @@
 class Block < ApplicationRecord
-  BLOCK_TYPES = %w[text image]
+  BLOCK_TYPES = {
+    img: "Imagen",
+    text: "Texto"
+  }.freeze
 
-  belongs_to :topic
-
+  enum block_type: BLOCK_TYPES.keys
+  
   validates :title, presence: true
   validates :number, presence: true
   validates :description, presence: true
-  validates :block_type, presence: true, inclusion: { in: BLOCK_TYPES }
-  # mount_uploader :image, ImageUploader
-
-  def block_types
-    BLOCK_TYPES
-  end
+  validates :block_type, presence: true, inclusion: { in: block_types.keys }
+  # relations  
+  belongs_to :topic
+  # uploaders
+  mount_uploader :image, ImageUploader
 
 end
