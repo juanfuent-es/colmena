@@ -9,7 +9,7 @@ export default class Forms {
         this.sortable()
         this.setEditors()
         this.selectize()
-        document.querySelectorAll('.uploader-container)').forEach(container => new Uploader(container))
+        document.querySelectorAll('.uploader-container').forEach(container => new Uploader(container))
     }
 
     sortable() {

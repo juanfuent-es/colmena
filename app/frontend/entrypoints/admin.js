@@ -20,7 +20,6 @@ class Admin {
         //
         this.menu = new Menu()
         this.forms = new Forms()
-        this.sortable()
         //
         document.querySelectorAll('.alert').forEach(item => new Alert(item))
     }
