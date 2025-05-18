@@ -65,6 +65,6 @@ class Admin::TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:theme_id,:number,:title,:estimated_time,:content_type,:objective,:exercises,:homework,:comments,:reference_material,:credits_and_sources, :presentation)
+    params.require(:topic).permit(:theme_id,:number,:title,:estimated_time,:content_type,:objective,:exercises,:homework,:comments,:reference_material,:credits_and_sources, :presentation, blocks_attributes: [:id, :title, :description, :image, :block_type, :_destroy])
   end
 end

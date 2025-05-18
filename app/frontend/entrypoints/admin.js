@@ -23,25 +23,6 @@ class Admin {
         this.sortable()
         //
         document.querySelectorAll('.alert').forEach(item => new Alert(item))
-        document.querySelectorAll('.uploader-container:not(.is-video)').forEach(container => new Uploader(container))
-        document.querySelectorAll('.uploader-container.is-video').forEach(container => new VideoUploader(container))
-    }
-
-    sortable() {
-        $(".sortable").sortable({
-			update: function() {
-                let ids = []
-                $(this).children("[data-id]").each((idx, el) => {
-                    ids.push($(el).data("id"))
-                })
-                $.ajax({
-                    url: $(this).data("url"),
-                    data: {
-                        ids: ids.join("_")
-                    }
-                })
-            }
-		})
     }
 
     loaded() {

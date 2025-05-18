@@ -28,11 +28,14 @@
 }
 
 @layer components {
-    /* forms */
-    .admin-input {
-        @apply block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6;
+    .input {
+        @apply block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-yellow-600 sm:text-sm/6;
     }
-
+    .button {
+        @apply block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-yellow-600 sm:text-sm/6;
+        @apply cursor-pointer md:hover:bg-black md:hover:text-light;
+    }
+    /* forms */
     .tab-link {
         @apply border-b-2 border-transparent px-1 pb-2 font-medium hover:text-light hover:border-light;
     }
@@ -42,5 +45,5 @@
 }
 
 @layer utilities {
-
+    
 }

@@ -1,0 +1,27 @@
+
+<!-- 
+container = .uploader-container
+    preview = container.querySelector('.uploader-preview')
+    preview_id = container.querySelector('.uploader-id') # se almacenará el id de la imagen que returna el servicio de carga. @see: app/services/image_upload_service.rb
+#buttons
+    fileInput = container.querySelector('.uploader-input')
+    #progress
+    progressBar = container.querySelector('.uploader-progress')
+@see: app/javascript/components/uploader.js
+-->
+
+<%= f.label :preview, class: "uploader-container w-full card group relative text-light overflow-hidden md:hover:unplugged mx-auto cursor-pointer block text-xs", data: { attr: 'preview', url: '/switchboard/previews' } do %>
+    <%= f.file_field :preview, class: "uploader-input sr-only", accept: "video/mp4" %>
+    <!-- 
+    * El markup de este parcial es similar a los modelos 'Preview', 'Image', 'Video', 'OgImage'
+    * sólo cambia el 'preview_id', en este caso responde al modelo 'preview', coincidente con la misma forma
+    * repetir la operación de parciales con los demás modelos multimedia
+    -->
+    <%= f.text_field :preview_id, class: "uploader-id sr-only" %>
+    <% src = object.present? ? object.file.url(:small) : "/static/not-found.mp4" %>
+    <div class="uploader-progress bg-light h-1.5 w-0 left-0 absolute bottom-0"></div>
+    <video src="<%= src %>" data-src="<%= src %>" class="uploader-preview opacity-40 md:group-hover:opacity-80 md:group-hover:scale-105 w-full h-auto transition-all aspect-video object-cover object-center" autoplay playsinline muted loop></video>
+    <img src="/static/spaceboy-logo.svg" alt="Spaceboy Logo" class="uploader-loader w-12 inline absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <small class="absolute right-0 top-0 text-right p-4 opacity-60 md:group-hover:opacity-100 transition-opacity normal-case">1920x1080*.MP4 <br><span class="text-green uppercase">Encoder: H.264 (x264)</span></small>
+    <small class="block"><span class="uploader-percent text-green"></span> Preview <span class="text-light-700">3-5 segundos</span></small>
+<% end %>

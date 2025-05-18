@@ -4,14 +4,31 @@ export default class Forms {
     constructor() {
         this.topic = new Topic()
         this.events()
+        this.sortable()
         this.setEditors()
-        this.plugins()
+        this.selectize()
+    }
+
+    sortable() {
+        $(".sortable").sortable({
+			update: function() {
+                let ids = []
+                $(this).children("[data-id]").each((idx, el) => {
+                    ids.push($(el).data("id"))
+                })
+                $.ajax({
+                    url: $(this).data("url"),
+                    data: {
+                        ids: ids.join("_")
+                    }
+                })
+            }
+		})
     }
 
     setEditors() {
         this.editors = []
         let editors = document.querySelectorAll('.editor-container')
-        console.log("editors", editors)
         editors.forEach((editor) => {
             this.editors.push(new Editor(editor))
         })
@@ -21,7 +38,7 @@ export default class Forms {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(" ", "-")
     }
 
-    plugins() {
+    selectize() {
         $('.selectize').selectize({
             create: true,
             sortField: "text"
@@ -29,6 +46,11 @@ export default class Forms {
     }
 
     events() {
+        $(document).on("click", ".remove-block", (e) => {
+            let target = $(e.target).data("target")
+            $(target).hide()
+            $(target + " [required]").removeAttr("required")
+        })
         $(document).on("change", '.input-file', (el) => {
             const [file] = $(el.target)[0].files
             let target = $(el.target).data("target")

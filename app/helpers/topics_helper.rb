@@ -15,7 +15,7 @@ module TopicsHelper
 		
 		link_to("Nuevo Bloque", '#', 
 			id: "add-topic-block-btn", 
-			class: "px-3 py-1.5 text-sm font-semibold text-white focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-600 ring-light cursor-pointer", 
+			class: "px-3 py-1.5 text-sm font-semibold text-white focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-yellow-600 ring-light cursor-pointer", 
 			data: { 
 				id: id, 
 				fields: sanitized_fields 

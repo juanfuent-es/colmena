@@ -12,7 +12,7 @@
             </div>
             <div class="w-2/12">
                 <%= f.label :_destroy do %>
-                    <div class="flex w-full items-center justify-center gap-3 bg-white px-3 py-2 text-sm font-semibold text-blue shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus-visible:ring-transparent cursor-pointer" data-target="#topic-block-<%= idx %>">
+                    <div class="button remove-block text-center" data-target="#topic-block-<%= idx %>">
                         <%= f.check_box :_destroy, class: "sr-only" %>
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </div>

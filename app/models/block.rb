@@ -11,8 +11,7 @@ class Block < ApplicationRecord
   validates :description, presence: true
   validates :block_type, presence: true, inclusion: { in: block_types.keys }
   # relations  
-  belongs_to :topic
-  # uploaders
-  mount_uploader :image, ImageUploader
+  belongs_to :topic, optional: false
+  belongs_to :image, optional: true
 
 end

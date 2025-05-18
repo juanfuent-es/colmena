@@ -3,17 +3,17 @@
     <div class="grid grid-cols-1 gap-4">
       <div>
         <%= f.label :title, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.text_field :title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
+        <%= f.text_field :title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring-yellow-500" %>
       </div>
 
       <div>
         <%= f.label :block_type, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.select :block_type, Block::BLOCK_TYPES.map { |type| [type.titleize, type] }, {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
+        <%= f.select :block_type, Block::BLOCK_TYPES.map { |type| [type.titleize, type] }, {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring-yellow-500" %>
       </div>
 
       <div>
         <%= f.label :description, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.text_area :description, rows: 4, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
+        <%= f.text_area :description, rows: 4, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring-yellow-500" %>
       </div>
 
       <%= f.hidden_field :number %>
@@ -22,7 +22,7 @@
         <% if block.persisted? %>
           <%= link_to "Cancelar", "#", class: "inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50", data: { action: "blocks#cancelEdit" } %>
         <% end %>
-        <%= f.submit block.persisted? ? "Actualizar" : "Crear", class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" %>
+        <%= f.submit block.persisted? ? "Actualizar" : "Crear", class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700" %>
       </div>
     </div>
   </div>
