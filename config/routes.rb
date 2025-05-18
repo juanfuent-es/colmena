@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/' => 'dashboard#index'
     
     resources :blocks
+    resources :images
     resources :programs do
       resources :themes do
         resources :topics

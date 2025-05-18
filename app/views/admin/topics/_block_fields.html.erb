@@ -27,9 +27,6 @@
         </div>
     </div>
     <div class="w-5/12 text-center">
-        <%= f.label :image do %>
-            <img src="<%= f.object.image %>" id="topic-block-img-<%= idx %>" style="height: 220px; width: 100%; object-fit: contain;">
-            <%= f.file_field :image, class: "form-control form-control-sm text-sm", data: { target: "#topic-block-img-#{idx}" }, accept: "image/*" %>
-        <% end %>
+        <%= render "admin/images/new", f: f, object: f.object.image %>
     </div>
 </div>

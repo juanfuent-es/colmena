@@ -1,5 +1,7 @@
 import Topic from './views/topic'
 import Editor from './text-editor'
+import Uploader from './uploader'
+
 export default class Forms {
     constructor() {
         this.topic = new Topic()
@@ -7,6 +9,7 @@ export default class Forms {
         this.sortable()
         this.setEditors()
         this.selectize()
+        document.querySelectorAll('.uploader-container)').forEach(container => new Uploader(container))
     }
 
     sortable() {

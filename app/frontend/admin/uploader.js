@@ -9,7 +9,7 @@ export default class Uploader {
         this.percent = this.container.querySelector('.uploader-percent')
         this.defaultURL = "/static/not-found.png";
         this.attr = this.container.dataset.attr || 'image'
-        this.url = this.container.dataset.url || '/switchboard/previews'
+        this.url = this.container.dataset.url || '/admin/images'
 
         this.initEvents()
     }

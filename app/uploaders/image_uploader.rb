@@ -33,7 +33,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   end
 
-  version :thumb, from_version: :mobile do 
+  version :small, from_version: :medium do 
     process resize_to_limit: [800, 420]
     process optimize: [{ quality: 85, quiet: true }]
     def full_filename (for_file = model.source.file)
