@@ -23,11 +23,11 @@
         <tr>
           <td>
             <%= link_to edit_admin_program_url(program), class: "" do %>
-              <%= program.name %>
+              <%= program.title %>
             <% end %>
           </td>
           <td class="text-sm py-2 text-center">
-            <%= render "components/link", href: admin_program_themes_path(program), text: "#{program.themes.count} clases", icon: "fa-solid fa-book-open" %>
+            <%= render "components/link", href: admin_program_themes_path(program), text: "#{program.themes.count} Clase#{program.themes.count != 1 ? 's' : ''}", icon: "fa-solid fa-book-open" %>
           </td>
           <td class='text-center'>
             <%= link_to admin_program_path(program), method: :delete, class: "btn danger" , data: {

@@ -1,4 +1,5 @@
 class Page < ApplicationRecord
+  belongs_to :user
   has_many :blocks, as: :blockable, dependent: :destroy
   has_many :visits, as: :visitable, dependent: :destroy
   

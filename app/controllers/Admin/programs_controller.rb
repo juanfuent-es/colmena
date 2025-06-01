@@ -17,7 +17,7 @@ class Admin::ProgramsController < ApplicationController
 
   # GET /programs/new
   def new
-    @program = Program.new
+    @program = Program.new(user: current_user)
   end
 
   # GET /programs/1/edit
@@ -27,7 +27,7 @@ class Admin::ProgramsController < ApplicationController
   # POST /programs
   def create
     @program = Program.new(program_params)
-
+    @program.user = current_user
     if @program.save
       redirect_to admin_programs_url, notice: "El Programa ha sido creado."
     else
@@ -58,6 +58,6 @@ class Admin::ProgramsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def program_params
-      params.require(:program).permit(:name, :description, :year, :school, :url)
+      params.require(:program).permit(:title, :description, :year, :objective)
     end
 end

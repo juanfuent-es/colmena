@@ -15,7 +15,7 @@ class ProgramsTest < ApplicationSystemTestCase
     click_on "New program"
 
     fill_in "Description", with: @program.description
-    fill_in "Name", with: @program.name
+    fill_in "Name", with: @program.title
     fill_in "School", with: @program.school
     fill_in "Url", with: @program.url
     fill_in "Year", with: @program.year
@@ -30,7 +30,7 @@ class ProgramsTest < ApplicationSystemTestCase
     click_on "Edit this program", match: :first
 
     fill_in "Description", with: @program.description
-    fill_in "Name", with: @program.name
+    fill_in "Name", with: @program.title
     fill_in "School", with: @program.school
     fill_in "Url", with: @program.url
     fill_in "Year", with: @program.year

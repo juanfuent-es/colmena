@@ -20,12 +20,6 @@ module VisitorHelper
 	def register_visit(record)
 	  visit = Visit.where(visitor: current_visitor, visitable: record).first_or_create!
 	  visit.update(counter: visit.counter + 1)
-	  update_total_views(record)
-	end
-  
-	def update_total_views(record)
-	  views = record.visits.sum(:counter)
-	  record.update(total_views: views)
 	end
   
 end

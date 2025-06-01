@@ -5,13 +5,12 @@ class CreatePrograms < ActiveRecord::Migration[7.2]
     enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
 
     create_table :programs do |t|
-      t.string :name, default: "", null: false
       t.integer :number, default: 0, null: false
-      t.integer :total_views,    null: false, default: 0
+      t.string :title, default: "", null: false
+      t.text :objective
       t.text :description
       t.integer :year, default: Date.today.year, null: false
-      t.string :school, default: ""
-      t.string :url, default: ""
+      t.references :user, null: false, foreign_key: true
     end
 
     create_table :themes do |t|

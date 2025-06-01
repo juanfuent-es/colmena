@@ -4,10 +4,9 @@
   <div class="sm:flex-auto">
     <h1 class="leading-6 text-xl font-medium"><%= t(:themes) %> <sup><%= Theme.all.count %></sup></h1>
   </div>
-  <nav class="my-4 sm:flex-none">
-    <%= link_to new_admin_program_theme_path(@program), class: 'btn-sm' do %>
-      <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:theme)}" %>
-    <% end %>
+  <nav class="text-sm flex gap-4">
+    <%= render "components/link", href: admin_program_path(@program), text: "Regresar", icon: "fa-solid fa-arrow-left" %>
+    <%= render "components/link", href: new_admin_program_theme_path(@program), text: "Módulo", icon: "fa-solid fa-plus" %>
   </nav>
 </header>
 <!-- filepath: /home/fc/colmena/app/views/admin/themes/index.html.erb -->

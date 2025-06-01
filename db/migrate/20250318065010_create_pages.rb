@@ -4,7 +4,6 @@ class CreatePages < ActiveRecord::Migration[7.0]
     
     enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
     create_table :pages do |t|
-      t.integer :total_views,    null: false, default: 0
       t.integer :number,         null: false, default: 0
       t.string :lang,            null: false, default: "es"
       t.string :slug,            null: false, default: ""

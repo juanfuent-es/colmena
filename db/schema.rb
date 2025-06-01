@@ -42,7 +42,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_09_053451) do
   end
 
   create_table "pages", force: :cascade do |t|
-    t.integer "total_views", default: 0, null: false
     t.integer "number", default: 0, null: false
     t.string "lang", default: "es", null: false
     t.string "slug", default: "", null: false
@@ -62,13 +61,13 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_09_053451) do
   end
 
   create_table "programs", force: :cascade do |t|
-    t.string "name", default: "", null: false
     t.integer "number", default: 0, null: false
-    t.integer "total_views", default: 0, null: false
+    t.string "title", default: "", null: false
+    t.text "objective"
     t.text "description"
     t.integer "year", default: 2025, null: false
-    t.string "school", default: ""
-    t.string "url", default: ""
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_programs_on_user_id"
   end
 
   create_table "quotations", force: :cascade do |t|
@@ -144,6 +143,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_09_053451) do
 
   add_foreign_key "blocks", "images"
   add_foreign_key "pages", "users"
+  add_foreign_key "programs", "users"
   add_foreign_key "themes", "programs"
   add_foreign_key "topics", "themes"
   add_foreign_key "visits", "visitors"
