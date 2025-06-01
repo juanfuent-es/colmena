@@ -1,0 +1,13 @@
+<div class="grid grid-cols-2 gap-4 border border-dark-800 bg-primary-900/10 p-4">
+  <%= object.hidden_field :category %>
+  <div class="">
+    <%= object.label :youtube_id, class: "m-0 p-0 cursor-pointer", aria: { label: "El ID del video es lo que sigue después del signo '=' en el enlace de YouTube. Ej: 'https://youtube.com/watch?v=jytOXjKWMHI', YoutubeID: jytOXjKWMHI " }, data: { balloon_pos: "up", balloon_length: "xlarge" } do %>
+    Youtube ID <i class="fa-solid fa-circle-info"></i>
+    <% end %>
+    <%= object.text_field :youtube_id, placeholder: "Ej: X4EU59EITcI", required: true %>
+  </div>
+  <div class="">
+    <%= object.label :duration, "Duración. *Formato: MIN:SEC", class: "m-0 p-0" %>
+    <%= object.text_field :duration, placeholder: "00:00", required: true %>
+  </div>
+</div>

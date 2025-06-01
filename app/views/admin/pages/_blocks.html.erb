@@ -1,0 +1,17 @@
+<div class="card">
+  <header class="flex flex-col sm:flex-row justify-between space-y-2 pb-4">
+    <h2 class="neue-haas text-2xl text-blue-800">Contenido Adicional</h2>
+    <ul class="float-right flex space-x-2 text-right">
+      <%= add_page_block(f, "text") %>  
+      <%= add_page_block(f, "img") %>
+      <%= add_page_block(f, "video") %>
+    </ul>
+  </header>
+  <aside class="w-full inline-block space-y-4" id="page-blocks-container">
+    <% idx = 0 %>
+    <%= f.fields_for :blocks do |block|  %>
+    <%= render "admin/pages/#{block.object.category}_fields", object: block, idx: idx %>
+    <% idx += 1 %>
+    <% end %>
+  </aside>
+</div>

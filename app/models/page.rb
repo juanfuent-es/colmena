@@ -5,8 +5,18 @@ class Page < ApplicationRecord
   
   validates :title, presence: true
   validates :slug, presence: true, uniqueness: true
-  
+  validates :category, presence: true
   before_validation :set_slug, on: :create
+
+  mount_uploader :og_image, OgUploader
+
+  def total_views
+    visits.count
+  end
+
+  def full_url
+    "#{Rails.application.credentials.app_domain}/#{slug}"
+  end
   
   private
   

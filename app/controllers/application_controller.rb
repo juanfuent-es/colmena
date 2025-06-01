@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 	private
 
 	def require_visit_registration
-		@domain = ENV.fetch('domain') { "https://spaceboy.studio" }
+		@domain = ENV.fetch('domain') { "https://juanfuent.es" }
 		unless visitor_logged?
 			visitor_login(request.remote_ip)
 		end

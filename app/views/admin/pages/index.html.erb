@@ -1,0 +1,19 @@
+<% provide(:title, "Páginas") %>
+<!-- #header -->
+<header class="flex items-center justify-between border-b border-white/5 px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
+  <!-- Sort dropdown -->
+  <% if params[:category] == 'errors' %>
+    <h1 class="leading-6 text-xl font-medium">Errores de Sistema</h1>
+  <% else %>
+    <h1 class="leading-6 text-xl font-medium"><span class="text-red"><%= @pages.count %> </span> Páginas <sup><%= t(params[:category].to_sym) if params[:category] %></sup></h1>
+    <nav class="flex gap-4 text-sm">
+      <%= render "components/link", text: "Crear Página", href: new_admin_page_path(category: params[:category]), icon: "fa-solid fa-plus" %>
+    </nav>
+  <% end %>
+</header>
+
+<% if params[:category] == 'errors' %>
+<%= render "admin/pages/errors", object: @pages %>
+<% else %>
+<%= render "admin/pages/list", object: @pages %>
+<% end %>

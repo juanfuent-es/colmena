@@ -1,0 +1,17 @@
+<div class="border border-dark-800 bg-primary-900/10 p-4">
+  <%= object.hidden_field :category %>
+  <div class="grid grid-cols-2 gap-4">
+    <%= object.label :title, class: "m-0 p-0" do  %>
+      Título
+      <%= object.text_field :title, class: "", placeholder: "", required: true %>
+    <% end %>
+    <%= object.label :subtitle, class: "m-0 p-0" do  %>
+      Subtítulo
+      <%= object.text_field :subtitle, class: "", placeholder: "" %>
+    <% end %>
+  </div>
+  <div class="w-full">
+    <%= object.label :content, "Contenido", class: ""  %>
+    <%= object.text_area :content, class: "editor", placeholder: "Contenido", rows: 5, cols: 25 %>
+  </div>
+</div>

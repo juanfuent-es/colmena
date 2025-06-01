@@ -1,0 +1,42 @@
+<div class="card">
+    <h2 class="neue-haas text-2xl pb-2 md:pb-3 w-full text-center">Embed Media</h2>
+    <div class="w-full flex flex-col gap-4">
+        <div class="grid grid-cols-3 gap-4">
+            <div class="w-full">
+                <%= object.label :embed_from, "Fuente de contenido embebido", class: "m-0 p-0" %>
+                <%= object.select :embed_from, Page::EMBED_SOURCES.map { |source| [source.capitalize, source] }, {}, { class: "input-value", id: "embed-from-select" } %>
+            </div>
+            <div class="w-full">
+                <div class="w-full" id="youtube-field" style="display: none;">
+                    <%= object.label :youtube_id, "YouTube ID", class: "m-0 p-0" %>
+                    <%= object.text_field :youtube_id, placeholder: "Ej: Ck12345XYZ", maxLength: 30, id: "youtube-id-input" %>
+                </div>
+                <div class="w-full" id="instagram-field" style="display: none;">
+                    <%= object.label :instagram_id, "Instagram Post ID", class: "m-0 p-0" %>
+                    <%= object.text_field :instagram_id, placeholder: "Ej: Ck12345XYZ", maxLength: 30, id: "instagram-id-input" %>
+                </div>
+                <div class="w-full" id="tiktok-field" style="display: none;">
+                    <%= object.label :tiktok_id, "TikTok Video ID", class: "m-0 p-0" %>
+                    <%= object.text_field :tiktok_id, placeholder: "Ej: 7266522547137678598", maxLength: 30, id: "tiktok-id-input" %>
+                </div>
+            </div>
+            <div class="w-full">
+                <%= object.label :duration, "Duración. *Formato: MIN:SEC", class: "m-0 p-0" %>
+                <%= object.text_field :duration, placeholder: "00:00" %>
+            </div>
+        </div>
+        <div class="w-full" id="preview-video-container" class="my-2">
+            <!-- Previsualización dinámica -->
+        </div>
+    </div>
+</div>
+<style>
+#preview-video-container iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+</style>

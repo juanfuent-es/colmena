@@ -31,3 +31,74 @@ es:
   url: URL
   name: Nombre
   slug: Slug
+  image: Imagen
+  images: Imágenes
+  orientation: Orientación
+  width: Ancho
+  height: Alto
+  file: Archivo
+  processed: Procesado
+  status: Estado
+  pages: Páginas
+  errors: Errores
+  users: Usuarios
+  static: Estáticas
+  blog: Blog
+  news: Noticias
+  events: Eventos
+  products: Productos
+  services: Servicios
+
+  date:
+    abbr_month_names:
+    - 
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d %b"
+      long: "%d de %B de %Y"
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    month_names:
+    - 
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year

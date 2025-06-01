@@ -1,0 +1,25 @@
+<% if object.any? %>
+<% object.each do |page| %>
+<li class="relative flex justify-between gap-x-6 px-4 py-5 sm:px-6">
+    <div class="flex min-w-0 gap-x-4">
+        <div class="min-w-0 flex-auto text-sm font-semibold leading-6">
+            <%= link_to edit_admin_page_path(page), class: "min-w-0 overflow-ellipsis max-w-xs text-white hover:opacity-60" do %>
+            <h2><%= page.title %> <sup class="text-gray-300"><i class="fa-solid fa-eye"></i> <%= page.total_views %></sup></h2>
+            <p class="font-extralight text-gray-200"><%= page.og_description %></p>
+            <% end %>
+            <a href="<%= page.full_url %>" target="_blank" class="overflow-ellipsis max-w-xs mt-1 flex text-xs relative truncate hover:underline text-gray-400 transition hover:text-white">
+                <i class="fa-solid fa-up-right-from-square pr-2 px-1 min-w-min"></i> <%= page.full_url %>
+            </a>
+        </div>
+    </div>
+    <div class="flex shrink-0 items-end flex-col">
+        <div class="hidden sm:flex gap-x-4 items-center text-sm">
+            <a href="<%= page.full_url %>" class="btn-xs" target="_blank"><i class='fas fa-eye'></i> Ver</a>
+            <%= link_to admin_page_path(page), method: :delete, class: "btn-xs danger" , data: { confirm: "¿Estás seguro de eliminar la página #{page.title}?" } do %>
+                <i class='fas fa-trash'></i> Eliminar
+            <% end %>
+        </div>
+    </div>
+</li>
+<% end %>
+<% end %>

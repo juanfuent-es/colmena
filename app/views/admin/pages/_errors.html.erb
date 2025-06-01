@@ -1,0 +1,23 @@
+<section class="w-full overflow-x-scroll">
+    <table class="min-w-full divide-y divide-gray-300 text-left text-xs md:text-sm font-semibold text-gray-300">
+        <thead>
+            <tr>
+                <th scope="col" class="p-4 sm:pl-0">Título</th>
+                <th scope="col" class="p-4 sm:pl-0">Última Actualización</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 text-gray-200 ">
+            <% object.each do |page| %>
+            <tr class="text-center">
+                <td class="p-2 text-left">
+                    <%= link_to page.title, edit_admin_page_path(page), class: "min-w-0 text-white hover:opacity-60 truncate inline-block max-w-52 md:max-w-80 lg:max-w-none " %>
+                    <%= link_to page.full_url, target: "_blank", class: "mt-1 flex text-xs relative truncate hover:underline text-gray-400 transition hover:text-white inline-block max-w-52 md:max-w-80 lg:max-w-none " do %>
+                    <i class="fa-solid fa-up-right-from-square pt-1 pr-2 min-w-min"></i> <%= page.full_url %>
+                    <% end %>
+                </td>
+                <td class="text-gray-400 text-left"><%= l(page.updated_at, format: "%d %b, %Y").titleize %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</section>

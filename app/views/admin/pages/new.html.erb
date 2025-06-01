@@ -1,0 +1,21 @@
+<% provide(:title, "Nueva Página") %>
+
+<!-- header -> -->
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium">Nueva Página</h1>
+  </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to admin_pages_path, class: "btn-xs danger" do %>
+      <i class="fa-solid fa-arrow-left px-2"></i> Regresar
+    <% end %>
+  </nav>
+</header>
+<!-- <- header -->
+
+<!-- content -> -->
+<ul role="list" class="divide-y divide-white/5">
+  <%= render 'form', page: @page %>
+</ul>
+<!-- <- content -->

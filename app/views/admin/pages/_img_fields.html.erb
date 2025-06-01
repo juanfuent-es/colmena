@@ -1,0 +1,11 @@
+<div class="gap-4 border border-dark-800 bg-primary-900/10 p-4">
+  <%= object.hidden_field :category %>
+  <%= object.label :img, class: "cursor-pointer opacity-80 h-64 relative group" do %>
+      <%= image_tag object.object.img.url, id: "img-preview-#{idx}", class: "transition w-full h-full object-contain opacity-40 group-hover:opacity-80" %>
+      <%= object.file_field :img, class: "opacity-0 input-img", data: { target: "#img-preview-#{idx}" }, accept: "image/*", required: object.object.img.blank? %>
+  <% end %>
+  <%= object.label :title, class: "m-0 p-0" do  %>
+    Texto Alternativo de Imagen
+    <%= object.text_field :title, class: "", placeholder: "Ej: Lanzamiento de Nueva Gorra. Fotografía de New Era.", required: true %>
+  <% end %>
+</div>

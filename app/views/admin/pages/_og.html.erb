@@ -1,0 +1,61 @@
+<div class="card">
+    <h2  class="neue-haas leading-6 text-2xl font-medium pb-2 md:pb-3 w-full">SEO & OpenGraph <span class="text-base uppercase font-medium text-blue-800 w-full text-right">(Facebook, Twitter, Whatsapp)</span></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 lg:gap-6">
+            
+        <section class="flex flex-col justify-center gap-y-2">
+            <figure class="p-4 border border-dark-800 bg-primary-900/10 rounded-sm shadow-md shadow-dark-800/5 flex flex-col justify-center relative cursor-pointer">
+                <%= object.label :og_image, class: "cursor-pointer opacity-80 aspect-video relative group overflow-hidden" do %>
+                    <%= image_tag object.object.og_image.url, id: "og-img-preview", class: "group-hover:scale-105 transition opacity-40 group-hover:opacity-80" %>
+                    <%= object.file_field :og_image, class: "sr-only input-img", data: { target: "#og-img-preview" }, accept: "image/*" %>
+                    <figcaption class='absolute px-2 text-base text-center w-full top-1/2 left-0 text-dark-50 font-bold'>*.png 1200x630px</figcaption>
+                <% end %>
+                <h2 class="font-semibold my-1 truncate"><span class="page-title"><%= object.object.og_title %></span> | <%= "#{Rails.application.credentials.app_name}" %></h2>
+                <footer class="text-sm">
+                    <p class="page-description" class="font-light text-dark-300"><%= object.object.og_description %></p>
+                    <p class="truncate text-dark-500 "><%= @domain %>/<span class="page-category"><%= @page.category %></span>/<span class="page-slug"><%= @page.slug %></span></p>
+                </footer>
+            </figure>
+        </section>
+        <div class="pt-0">
+            <div class="w-full pb-1">
+                <%= object.label :og_title, class: "py-2" do %>
+                Título
+                <small class='legend-validation float-right text-dark-500'><i><span id="og-title-counter"><%= object.object.og_title.to_s.length %></span> / 70 caracteres</i></small>
+                <% end %>
+                <%= object.text_field :og_title, class: " str-counter input-value", placeholder: "Título del artículo sin mencionar marcas", autofocus: true, required: true, data: { target: "#og-title-counter", attr: "title" }, maxLength: 70 %>
+            </div>
+            
+            <div class="w-full pb-1">
+                <%= object.label :slug do %>
+                URL Semántica
+                <a href="https://es.wikipedia.org/wiki/URL_sem%C3%A1ntica"
+                    aria-label="Las URL semánticas o URL amigables son aquellas URL que son, dentro de lo que cabe, entendibles para el usuario..."
+                    data-balloon-pos="up" data-balloon-length="xlarge" target="_blank">
+                    <i class="fa-solid fa-circle-info"></i>
+                </a>
+                <div class="mt-2 flex rounded-sm shadow-sm">
+                    <!--<span class="inline-flex items-center rounded-l-md border border-r-0 border-dark-800 h-8 pl-3 text-dark-500 pr-0" data-domain="<%= @domain %>" id="page-category-field"><%= "#{@domain}/#{@page.category}/" %></span>-->
+                    <% object.text_field :slug, class: "!p-0 !px-1 !text-sm !m-0 !rounded-l-none !border-l-0 input-value", placeholder: "mi-url-amigable", required: true, data: { attr: "slug" }, readonly: @page.restricted %>
+                    <%= object.text_field :slug, class: "input-value", placeholder: "mi-url-amigable", required: true, data: { attr: "slug" }, readonly: @page.restricted %>
+                </div>
+                <% end %>
+            </div>
+
+            <div class="w-full py-1">
+                <%= object.label :keywords, "Keywords: Tags separados por coma" %>
+                <%= object.text_field :keywords, class: "", placeholder: "" %>
+            </div>
+
+            <div class="w-full flex gap-4 pt-4">
+                <div class="w-full">
+                    <%= object.label :og_description, class: "mt-0 pt-0" do %>
+                    Descripción
+                    <small class='legend-validation float-right text-dark-500'><i><span id="description-counter"><%= object.object.og_description.to_s.length %></span> / 200 caracteres</i></small>
+                    <% end %>
+                    <%= object.text_area :og_description, class: " str-counter input-value", placeholder: "De 2 a 3 oraciones que describan el contenido sin usar el título.", required: true, data: { target: "#description-counter", attr: "description" }, maxLength: 200 %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

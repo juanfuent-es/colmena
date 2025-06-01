@@ -1,7 +1,7 @@
 <nav class="flex flex-1 flex-col">
-    <ul role="list" class="flex flex-1 flex-col gap-y-7 text-light-700 anton neue-haas uppercase">
+    <ul role="list" class="flex flex-1 flex-col gap-y-4 text-light-700 uppercase p-4 w-full">
         <li>
-            <ul role="list" class="space-y-1 p-4">
+            <ul role="list" class="space-y-1">
                 <% render "admin/layout/nav_link", text: "Banners", url: "/admin/banners", icon: "fa-solid fa-rectangle-ad", active: params[:controller] == 'admin/banners' %>
                 <% render "admin/layout/nav_link", text: "Cotizaciones", url: "/admin/quotations", icon: "fa-solid fa-star", active: params[:controller] == 'admin/quotations' %>
                 <%= render "admin/layout/nav_link", text: "Imágenes", url: "/admin/images", icon: "fa-solid fa-book", active: params[:controller] == 'admin/images' %>
@@ -9,19 +9,20 @@
                 <%=  render "admin/layout/nav_link", text: "Cerrar Sesión", url: destroy_user_session_path, icon: "fa-solid fa-person-running", active: false %>
             </ul>
         </li>
-        <!-- <li>
-            <h2 class="text-xs font-semibold leading-6 text-gray-400">Admin</h2>
-            <ul role="list" class="-mx-2 mt-2 space-y-1">
-                <% render "admin/layout/nav_link", text: "Errores", url: "/admin/pages?category=errors", icon: "fa-solid fa-bug", active: params[:controller] == 'admin/pages' && params[:category] == "errors" %>
+        <li>
+            <span class="text-xs font-semibold">Admin</span>
+            <ul role="list" class="space-y-1">
+                <%= render "admin/layout/nav_link", text: "Errores", url: "/admin/pages?category=errors", icon: "fa-solid fa-bug", active: params[:controller] == 'admin/pages' && params[:category] == "errors" %>
+                <%= render "admin/layout/nav_link", text: "Usuarios", url: "/admin/pages?category=users", icon: "fa-solid fa-users", active: params[:controller] == 'admin/users' %>
                 <% render "admin/layout/nav_link", text: "Administradores", url: "/admin/users", icon: "fa-solid fa-users", active: params[:controller] == 'admin/users' %>
                 <% render "admin/layout/nav_link", text: "Actualizar", url: "/admin/profile", icon: "fa-solid fa-user-gear", active: false %>
             </ul>
         </li>
         <li>
-            <h2 class="text-xs font-semibold leading-6 text-gray-400">Usuario</h2>
-            <ul role="list" class="-mx-2 mt-2 space-y-1">
-                <%  render "admin/layout/nav_link", text: "Cerrar Sesión", url: destroy_user_session_path, icon: "fa-solid fa-person-running", active: false %>
+            <span class="text-xs font-semibold">Usuario</span>
+            <ul role="list" class="space-y-2">
+                <%=  render "admin/layout/nav_link", text: "Cerrar Sesión", url: destroy_user_session_path, icon: "fa-solid fa-person-running", active: false %>
             </ul>
-        </li> -->
+        </li>
     </ul>
 </nav>

@@ -1,0 +1,24 @@
+<div class="card">
+  <h2 class="neue-haas text-2xl pb-2 md:pb-3 w-full text-right">Contenido Principal</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
+    <div class="w-full">
+      <%= object.label :title, class: "m-0 p-0" do %>
+        Título
+        <small class="float-right text-dark-500"><i><span id="title-counter">
+              <%= object.object.title.to_s.length %>
+            </span> / 70 caracteres</i></small>
+        <% end %>
+          <%= object.text_field :title, class: "str-counter" , placeholder: "Título..." , required: true, data: {
+            target: "#title-counter" }, maxLength: 70 %>
+    </div>
+    <div class="w-full">
+      <%= object.label :category, "Categoría" , class: "m-0 p-0" %>
+        <%= object.select :category, [["Gorras", "gorras" ],["Cultura Pop", "cultura-pop" ],["Collabs", "collabs"
+          ],["Negocios", "negocios" ]], { include_blank: false }, { class: "input-value" , data: { attr: "category" } }
+          %>
+    </div>
+  </div>
+  <div class="my-2 mb-4 w-full">
+    <%= render "wysiwyg" , f: object %>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<% if object.any? %>
+<section class="w-full overflow-x-scroll">
+    <table class="min-w-full divide-y divide-gray-300 text-left text-xs md:text-sm font-semibold text-gray-300 datatable">
+        <thead>
+            <tr>
+                <th scope="col" class="w-8 md:w-11 p-4"><i class="fa-solid fa-eye"></i></th>
+                <th scope="col" class="p-4 sm:pl-0">Título</th>
+                <th scope="col" class="p-4">Fecha</th>
+                <!-- <th scope="col" class="p-4">Actualización</th> -->
+                <th scope="col" class="p-4"></th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 text-gray-200 ">
+            <% object.each do |page| %>
+            <tr class="text-center">
+                <td class="w-8 md:w-11">
+                    <span class="inline-block w-full text-center text-gray-400 text-xs"><%= page.total_views %></span>
+                </td>
+                <td class="p-2 text-left">
+                    <%= link_to page.title, edit_admin_page_path(page), class: "min-w-0 text-white hover:opacity-60 truncate inline-block max-w-52 md:max-w-lg " %>
+                    <%= link_to page.full_url, target: "_blank", class: "mt-1 flex text-xs relative truncate hover:underline text-gray-400 transition hover:text-white inline-block max-w-52 md:max-w-96 " do %>
+                    <i class="fa-solid fa-up-right-from-square pt-1 pr-2 min-w-min"></i> <%= page.full_url %>
+                    <% end %>
+                </td>
+                <td class="text-gray-400 text-left"><%= l(page.created_at, format: "%d %b, %Y").titleize %></td>
+                <!-- <td class="text-gray-400"><%= l(page.updated_at, format: "%d %b, %Y").titleize %></td> -->
+                <td>
+                    <%= link_to admin_page_path(page), method: :delete, class: "btn-xs danger inline" , data: { confirm: "¿Estás seguro de eliminar la página #{page.title}?" } do %>
+                    <i class='fas fa-trash pr-l2'></i> <span class="hidden md:inline-block">Eliminar</span>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</section>
+<% end %>

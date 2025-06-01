@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     
     resources :blocks
     resources :images
+    resources :pages
     resources :programs do
       resources :themes do
         resources :topics
