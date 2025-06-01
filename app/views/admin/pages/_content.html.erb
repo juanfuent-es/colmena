@@ -8,14 +8,12 @@
               <%= object.object.title.to_s.length %>
             </span> / 70 caracteres</i></small>
         <% end %>
-          <%= object.text_field :title, class: "str-counter" , placeholder: "Título..." , required: true, data: {
+          <%= object.text_field :title, class: "str-counter input" , placeholder: "Título..." , required: true, data: {
             target: "#title-counter" }, maxLength: 70 %>
     </div>
     <div class="w-full">
       <%= object.label :category, "Categoría" , class: "m-0 p-0" %>
-        <%= object.select :category, [["Gorras", "gorras" ],["Cultura Pop", "cultura-pop" ],["Collabs", "collabs"
-          ],["Negocios", "negocios" ]], { include_blank: false }, { class: "input-value" , data: { attr: "category" } }
-          %>
+      <%= object.select :category, Page::CATEGORIES.map { |k, v| [v, k] }, { include_blank: false }, { class: "input input-value" , data: { attr: "category" } } %>
     </div>
   </div>
   <div class="my-2 mb-4 w-full">

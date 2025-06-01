@@ -1,13 +1,3 @@
-<style>
-  iframe {
-    aspect-ratio: .6 / 1.25;
-    width: 100%;
-    display: inline-block;
-    padding: .5em 0;
-    overflow: hidden;
-    background: white;
-  }
-</style>
 <section class="content pb-8">
   <%= form_for [:admin, page], local: true  do |f| %>
   <%= f.hidden_field :user_id  %>
@@ -17,11 +7,9 @@
     <%= render "wysiwyg", f: f %>
   <% else %>
     <%= render "admin/pages/og", object: f %>
-    <%= render "admin/pages/video", object: f %>
     <%= render "admin/pages/content", object: f %>
   <% end %>
   
-
   <footer class="w-full flex items-center justify-end pt-2 pb-8">
     <button class="btn-sm"><i class="fas fa-save pr-2"></i> Guardar</button>
   </footer>

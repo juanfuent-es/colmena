@@ -48,7 +48,6 @@ es:
   events: Eventos
   products: Productos
   services: Servicios
-
   date:
     abbr_month_names:
     - 

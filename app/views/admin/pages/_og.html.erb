@@ -18,11 +18,9 @@
         </section>
         <div class="pt-0">
             <div class="w-full pb-1">
-                <%= object.label :og_title, class: "py-2" do %>
-                Título
+                <%= render 'components/label', f: object, name: :og_title, text: "Título OpenGraph", icon: 'fa-solid fa-title' %>
                 <small class='legend-validation float-right text-dark-500'><i><span id="og-title-counter"><%= object.object.og_title.to_s.length %></span> / 70 caracteres</i></small>
-                <% end %>
-                <%= object.text_field :og_title, class: " str-counter input-value", placeholder: "Título del artículo sin mencionar marcas", autofocus: true, required: true, data: { target: "#og-title-counter", attr: "title" }, maxLength: 70 %>
+                <%= render 'components/input', f: object, input_type: :text_field, name: :og_title, placeholder: "Título del artículo sin mencionar marcas", autofocus: true, required: true, data: { target: "#og-title-counter", attr: "title" }, maxLength: 70 %>
             </div>
             
             <div class="w-full pb-1">
@@ -36,14 +34,14 @@
                 <div class="mt-2 flex rounded-sm shadow-sm">
                     <!--<span class="inline-flex items-center rounded-l-md border border-r-0 border-dark-800 h-8 pl-3 text-dark-500 pr-0" data-domain="<%= @domain %>" id="page-category-field"><%= "#{@domain}/#{@page.category}/" %></span>-->
                     <% object.text_field :slug, class: "!p-0 !px-1 !text-sm !m-0 !rounded-l-none !border-l-0 input-value", placeholder: "mi-url-amigable", required: true, data: { attr: "slug" }, readonly: @page.restricted %>
-                    <%= object.text_field :slug, class: "input-value", placeholder: "mi-url-amigable", required: true, data: { attr: "slug" }, readonly: @page.restricted %>
+                    <%= object.text_field :slug, class: "input input-value", placeholder: "mi-url-amigable", required: true, data: { attr: "slug" }, readonly: @page.restricted %>
                 </div>
                 <% end %>
             </div>
 
             <div class="w-full py-1">
                 <%= object.label :keywords, "Keywords: Tags separados por coma" %>
-                <%= object.text_field :keywords, class: "", placeholder: "" %>
+                <%= object.text_field :keywords, class: "input", placeholder: "" %>
             </div>
 
             <div class="w-full flex gap-4 pt-4">
@@ -52,7 +50,7 @@
                     Descripción
                     <small class='legend-validation float-right text-dark-500'><i><span id="description-counter"><%= object.object.og_description.to_s.length %></span> / 200 caracteres</i></small>
                     <% end %>
-                    <%= object.text_area :og_description, class: " str-counter input-value", placeholder: "De 2 a 3 oraciones que describan el contenido sin usar el título.", required: true, data: { target: "#description-counter", attr: "description" }, maxLength: 200 %>
+                    <%= object.text_area :og_description, class: " str-counter input input-value", placeholder: "De 2 a 3 oraciones que describan el contenido sin usar el título.", required: true, data: { target: "#description-counter", attr: "description" }, maxLength: 200 %>
                 </div>
             </div>
 
