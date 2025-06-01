@@ -4,7 +4,7 @@
   <div class="sm:flex-auto">
     <h1 class="leading-6 text-xl font-medium"><%%= "#{t(:editing)} #{t(:<%= singular_table_name %>)}" %></h1>
     </div>
-  <nav class="my-4 sm:flex-none">
+  <nav class="my-4 flex gap-4 text-sm">
     <%= render "components/link", href: admin_<%= plural_table_name %>_path, text: "Regresar", icon: "fa-solid fa-arrow-left" %>
   </nav>
 </header>

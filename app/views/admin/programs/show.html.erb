@@ -16,14 +16,12 @@
   <section class="content">
     <!-- Default box -->
     <div class="card card-primary card-outline">
-      <header class="card-header">
-        <%= link_to edit_admin_program_url(@program), class: "btn btn-outline-primary btn-sm" do %>
-          <i class="fas fa-pencil-alt"></i> Editar
-          <% end %>
-            <%= link_to admin_program_path(@program), class: "btn btn-outline-danger btn-sm float-right" , method:
-              :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:program)}?" } do %>
-              <i class="fa-solid fa-trash"></i> Eliminar
-            <% end %>
+      <header class="card-header flex justify-between gap-4">
+        <%= render "components/link", href: edit_admin_program_url(@program), text: "Editar", icon: "fa-solid fa-pencil" %>
+        <%= link_to admin_program_path(@program), class: "btn btn-outline-danger btn-sm float-right" , method:
+          :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:program)}?" } do %>
+          <i class="fa-solid fa-trash"></i> Eliminar
+        <% end %>
       </header>
       <div class="card-body">
         <div class="row">

@@ -1,9 +1,10 @@
 <nav class="flex flex-1 flex-col">
     <ul role="list" class="flex flex-1 flex-col gap-y-7 text-light-700 anton neue-haas uppercase">
         <li>
-            <ul role="list" class="-mx-2 space-y-1">
+            <ul role="list" class="space-y-1 p-4">
                 <% render "admin/layout/nav_link", text: "Banners", url: "/admin/banners", icon: "fa-solid fa-rectangle-ad", active: params[:controller] == 'admin/banners' %>
                 <% render "admin/layout/nav_link", text: "Cotizaciones", url: "/admin/quotations", icon: "fa-solid fa-star", active: params[:controller] == 'admin/quotations' %>
+                <%= render "admin/layout/nav_link", text: "Imágenes", url: "/admin/images", icon: "fa-solid fa-book", active: params[:controller] == 'admin/images' %>
                 <%= render "admin/layout/nav_link", text: "Programas", url: "/admin/programs", icon: "fa-solid fa-book", active: params[:controller] == 'admin/programs' %>
                 <%=  render "admin/layout/nav_link", text: "Cerrar Sesión", url: destroy_user_session_path, icon: "fa-solid fa-person-running", active: false %>
             </ul>

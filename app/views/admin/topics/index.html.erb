@@ -4,13 +4,10 @@
   <div class="sm:flex-auto">
     <h1 class="leading-6 text-xl font-medium">Clases <sup><%= @topics.count %></sup></h1>
   </div>
-  <nav class="my-4 sm:flex-none">
-    <%= link_to new_admin_program_theme_topic_path(@program, @theme), class: 'btn-sm' do %>
-      <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:topic)}" %>
-    <% end %>
-    <%= link_to new_admin_program_theme_topic_path(@program, @theme, format: :pdf), class: 'btn-sm' do %>
-      <i class="fas fa-plus"></i> PDF
-    <% end %>
+  <nav class="my-4 flex gap-4 text-sm">
+    <%= render "components/link", href: admin_program_themes_path(@program), text: "Regresar", icon: "fa-solid fa-arrow-left" %>
+    <%= render "components/link", href: new_admin_program_theme_topic_path(@program, @theme), text: "Tema", icon: "fa-solid fa-plus" %>
+    <%= render "components/link", href: new_admin_program_theme_topic_path(@program, @theme, format: :pdf), text: "PDF", icon: "fa-solid fa-file-pdf" %>
   </nav>
 </header>
 

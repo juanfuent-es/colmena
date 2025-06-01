@@ -4,7 +4,7 @@
   <div class="sm:flex-auto">
     <h1 class="leading-6 text-xl font-medium"><%= t(:themes) %> <sup><%= Theme.all.count %></sup></h1>
     </div>
-  <nav class="my-4 sm:flex-none">
+  <nav class="my-4 flex gap-4 text-sm">
     <%= link_to new_admin_program_theme_path, class: 'btn-sm' do %>
       <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:theme)}" %>
     <% end %>
