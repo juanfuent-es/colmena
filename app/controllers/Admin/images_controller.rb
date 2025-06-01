@@ -1,10 +1,10 @@
 
-class Switchboard::ImagesController < ApplicationController
+class Admin::ImagesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_image, only: %i[ show edit update destroy ]
 
-  layout "switchboard"
+  layout "admin"
 
   # GET /images
   def index
@@ -28,6 +28,7 @@ class Switchboard::ImagesController < ApplicationController
   def create
     @image = Image.create(file: params[:image], processed: false)
     if @image.save
+      @image.file.recreate_versions!
       # ProcessImageVersionsJob.perform_later(@image.id) TODO: Implementar background de procesamiento de imágenes
       render json: @image, status: :created
     else
@@ -38,7 +39,7 @@ class Switchboard::ImagesController < ApplicationController
   # PATCH/PUT /images/1
   def update
     if @image.update(image_params)
-      redirect_to switchboard_images_url, notice: "Image ha sido actualizado."
+      redirect_to admin_images_url, notice: "Image ha sido actualizado."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -48,7 +49,7 @@ class Switchboard::ImagesController < ApplicationController
   def destroy
     @image.assets.delete_all
     @image.destroy
-    redirect_to switchboard_images_url, notice: "Image ha sido eliminado."
+    redirect_to admin_images_url, notice: "Image ha sido eliminado."
   end
 
   private

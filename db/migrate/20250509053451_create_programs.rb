@@ -1,20 +1,21 @@
-class CreateCourses < ActiveRecord::Migration[7.2]
+class CreatePrograms < ActiveRecord::Migration[7.2]
 
   def change
 
     enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
 
-    create_table :programs, id: :uuid do |t|
+    create_table :programs do |t|
       t.string :name, default: "", null: false
       t.integer :number, default: 0, null: false
+      t.integer :total_views,    null: false, default: 0
       t.text :description
       t.integer :year, default: Date.today.year, null: false
       t.string :school, default: ""
       t.string :url, default: ""
     end
 
-    create_table :themes, id: :uuid do |t|
-      t.references :program, null: false, foreign_key: true, type: :uuid
+    create_table :themes do |t|
+      t.references :program, null: false, foreign_key: true
       t.string :title, default: "", null: false
       t.integer :number, default: 0, null: false
       t.text :description
@@ -23,8 +24,8 @@ class CreateCourses < ActiveRecord::Migration[7.2]
       t.timestamps
     end
 
-    create_table :topics, id: :uuid do |t|
-      t.references :theme, null: false, foreign_key: true, type: :uuid
+    create_table :topics do |t|
+      t.references :theme, null: false, foreign_key: true
       t.integer :number, default: 0, null: false
       t.string :title, default: "", null: false
       t.integer :estimated_time, default: 0
@@ -45,11 +46,12 @@ class CreateCourses < ActiveRecord::Migration[7.2]
       t.integer :number,    null: false, default: 0
       t.string :block_type, null: false, default: ""
       #
-      t.references :topic,  null: false, foreign_key: true, type: :uuid
-      t.references :image,  null: true, foreign_key: true, type: :uuid
+      t.references :blockable,  null: false, polymorphic: true
+      t.references :image,  null: true, foreign_key: true
       #
       t.string :title,      null: false, default: ""
-      t.text :description
+      t.string :description, default: ""
+      t.text :content
   
       t.timestamps
     end

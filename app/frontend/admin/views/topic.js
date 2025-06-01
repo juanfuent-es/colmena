@@ -1,3 +1,5 @@
+import Uploader from '../uploader'
+
 export default class Topic {
     constructor() {
         this.events()
@@ -9,8 +11,8 @@ export default class Topic {
             let time = new Date().getTime()
             let regexp = new RegExp(e.target.dataset.id, 'g')
             let $html = $(e.target.dataset.fields.replace(regexp, time))
-            console.log($html)
             $("#topic-blocks-container").prepend($html[0])
+            return new Uploader($html[0].querySelector('.uploader-container'))
         })
 
         $(document).on("click", ".tab-link", (e) => {

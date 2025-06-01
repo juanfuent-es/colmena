@@ -1,6 +1,6 @@
 class Topic < ApplicationRecord
   belongs_to :theme
-  has_many :blocks, dependent: :destroy
+  has_many :blocks, as: :blockable, dependent: :destroy
   accepts_nested_attributes_for :blocks, allow_destroy: true
 
   CONTENT_TYPES = {
@@ -17,6 +17,13 @@ class Topic < ApplicationRecord
 
   enum content_type: CONTENT_TYPES.keys
 
-  # validates :content_type, inclusion: { in: content_types.keys }
+  validates :title, presence: true
+  validates :content_type, presence: true, inclusion: { in: content_types.keys }
+  
+  # Scopes
+  scope :ordered, -> { order(created_at: :desc) }
 
+  def content_type_text
+    CONTENT_TYPES[content_type]
+  end
 end

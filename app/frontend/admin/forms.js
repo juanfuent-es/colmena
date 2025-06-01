@@ -68,11 +68,5 @@ export default class Forms {
             $(target).text(str.length)
         })
 
-        // .input-og-value se ocupa para los campos que se reflejan en la miniatura de la  og card
-        $(document).on("keyup", '.input-og-value', (el) => {
-            let str = $(el.target).val()
-            let attr = $(el.target).data("attr")
-            $(`#page-og-${attr}`).text(str)
-        })
     }
 }

@@ -7,11 +7,23 @@ class Block < ApplicationRecord
   enum block_type: BLOCK_TYPES.keys
   
   validates :title, presence: true
-  validates :number, presence: true
-  validates :description, presence: true
   validates :block_type, presence: true, inclusion: { in: block_types.keys }
-  # relations  
-  belongs_to :topic, optional: false
+  
+  # Polymorphic association
+  belongs_to :blockable, polymorphic: true
   belongs_to :image, optional: true
 
+  # Scopes
+  scope :ordered, -> { order(position: :asc) }
+  
+  # Callbacks
+  before_validation :set_default_position, on: :create
+  
+  private
+
+  def set_default_position
+    return if position.present?
+    max_position = blockable.blocks.maximum(:position) || 0
+    self.position = max_position + 1
+  end
 end

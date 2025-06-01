@@ -2,7 +2,7 @@ class CreateImages < ActiveRecord::Migration[7.2]
   def change
     # images optimizadas para frontend, jpg, webp
     # no hace falta guardar la extensión, ya quet todas se procesan en jpg y webp
-    create_table :images, id: :uuid do |t|
+    create_table :images do |t|
       t.string :file,       null: false, default: ""
       #
       t.integer :width,     null: false, default: 0

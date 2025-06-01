@@ -10,7 +10,7 @@
  @see: app/javascript/components/uploader.js
 -->
 
-<%= f.label :image, class: "uploader-container w-full card group relative overflow-hidden md:hover:unplugged mx-auto cursor-pointer block text-xs", data: { attr: 'image', url: '/switchboard/images' } do %>
+<%= f.label :image, class: "uploader-container w-full card group relative overflow-hidden md:hover:unplugged mx-auto cursor-pointer block text-xs", data: { attr: 'image', url: '/admin/images' } do %>
     <%= f.file_field :image, class: "uploader-input sr-only", accept: "image/*" %>
     <!-- 
     * El markup de este parcial es similar a los modelos 'image', 'Image', 'Video', 'OgImage'
