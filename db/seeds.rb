@@ -3,7 +3,3 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 User.first_or_create!(email: "admin@example.com", password: "password", password_confirmation: "password")
-
-Topic.all.delete_all
-Theme.all.delete_all
-Program.all.delete_all

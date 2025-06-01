@@ -5,9 +5,7 @@
     <h1 class="leading-6 text-xl font-medium"><%%= t(:<%= plural_table_name %>) %> <sup><%%= <%= singular_table_name.titleize %>.all.count %></sup></h1>
     </div>
   <nav class="my-4 sm:flex-none">
-    <%%= link_to new_admin_<%= singular_table_name %>_path, class: 'btn-sm' do %>
-      <i class="fas fa-plus"></i> <%%= "#{t(:new)} #{t(:<%= singular_table_name %>)}" %>
-    <%% end %>
+    <%= render "components/link", href: new_admin_<%= singular_table_name %>_path, text: "Nuevo <%= singular_table_name.titleize %>", icon: "fa-solid fa-plus" %>
   </nav>
 </header>
 

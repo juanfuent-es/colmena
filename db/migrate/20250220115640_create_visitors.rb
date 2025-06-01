@@ -7,7 +7,7 @@ class CreateVisitors < ActiveRecord::Migration[7.0]
     end
 
     create_table :visits do |t|
-  		t.references :visitable,  null: false, polymorphic: true
+  		t.references :visitable,  null: true, polymorphic: true
   		t.references :visitor,    null: false, foreign_key: true
   		t.integer :counter, 		  null: false, default: 0
     end

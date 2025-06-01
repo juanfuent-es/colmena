@@ -7,9 +7,7 @@
         </sup></h1>
   </div>
   <nav class="my-4 sm:flex-none">
-    <%= link_to new_admin_program_path, class: 'btn-sm' do %>
-      <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:program)}" %>
-    <% end %>
+    <%= render "components/link", href: new_admin_program_path, text: "Nuevo Programa", icon: "fa-solid fa-plus" %>
   </nav>
 </header>
 

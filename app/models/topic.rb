@@ -2,7 +2,8 @@ class Topic < ApplicationRecord
   belongs_to :theme
   has_many :blocks, as: :blockable, dependent: :destroy
   accepts_nested_attributes_for :blocks, allow_destroy: true
-
+  has_many :visits, as: :visitable, dependent: :destroy
+  
   CONTENT_TYPES = {
     video_studio: "Video (Studio)",
     screencast: "Screencast",

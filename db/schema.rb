@@ -134,8 +134,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_09_053451) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.string "visitable_type", null: false
-    t.bigint "visitable_id", null: false
+    t.string "visitable_type"
+    t.bigint "visitable_id"
     t.bigint "visitor_id", null: false
     t.integer "counter", default: 0, null: false
     t.index ["visitable_type", "visitable_id"], name: "index_visits_on_visitable"
