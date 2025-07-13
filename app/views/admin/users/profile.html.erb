@@ -1,0 +1,12 @@
+<% provide(:title, "Actualizar Perfil") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium">Actualizar Perfil</h1>
+  </div>
+  <nav class="my-4 sm:flex-none">
+    <%= render "components/link", href: admin_change_password_path, text: "Cambiar contraseña", icon: "fa-solid fa-key" %>
+  </nav>
+</header>
+
+<%= render 'form', user: current_user %>

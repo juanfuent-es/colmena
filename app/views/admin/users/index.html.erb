@@ -1,0 +1,48 @@
+<% provide(:title, "Editores") %>
+
+<header class="flex items-center justify-between border-b border-white/5 px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
+  <h1 class="leading-6 text-xl font-medium">Listado de Editores <sup><%= @users.count - 1 %></sup></h1>
+
+  <div class="relative">
+    <%= link_to new_admin_user_path, class: 'btn-xs' do %>
+      <i class="fas fa-plus pr-2"></i> Nuevo Editor
+    <% end %>
+  </div>
+</header>
+
+<section class="flow-root">  
+  <table class="min-w-full divide-y divide-gray-300 text-left text-xs md:text-sm font-semibold text-gray-300 datatable">
+      <thead>
+          <tr>
+              <th scope="col" class="p-4 sm:pl-0">Nombre</th>
+              <th scope="col" class="p-4">Email</th>
+              <th scope="col" class="p-4">Perfil Social</th>
+              <th scope="col" class="p-4"></th>
+          </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200 text-gray-200 ">
+        <% @users.each do |user| %>
+        <% if user.email != "admin@juanfuent.es" %>
+        <tr class="text-center">
+            <td class="p-2 text-left">
+                <%= link_to user.name, edit_admin_user_path(user), class: "min-w-0 text-white hover:opacity-60 truncate inline-block max-w-52 md:max-w-80 lg:max-w-none " %>
+            </td>
+            <td class="text-gray-400 text-left">
+              <%= user.email %>
+              <% if flash[:tmp_password].present? && flash[:editor_mail] == user.email %>
+                <button id="tmp-password" class="temp-password text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded-md inline-block mt-1"><%= flash[:tmp_password] %></button>
+                <% flash[:tmp_password] = nil %>
+              <% end %>
+            </td>
+            <td class="text-gray-400 text-left"><%= user.www %></td>
+            <td>
+                <%= link_to admin_user_path(user), method: :delete, class: "btn-xs danger inline" , data: { confirm: "¿Estás seguro de eliminar a #{user.name}?" } do %>
+                  <i class='fas fa-trash pr-2'></i> Eliminar
+                <% end %>
+            </td>
+            </tr>
+        <% end %>
+        <% end %>
+    </tbody>
+  </table>
+</section>

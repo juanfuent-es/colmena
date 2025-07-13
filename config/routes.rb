@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
-
-  devise_for :users, path: "", :sign_out_via => [ :get ]
+  devise_for :users, path: "", :sign_out_via => [:get]
   devise_scope :user do
-    get '/login', to: 'users/sessions#new'
+    get "/login", to: "users/sessions#new"
   end
-  
+
   # Defines the root path route ("/")
   root "static#home"
-  
+
   # admin
   namespace :admin do
-    get '/' => 'dashboard#index'
-    
+    get "/" => "dashboard#index"
+
     resources :blocks
     resources :images
+    resources :users
     resources :pages
     resources :programs do
       resources :themes do
@@ -23,10 +23,16 @@ Rails.application.routes.draw do
 
     resources :quotations do
       member do
-        get 'show', defaults: { format: 'html' }
-        get 'show.pdf', to: 'quotations#show', defaults: { format: 'pdf' }
+        get "show", defaults: { format: "html" }
+        get "show.pdf", to: "quotations#show", defaults: { format: "pdf" }
       end
     end
+
+    # user
+    get "profile" => "users#profile", as: :profile
+    get "change_password" => "users#change_password", as: :change_password
+    patch "update_profile" => "users#update_profile", as: :update_profile
+    patch "update_password" => "users#update_password", as: :update_password
   end
 
   # Public routes
@@ -43,9 +49,8 @@ Rails.application.routes.draw do
 
   # Errors
   # https://guides.rubyonrails.org/v4.2.0/action_controller_overview.html#custom-errors-page
-  match "404",     via: :all, to: "errors#not_found",            as: :not_found
-  match "422",     via: :all, to: "errors#unprocessable_entity", as: :unprocessable_entity
-  match "500",     via: :all, to: "errors#server_error",         as: :server_error
-  match 'offline', via: :all, to: 'errors#offline',              as: :offline
-
+  match "404", via: :all, to: "errors#not_found", as: :not_found
+  match "422", via: :all, to: "errors#unprocessable_entity", as: :unprocessable_entity
+  match "500", via: :all, to: "errors#server_error", as: :server_error
+  match "offline", via: :all, to: "errors#offline", as: :offline
 end

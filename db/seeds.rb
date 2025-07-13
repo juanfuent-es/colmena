@@ -77,7 +77,7 @@ end
 puts "\n=== Creating base data ==="
 
 # Create admin user
-create_admin('admin@example.com', 'colmena#2024')
+create_admin('admin@example.com', 'password')
 
 # Create static pages
 create_static('static', 'Aviso de Privacidad', 'privacidad', Faker::Hacker.say_something_smart)

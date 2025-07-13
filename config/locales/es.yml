@@ -32,6 +32,7 @@ es:
   name: Nombre
   slug: Slug
   image: Imagen
+  email: Email
   images: Imágenes
   orientation: Orientación
   width: Ancho

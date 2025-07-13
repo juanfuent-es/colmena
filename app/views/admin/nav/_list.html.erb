@@ -13,14 +13,13 @@
             <span class="text-xs font-semibold">Admin</span>
             <ul role="list" class="space-y-1">
                 <%= render "admin/layout/nav_link", text: "Errores", url: "/admin/pages?category=errors", icon: "fa-solid fa-bug", active: params[:controller] == 'admin/pages' && params[:category] == "errors" %>
-                <%= render "admin/layout/nav_link", text: "Usuarios", url: "/admin/pages?category=users", icon: "fa-solid fa-users", active: params[:controller] == 'admin/users' %>
-                <% render "admin/layout/nav_link", text: "Administradores", url: "/admin/users", icon: "fa-solid fa-users", active: params[:controller] == 'admin/users' %>
-                <% render "admin/layout/nav_link", text: "Actualizar", url: "/admin/profile", icon: "fa-solid fa-user-gear", active: false %>
+                <%= render "admin/layout/nav_link", text: "Administradores", url: "/admin/users", icon: "fa-solid fa-users", active: params[:controller] == 'admin/users' && params[:action] != "profile" && params[:action] != "change_password" %>
             </ul>
         </li>
         <li>
             <span class="text-xs font-semibold">Usuario</span>
             <ul role="list" class="space-y-2">
+                <%= render "admin/layout/nav_link", text: "Mi Perfil", url: "/admin/profile", icon: "fa-solid fa-user-gear", active: params[:controller] == 'admin/users' && (params[:action] == "profile" || params[:action] == "change_password") %>
                 <%=  render "admin/layout/nav_link", text: "Cerrar Sesión", url: destroy_user_session_path, icon: "fa-solid fa-person-running", active: false %>
             </ul>
         </li>
