@@ -9,6 +9,7 @@ Page.destroy_all
 User.destroy_all
 puts "✓ Existing data cleaned up"
 
+User.create(email: "input@juanfuent.es", password: "password", password_confirmation: "password", role: "admin")
 # Create static pages
 def create_static(category, title, slug, content, user = nil)
   page = Page.new(

@@ -1,6 +1,6 @@
 class Page < ApplicationRecord
   belongs_to :user, optional: true
-  has_many :blocks, as: :blockable, dependent: :destroy
+  has_many :blocks, dependent: :destroy
   has_many :visits, as: :visitable, dependent: :destroy
   
   # Category options
