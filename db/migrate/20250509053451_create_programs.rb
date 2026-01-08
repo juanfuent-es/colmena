@@ -10,7 +10,7 @@ class CreatePrograms < ActiveRecord::Migration[7.2]
       t.text :objective
       t.text :description
       t.integer :year, default: Date.today.year, null: false
-      t.references :user, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true, type: :uuid
     end
 
     create_table :themes do |t|
@@ -37,21 +37,6 @@ class CreatePrograms < ActiveRecord::Migration[7.2]
       t.text :reference_material
       t.text :credits_and_sources
 
-      t.timestamps
-    end
-  
-    create_table :blocks do |t|
-      #
-      t.integer :number,    null: false, default: 0
-      t.string :block_type, null: false, default: ""
-      #
-      t.references :blockable,  null: false, polymorphic: true
-      t.references :image,  null: true, foreign_key: true
-      #
-      t.string :title,      null: false, default: ""
-      t.string :description, default: ""
-      t.text :content
-  
       t.timestamps
     end
 
