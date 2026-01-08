@@ -5,7 +5,7 @@
         <div class="min-w-0 flex-auto text-sm font-semibold leading-6">
             <%= link_to edit_admin_page_path(page), class: "min-w-0 overflow-ellipsis max-w-xs text-white hover:opacity-60" do %>
             <h2><%= page.title %> <sup class="text-gray-300"><i class="fa-solid fa-eye"></i> <%= page.total_views %></sup></h2>
-            <p class="font-extralight text-gray-200"><%= page.og_description %></p>
+            <p class="font-extralight text-gray-200"><%= page.synopsis %></p>
             <% end %>
             <a href="<%= page.full_url %>" target="_blank" class="overflow-ellipsis max-w-xs mt-1 flex text-xs relative truncate hover:underline text-gray-400 transition hover:text-white">
                 <i class="fa-solid fa-up-right-from-square pr-2 px-1 min-w-min"></i> <%= page.full_url %>

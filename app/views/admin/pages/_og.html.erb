@@ -11,7 +11,7 @@
                 <% end %>
                 <h2 class="font-semibold my-1 truncate"><span class="page-title"><%= object.object.og_title %></span> | <%= "#{Rails.application.credentials.app_name}" %></h2>
                 <footer class="text-sm">
-                    <p class="page-description" class="font-light text-dark-300"><%= object.object.og_description %></p>
+                    <p class="page-description" class="font-light text-dark-300"><%= object.object.synopsis %></p>
                     <p class="truncate text-dark-500 "><%= @domain %>/<span class="page-category"><%= @page.category %></span>/<span class="page-slug"><%= @page.slug %></span></p>
                 </footer>
             </figure>
@@ -46,11 +46,11 @@
 
             <div class="w-full flex gap-4 pt-4">
                 <div class="w-full">
-                    <%= object.label :og_description, class: "mt-0 pt-0" do %>
+                    <%= object.label :synopsis, class: "mt-0 pt-0" do %>
                     Descripción
-                    <small class='legend-validation float-right text-dark-500'><i><span id="description-counter"><%= object.object.og_description.to_s.length %></span> / 200 caracteres</i></small>
+                    <small class='legend-validation float-right text-dark-500'><i><span id="description-counter"><%= object.object.synopsis.to_s.length %></span> / 200 caracteres</i></small>
                     <% end %>
-                    <%= object.text_area :og_description, class: " str-counter input input-value", placeholder: "De 2 a 3 oraciones que describan el contenido sin usar el título.", required: true, data: { target: "#description-counter", attr: "description" }, maxLength: 200 %>
+                    <%= object.text_area :synopsis, class: " str-counter input input-value", placeholder: "De 2 a 3 oraciones que describan el contenido sin usar el título.", required: true, data: { target: "#description-counter", attr: "description" }, maxLength: 200 %>
                 </div>
             </div>
 

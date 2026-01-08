@@ -1,5 +1,5 @@
 module.exports = {
-  // darkMode: false,
+  darkMode: 'class',
   content: [
     './app/views/**/*.html.erb',
     './app/helpers/**/*.rb',
@@ -23,24 +23,27 @@ module.exports = {
   theme: { // @see: https://tailwindcss.com/docs/customizing-colors
     extend: {
       fontFamily: {
-        sans: ['Hubot-sans', 'sans-serif'],
-        mono: ['Space Mono', 'monospace'],
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        mono: ['SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
       },
     },
-    colors: { // https://materialpalettes.com/
+    colors: { // Minimal color palette
       current: "currentColor",
-      aqua: {
-        DEFAULT: '#00FFFF',
-        100: "#ccffff",
-        200: "#99ffff",
-        300: "#66ffff",
-        400: "#33ffff",
-        500: "#00ffff",
-        600: "#00cccc",
-        700: "#009999",
-        800: "#006666",
-        900: "#003333"
-},
+      transparent: 'transparent',
+      black: '#000000',
+      white: '#ffffff',
+      gray: {
+        50: '#f9fafb',
+        100: '#f3f4f6',
+        200: '#e5e7eb',
+        300: '#d1d5db',
+        400: '#9ca3af',
+        500: '#6b7280',
+        600: '#4b5563',
+        700: '#374151',
+        800: '#1f2937',
+        900: '#111827',
+      },
     }
   }
 }

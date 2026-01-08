@@ -44,7 +44,7 @@ namespace :setup do
         p.title = page_data[:title]
         p.content = page_data[:content]
         p.og_title = page_data[:title]
-        p.og_description = page_data[:content].slice(0..160)
+        p.synopsis = page_data[:content].slice(0..160)
         p.restricted = page_data[:restricted]
         p.published = page_data[:published]
         p.user = admin
@@ -93,7 +93,7 @@ namespace :setup do
         p.title = page_data[:title]
         p.content = page_data[:content]
         p.og_title = page_data[:title]
-        p.og_description = page_data[:content].slice(0..160)
+        p.synopsis = page_data[:content].slice(0..160)
         p.restricted = page_data[:restricted]
         p.published = page_data[:published]
         p.user = admin
@@ -118,7 +118,7 @@ namespace :setup do
         p.title = page_data[:title]
         p.content = page_data[:content]
         p.og_title = page_data[:title]
-        p.og_description = page_data[:content].slice(0..160)
+        p.synopsis = page_data[:content].slice(0..160)
         p.restricted = page_data[:restricted]
         p.published = page_data[:published]
         p.user = admin
