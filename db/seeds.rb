@@ -9,37 +9,18 @@ Page.destroy_all
 User.destroy_all
 puts "✓ Existing data cleaned up"
 
-# Create admin user
-def create_admin(mail, pass)
-  admin = User.new(
-    email: mail,
-    password: pass,
-    password_confirmation: pass,
-    role: "admin"
-  )
-  
-  if admin.save!
-    puts "✓ Admin user created: #{admin.email}"
-  else
-    puts "✗ Error creating admin: #{admin.errors.full_messages.join(', ')}"
-  end
-end
-
 # Create static pages
-def create_static(category, title, slug, content)
+def create_static(category, title, slug, content, user = nil)
   page = Page.new(
-    number: 0,
-    lang: "es",
     slug: slug,
     category: category,
     title: title,
     content: content,
-    og_title: title,
-    og_description: content.slice(0..160),
+    synopsis: content.slice(0..160),
     keywords: "",
     published: true,
     restricted: true,
-    user: User.find_by_email("admin@example.com")
+    user: user
   )
   
   if page.save
@@ -50,21 +31,17 @@ def create_static(category, title, slug, content)
 end
 
 # Create error pages
-def create_error(title, slug, content, og_description)
+def create_error(title, slug, content, synopsis, user = nil)
   page = Page.new(
-    number: 0,
-    lang: "es",
     slug: slug,
     category: "errors",
     title: title,
     content: content,
-    og_title: title,
-    og_description: og_description,
-    og_image: "",
+    synopsis: synopsis,
     keywords: "",
     published: true,
     restricted: true,
-    user: User.find_by_email("admin@example.com")
+    user: user
   )
   
   if page.save
@@ -76,10 +53,10 @@ end
 
 puts "\n=== Creating base data ==="
 
-# Create admin user
-create_admin('admin@example.com', 'password')
+# Note: Users are created in specific setup tasks (development/production)
+# to avoid creating test users in production
 
-# Create static pages
+# Create static pages (user will be assigned in tasks if needed)
 create_static('static', 'Aviso de Privacidad', 'privacidad', Faker::Hacker.say_something_smart)
 
 # Create error pages
@@ -96,6 +73,3 @@ create_static('users', 'Recuperar Cuenta', 'reset_password', 'Ingresa tu e-mail 
 create_static('users', 'Desbloquear Cuenta', 'unlock', 'Ingresa tu e-mail para recibir instrucciones para desbloquear tu cuenta.')
 
 puts "\n=== Base data creation completed ==="
-
-# Load the base setup task
-Rake::Task['setup:base'].invoke

@@ -1,5 +1,5 @@
 class Page < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :blocks, as: :blockable, dependent: :destroy
   has_many :visits, as: :visitable, dependent: :destroy
   
@@ -20,7 +20,7 @@ class Page < ApplicationRecord
   validates :category, presence: true, inclusion: { in: CATEGORIES.keys.map(&:to_s) }
   before_validation :set_slug, on: :create
 
-  mount_uploader :og_image, OgUploader
+  mount_uploader :cover, OgUploader
 
   def total_views
     visits.count

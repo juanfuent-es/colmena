@@ -19,9 +19,9 @@
 <meta name="twitter:url"            content="<%= canonical %>">
 <link rel="canonical"               href="<%= canonical %>">
 <!-- image -->
-<% if @og_image.present? && @og_image.file.present? %>
-    <%= render "shared/metadata/og_img", url: @og_image.file.large.url, width: 1200, height: 630 %>
-    <%= render "shared/metadata/og_img", url: @og_image.file.small.url, width: 600, height: 315 %>
+<% if @cover.present? && @cover.file.present? %>
+    <%= render "shared/metadata/og_img", url: @cover.file.large.url, width: 1200, height: 630 %>
+    <%= render "shared/metadata/og_img", url: @cover.file.small.url, width: 600, height: 315 %>
 <% else %>
     <%= render "shared/metadata/og_img", url: "/share.png", width: 1200, height: 630 %>
 <% end %>

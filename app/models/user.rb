@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_many :programs
 
+  validates :role, inclusion: { in: %w[visitor editor admin] }
+
   # validates_uniqueness_of :username
   # mount_uploader :avatar, AvatarUploader
 

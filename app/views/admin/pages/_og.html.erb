@@ -4,9 +4,9 @@
             
         <section class="flex flex-col justify-center gap-y-2">
             <figure class="p-4 border border-dark-800 bg-primary-900/10 rounded-sm shadow-md shadow-dark-800/5 flex flex-col justify-center relative cursor-pointer">
-                <%= object.label :og_image, class: "cursor-pointer opacity-80 aspect-video relative group overflow-hidden" do %>
-                    <%= image_tag object.object.og_image.url, id: "og-img-preview", class: "group-hover:scale-105 transition opacity-40 group-hover:opacity-80" %>
-                    <%= object.file_field :og_image, class: "sr-only input-img", data: { target: "#og-img-preview" }, accept: "image/*" %>
+                <%= object.label :cover, class: "cursor-pointer opacity-80 aspect-video relative group overflow-hidden" do %>
+                    <%= image_tag object.object.cover.url, id: "og-img-preview", class: "group-hover:scale-105 transition opacity-40 group-hover:opacity-80" %>
+                    <%= object.file_field :cover, class: "sr-only input-img", data: { target: "#og-img-preview" }, accept: "image/*" %>
                     <figcaption class='absolute px-2 text-base text-center w-full top-1/2 left-0 text-dark-50 font-bold'>*.png 1200x630px</figcaption>
                 <% end %>
                 <h2 class="font-semibold my-1 truncate"><span class="page-title"><%= object.object.og_title %></span> | <%= "#{Rails.application.credentials.app_name}" %></h2>

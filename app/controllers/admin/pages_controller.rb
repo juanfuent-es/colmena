@@ -57,7 +57,7 @@ class Admin::PagesController < ApplicationController
     end
 
     def page_params
-      params.require(:page).permit(:slug, :category, :title, :content, :og_title, :og_description, :og_image, :keywords, :published, :restricted)
+      params.require(:page).permit(:slug, :category, :title, :content, :synopsis, :cover, :keywords, :published, :restricted)
     end
 
 end
