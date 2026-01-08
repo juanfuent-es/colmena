@@ -1,0 +1,66 @@
+div.dt-container div.dt-layout-row div.dt-layout-cell,
+div.dt-container div.dt-layout-row div.dt-layout-cell.dt-layout-start {
+    display: flex;
+    align-items: center;
+    justify-items: around;
+    width: 100%;
+}
+
+.dt-length {
+    width: 100%;
+    padding-right: 1em;
+}
+.dt-length label {
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: .5em;
+    align-items: center;
+    width: 180px;
+}
+.dt-search {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 150px;
+}
+.dt-input {
+    min-width: 0;
+}
+label[for="dt-search-0"] {
+    width: auto;
+    margin-right: .5em;
+}
+div.dt-container input.dt-input,
+div.dt-container select.dt-input {
+    background-color: #000;
+    padding: .25em .5em;
+    border: 1px solid #141414;
+    color: var(--yellow);
+}
+
+div.dt-container .dt-paging .dt-paging-button.disabled, div.dt-container .dt-paging .dt-paging-button.disabled:hover, div.dt-container .dt-paging .dt-paging-button.disabled:active {
+    color: rgb(179 179 179 / 50%) !important;
+    opacity: .65;
+}
+.dt-paging-button {
+    font-size: 12px !important;
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    border-radius: 2em!important;
+    overflow: hidden;
+}
+.dt-paging-button.current {
+    background: #292929!important;
+}
+
+table.dataTable>tbody>tr>th, table.dataTable>tbody>tr>td {
+    padding: 6px;
+}
+.disabled {
+    cursor: no-drop;
+}
+
+table.DataTables_Table_0_info {
+    
+}

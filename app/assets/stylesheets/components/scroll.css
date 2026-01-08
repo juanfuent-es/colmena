@@ -1,0 +1,34 @@
+:root {
+    --scroll-background: #EDEDED;
+    --scroll-foreground: #121212;
+    --scroll-background-over: #fdc100;
+    --scroll-size: 10px;
+}
+
+.admin {
+    --scroll-background: #121212;
+    --scroll-foreground: rgb(16 16 16)!important;
+    --scroll-background-over: #fdc100;
+}
+
+::-webkit-scrollbar {
+    background-color: var(--scroll-background);
+    height: var(--scroll-size);
+    width: var(--scroll-size);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scroll-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-foreground);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scroll-background-over);
+}
+
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,141 @@
+@import url("base/vars.css");
+@import url("base/default.css");
+@import url("base/text.css");
+@import url("base/fonts.css");
+@import url("base/font-optimization.css");
+@import url("base/forms.css");
+@import url("base/tables.css");
+@import url("base/ckeditor.css");
+@import url("base/link_buttons.css");
+
+@import url("components/scroll.css");
+@import url("components/preloader.css");
+@import url("components/swiper.css");
+@import url("components/share.css");
+
+/* components */
+@import url("components/buttons.css");
+@import url("base/media.css");
+@import url("base/icons.css");
+@import url("base/balloon.css");
+
+@config "../../../config/tailwind.config.js";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    textarea,
+    select,
+    input[type="url"],
+    input[type="number"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="text"] {
+        @apply px-3 w-full selection:text-black py-1;
+        @apply border border-dark-800 bg-dark max-w-full flex-auto appearance-none rounded-md shadow-md shadow-dark-800/5 placeholder:text-dark-400;
+        @apply focus:border-light-500 focus:outline-none focus:ring-4 focus:ring-light-500/10;
+        @apply autofill:!bg-dark autofill:!text-white selection:!text-yellow;
+    }
+    textarea {
+        @apply h-auto min-h-24 py-2;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        @apply uppercase text-balance
+    }
+    h1 {
+        line-height: 1.15!important;
+    }
+    h2, h3, h4, h5, h6 {
+        line-height: 1.25!important;
+    }
+    body {
+        @apply text-sm lg:text-base py-4
+    }
+
+}
+
+@layer components {
+    .aspect-slide {
+        aspect-ratio: 2.74 / 1;
+    }
+    .aspect-skyscraper {
+        aspect-ratio: .5 / 1;
+    }
+    .aspect-billboard {
+        aspect-ratio: 3.84 / 1;
+    }
+    .aspect-mobile {
+        aspect-ratio: 1.2 / 1;
+    }
+    /* fonts */
+    .avenir { font-family: "Avenir", var(--font-fallback); }
+    .anton { font-family: 'Anton', 'Anton Fallback', Impact, 'Arial Black', var(--font-fallback); }
+    .neue-haas { font-family: 'Neue Haas', var(--font-fallback); }
+    /* text-sizes */
+    
+    .text-big, .text-marquee {
+        font-size: 7.8vw;
+        @apply anton uppercase whitespace-nowrap leading-none;
+    }
+
+    @media (max-width: 768px) {
+        .text-big {
+            font-size: 13.5vw;
+        }
+    }
+    
+    .text-marquee {
+        animation: scroll-x 20s linear infinite;
+        display: flex;
+        line-height: 1.5em!important;
+        width: 200%;
+    }
+    .text-marquee span {
+        flex: 0 0 50%;
+        display: inline-flex;
+        white-space: nowrap;
+        justify-content: space-evenly;
+        align-items: flex-end;
+    }
+    .text-marquee img {
+        font-size: 1em;
+        height: 1.4em;
+        top: -.1em;
+        margin: 0 -0.2em;
+        @apply relative inline w-auto;
+    }
+    .h-2em { height: 2em; top: -.5em; }
+    .h-1em { height: 1em; top: -.05em; }
+    .text-big img {
+        @apply relative inline h-1em; /* h-2em md: */
+    }
+    .card {
+        @apply my-4 p-4 w-full border border-dark-800/50 rounded-sm
+    }
+    /* admin */
+    .home-tag {
+        @apply inline-block bg-yellow text-black;
+        @apply my-1 px-2 py-1 text-xs rounded-2xl border border-gray font-semibold;
+    }
+}
+
+@layer utilities {
+    .scale-115 {
+        transform: scale(1.15);
+    }
+    .scale-120 {
+        transform: scale(1.2);
+    }
+    @keyframes scroll-x {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+}

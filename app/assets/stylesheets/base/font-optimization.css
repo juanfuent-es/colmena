@@ -1,0 +1,11 @@
+/* Optimización de renderizado de fuentes */
+* {
+  font-synthesis: none;
+  text-rendering: optimizeSpeed;
+}
+/* Media query para dispositivos de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  * {
+    text-rendering: optimizeLegibility;
+  }
+}

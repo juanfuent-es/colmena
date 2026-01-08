@@ -1,0 +1,11 @@
+a {
+    @apply cursor-pointer;
+}
+
+button {
+    @apply cursor-pointer;
+}
+
+a *, button * {
+    @apply pointer-events-none;
+}

@@ -1,0 +1,16 @@
+:root {
+    --text-selection-color:#fdc100;
+    --text-selection-bg:#101010;
+    --yellow: #fdc100;
+    --orange: #f23b22;
+}
+
+::selection {
+    background-color:var(--text-selection-bg);
+    color:var(--text-selection-color);
+}
+
+::-moz-selection {
+    background-color:var(--text-selection-bg);
+    color:var(--text-selection-color);
+}
