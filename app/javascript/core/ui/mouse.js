@@ -5,11 +5,11 @@
  * @desc 
  */
 
-import { Vector } from "vector"
+import { Vector2 } from "three"
 
 export default class Mouse {
     constructor() {
-        this.pointer = new Vector(1, 1)
+        this.pointer = new Vector2(1, 1)
         this.pressure = 0
         this.events()
     }

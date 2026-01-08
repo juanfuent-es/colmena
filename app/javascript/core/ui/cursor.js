@@ -9,7 +9,7 @@ import {
 } from "gsap/CSSPlugin"
 import Mouse from "./mouse"
 import { gsap } from "gsap"
-import { Vector } from "vector"
+import { Vector2 } from "three"
 
 export default class Cursor {
     constructor() {
