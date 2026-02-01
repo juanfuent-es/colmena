@@ -9,7 +9,7 @@
                     <%= object.file_field :cover, class: "sr-only input-img", data: { target: "#og-img-preview" }, accept: "image/*" %>
                     <figcaption class='absolute px-2 text-base text-center w-full top-1/2 left-0 text-dark-50 font-bold'>*.png 1200x630px</figcaption>
                 <% end %>
-                <h2 class="font-semibold my-1 truncate"><span class="page-title"><%= object.object.og_title %></span> | <%= "#{Rails.application.credentials.app_name}" %></h2>
+                <h2 class="font-semibold my-1 truncate"><span class="page-title"><%= object.object.title %></span> | <%= "#{Rails.application.credentials.app_name}" %></h2>
                 <footer class="text-sm">
                     <p class="page-description" class="font-light text-dark-300"><%= object.object.synopsis %></p>
                     <p class="truncate text-dark-500 "><%= @domain %>/<span class="page-category"><%= @page.category %></span>/<span class="page-slug"><%= @page.slug %></span></p>
@@ -18,9 +18,9 @@
         </section>
         <div class="pt-0">
             <div class="w-full pb-1">
-                <%= render 'components/label', f: object, name: :og_title, text: "Título OpenGraph", icon: 'fa-solid fa-title' %>
-                <small class='legend-validation float-right text-dark-500'><i><span id="og-title-counter"><%= object.object.og_title.to_s.length %></span> / 70 caracteres</i></small>
-                <%= render 'components/input', f: object, input_type: :text_field, name: :og_title, placeholder: "Título del artículo sin mencionar marcas", autofocus: true, required: true, data: { target: "#og-title-counter", attr: "title" }, maxLength: 70 %>
+                <%= render 'components/label', f: object, name: :title, text: "Título OpenGraph", icon: 'fa-solid fa-title' %>
+                <small class='legend-validation float-right text-dark-500'><i><span id="og-title-counter"><%= object.object.title.to_s.length %></span> / 70 caracteres</i></small>
+                <%= render 'components/input', f: object, input_type: :text_field, name: :title, placeholder: "Título del artículo sin mencionar marcas", autofocus: true, required: true, data: { target: "#og-title-counter", attr: "title" }, maxLength: 70 %>
             </div>
             
             <div class="w-full pb-1">

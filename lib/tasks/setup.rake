@@ -43,7 +43,7 @@ namespace :setup do
       page = Page.find_or_create_by!(slug: page_data[:slug], category: page_data[:category]) do |p|
         p.title = page_data[:title]
         p.content = page_data[:content]
-        p.og_title = page_data[:title]
+        p.title = page_data[:title]
         p.synopsis = page_data[:content].slice(0..160)
         p.restricted = page_data[:restricted]
         p.published = page_data[:published]
@@ -92,7 +92,7 @@ namespace :setup do
       page = Page.find_or_create_by!(slug: page_data[:slug], category: page_data[:category]) do |p|
         p.title = page_data[:title]
         p.content = page_data[:content]
-        p.og_title = page_data[:title]
+        p.title = page_data[:title]
         p.synopsis = page_data[:content].slice(0..160)
         p.restricted = page_data[:restricted]
         p.published = page_data[:published]
@@ -117,7 +117,7 @@ namespace :setup do
       page = Page.find_or_create_by!(slug: page_data[:slug], category: page_data[:category]) do |p|
         p.title = page_data[:title]
         p.content = page_data[:content]
-        p.og_title = page_data[:title]
+        p.title = page_data[:title]
         p.synopsis = page_data[:content].slice(0..160)
         p.restricted = page_data[:restricted]
         p.published = page_data[:published]

@@ -6,7 +6,6 @@
                 <% render "admin/layout/nav_link", text: "Cotizaciones", url: "/admin/quotations", icon: "fa-solid fa-star", active: params[:controller] == 'admin/quotations' %>
                 <%= render "admin/layout/nav_link", text: "Imágenes", url: "/admin/images", icon: "fa-solid fa-book", active: params[:controller] == 'admin/images' %>
                 <%= render "admin/layout/nav_link", text: "Programas", url: "/admin/programs", icon: "fa-solid fa-book", active: params[:controller] == 'admin/programs' %>
-                <%=  render "admin/layout/nav_link", text: "Cerrar Sesión", url: destroy_user_session_path, icon: "fa-solid fa-person-running", active: false %>
             </ul>
         </li>
         <li>
@@ -20,7 +19,7 @@
             <span class="text-xs font-semibold">Usuario</span>
             <ul role="list" class="space-y-2">
                 <%= render "admin/layout/nav_link", text: "Mi Perfil", url: "/admin/profile", icon: "fa-solid fa-user-gear", active: params[:controller] == 'admin/users' && (params[:action] == "profile" || params[:action] == "change_password") %>
-                <%=  render "admin/layout/nav_link", text: "Cerrar Sesión", url: destroy_user_session_path, icon: "fa-solid fa-person-running", active: false %>
+                <%= render "admin/layout/nav_link", text: "Cerrar Sesión", url: destroy_user_session_path, icon: "fa-solid fa-person-running", active: false %>
             </ul>
         </li>
     </ul>
