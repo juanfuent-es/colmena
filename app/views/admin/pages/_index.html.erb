@@ -12,6 +12,18 @@
             </a>
         </div>
     </div>
+
+    <div class="flex shrink-0 items-end flex-col">
+        <% if page.published? %>
+            <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                Publicado
+            </span>
+        <% else %>
+            <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20">
+                No publicado
+            </span>
+        <% end %>
+    </div>
     <div class="flex shrink-0 items-end flex-col">
         <div class="hidden sm:flex gap-x-4 items-center text-sm">
             <a href="<%= page.full_url %>" class="btn-xs" target="_blank"><i class='fas fa-eye'></i> Ver</a>

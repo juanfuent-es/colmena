@@ -6,6 +6,7 @@
                 <th scope="col" class="w-8 md:w-11 p-4"><i class="fa-solid fa-eye"></i></th>
                 <th scope="col" class="p-4 sm:pl-0">Título</th>
                 <th scope="col" class="p-4">Fecha</th>
+                <th scope="col" class="p-4">Publicado</th>
                 <!-- <th scope="col" class="p-4">Actualización</th> -->
                 <th scope="col" class="p-4"></th>
             </tr>
@@ -24,6 +25,17 @@
                 </td>
                 <td class="text-gray-400 text-left"><%= l(page.created_at, format: "%d %b, %Y").titleize %></td>
                 <!-- <td class="text-gray-400"><%= l(page.updated_at, format: "%d %b, %Y").titleize %></td> -->
+                <td>
+                    <% if page.published? %>
+                    <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                        Publicado
+                    </span>
+                    <% else %>
+                    <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20">
+                        No publicado
+                    </span>
+                    <% end %>
+                </td>
                 <td>
                     <%= link_to admin_page_path(page), method: :delete, class: "btn-xs danger inline" , data: { confirm: "¿Estás seguro de eliminar la página #{page.title}?" } do %>
                     <i class='fas fa-trash pr-l2'></i> <span class="hidden md:inline-block">Eliminar</span>

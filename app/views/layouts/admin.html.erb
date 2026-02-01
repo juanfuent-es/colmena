@@ -23,13 +23,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/1.2.0/balloon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.5/css/selectize.bootstrap4.min.css"/>
     <link rel="stylesheet" href="//cdn.datatables.net/2.1.7/css/dataTables.dataTables.min.css">
-    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <%= yield :head %>
     <%= vite_client_tag %>
     <%= render "shared/browser" %>
   </head>
-  <body class="min-h-full m-0 p-0 overflow-x-hidden antialiased text-sm md:text-base bg-gray-900 text-gray-300 selection:bg-gray-600 selection:text-gray-100">
+  <body class="min-h-full overflow-x-hidden antialiased text-sm md:text-base bg-gray-900 text-gray-300 selection:bg-gray-600 selection:text-gray-100">
     
     <%= render "shared/preloader" %>
     <%= render "shared/flashes" %>

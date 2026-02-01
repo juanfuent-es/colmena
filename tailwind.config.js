@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
   content: [
@@ -7,20 +8,10 @@ module.exports = {
     './app/javascript/**/*.js*'
   ],
   plugins: [
-    require("tailwindcss"),
-    require("@tailwindcss/forms")({
-      strategy: 'base', // only generate global styles
-      // strategy: 'class', // only generate classes
-    }),
-    require('postcss-import'),
-    require('postcss-preset-env')({
-      autoprefixer: {
-        flexbox: 'no-2009'
-      },
-      stage: 3
-    })
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
   ],
-  theme: { // @see: https://tailwindcss.com/docs/customizing-colors
+  theme: {
     extend: {
       fontFamily: {
         sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
