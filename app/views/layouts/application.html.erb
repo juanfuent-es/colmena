@@ -5,12 +5,13 @@
   @see './LICENSE' file for details.
 -->
 <!DOCTYPE html>
-<html lang="<%= I18n.locale.to_s.downcase %>" class="h-full">
+<html lang="<%= I18n.locale.to_s.downcase %>" class="h-full <%= theme_class %>">
   <head>
     <meta charset="utf-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta name="mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <%= color_scheme_meta %>
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

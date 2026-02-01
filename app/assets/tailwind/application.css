@@ -4,7 +4,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos nativos de dark mode basados en preferencias del sistema */
 @layer base {
+    :root {
+        color-scheme: light dark;
+    }
+
+    html {
+        @apply bg-stone-50 text-stone-950;
+    }
+
+    html.dark {
+        @apply bg-stone-950 text-stone-50;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html:not(.light) {
+            @apply bg-stone-950 text-stone-50;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        html:not(.dark) {
+            @apply bg-stone-50 text-stone-950;
+        }
+    }
+
+    body {
+        @apply bg-inherit text-inherit;
+    }
+
     textarea,
     select,
     input[type="url"],
@@ -17,7 +46,24 @@
     }
 }
 
-@layer components {}
+@layer components {
+    /* Componentes con contraste optimizado stone-950 / stone-50 */
+    .bg-contrast {
+        @apply bg-stone-50 text-stone-950 dark:bg-stone-950 dark:text-stone-50;
+    }
+
+    .bg-contrast-inverted {
+        @apply bg-stone-950 text-stone-50 dark:bg-stone-50 dark:text-stone-950;
+    }
+
+    .text-contrast {
+        @apply text-stone-950 dark:text-stone-50;
+    }
+
+    .text-contrast-inverted {
+        @apply text-stone-50 dark:text-stone-950;
+    }
+}
 
 @layer utilities {
 }

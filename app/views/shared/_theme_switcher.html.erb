@@ -1,0 +1,32 @@
+<%# Selector de tema Light/Dark/System
+    Uso: <%= render "shared/theme_switcher" %>
+%>
+
+<div class="flex gap-2 items-center">
+  <button
+    onclick="app.setTheme('light'); this.parentElement.querySelector('[data-theme=light]')?.classList.add('ring-2', 'ring-stone-950')"
+    data-theme="light"
+    class="<%= 'ring-2 ring-stone-950 dark:ring-stone-50' if cookies[:theme] == 'light' %> px-3 py-2 rounded-md text-sm font-medium transition-all hover:bg-stone-200 dark:hover:bg-stone-800"
+    title="Modo Light"
+  >
+    ☀️
+  </button>
+  
+  <button
+    onclick="app.setTheme('system'); this.parentElement.querySelector('[data-theme=system]')?.classList.add('ring-2', 'ring-stone-950')"
+    data-theme="system"
+    class="<%= 'ring-2 ring-stone-950 dark:ring-stone-50' if !cookies[:theme] || cookies[:theme] == 'system' %> px-3 py-2 rounded-md text-sm font-medium transition-all hover:bg-stone-200 dark:hover:bg-stone-800"
+    title="Sistema"
+  >
+    ⚙️
+  </button>
+  
+  <button
+    onclick="app.setTheme('dark'); this.parentElement.querySelector('[data-theme=dark]')?.classList.add('ring-2', 'ring-stone-950')"
+    data-theme="dark"
+    class="<%= 'ring-2 ring-stone-950 dark:ring-stone-50' if cookies[:theme] == 'dark' %> px-3 py-2 rounded-md text-sm font-medium transition-all hover:bg-stone-200 dark:hover:bg-stone-800"
+    title="Modo Dark"
+  >
+    🌙
+  </button>
+</div>
