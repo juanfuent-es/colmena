@@ -1,5 +1,68 @@
-<!-- https://tailwindcss.com/plus/ui-blocks/application-ui/elements/buttons -->
-<%= tag.button type: button_type || 'button',
-class: "flex w-full items-center justify-center gap-3 bg-white px-3 py-2 text-sm font-semibold text-blue shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus-visible:ring-transparent cursor-pointer" do %>
-  <i class="<%= icon %>"></i> <%= text %>
+<!-- Componente de botón con soporte dark/light mode
+  Parámetros:
+  - text: Texto del botón
+  - icon: Clase del icono (opcional)
+  - button_type: Tipo de botón (default: 'button')
+  - variant: Estilo del botón ('primary', 'secondary', 'outline', 'ghost', 'danger')
+  - size: Tamaño ('sm', 'md', 'lg') - default: 'md'
+  - full_width: true/false - default: true
+  - disabled: true/false
+  
+  Uso:
+  = render 'components/button', text: 'Guardar', icon: 'icon-save', variant: 'primary'
+-->
+
+<%
+  variant ||= 'primary'
+  size ||= 'md'
+  full_width = true if full_width.nil?
+  disabled ||= false
+  
+  # Clases base
+  base_classes = "inline-flex items-center justify-center gap-2 cursor-pointer font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+  
+  # Variantes de estilo
+  variant_classes = case variant
+  when 'primary'
+    "btn-primary"
+  when 'secondary'
+    "btn-secondary"
+  when 'outline'
+    "btn-outline"
+  when 'ghost'
+    "btn-ghost"
+  when 'danger'
+    "btn-danger"
+  else
+    "btn-primary"
+  end
+  
+  # Tamaños
+  size_classes = case size
+  when 'sm'
+    "px-3 py-1.5 text-sm"
+  when 'lg'
+    "px-6 py-3 text-lg"
+  else # 'md'
+    "px-4 py-2 text-base"
+  end
+  
+  # Ancho completo
+  width_class = full_width ? "w-full" : ""
+  
+  # Estado deshabilitado
+  disabled_class = disabled ? "opacity-50 cursor-not-allowed" : ""
+  
+  final_classes = [base_classes, variant_classes, size_classes, width_class, disabled_class].join(' ')
+%>
+
+<%= tag.button(
+  type: button_type || 'button',
+  class: final_classes,
+  disabled: disabled
+) do %>
+  <% if defined?(icon) && icon.present? %>
+    <i class="<%= icon %>"></i>
+  <% end %>
+  <%= text %>
 <% end %>
